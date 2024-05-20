@@ -13,7 +13,7 @@ import PHPLogo from '../assets/images/icons/php.svg';
 import PostgreSqlLogo from '../assets/images/icons/postgresql.svg';
 import PythonLogo from '../assets/images/icons/python.svg';
 import ReactLogo from '../assets/images/icons/react.svg';
-import TypeScriptLogo from '../assets/images/icons/typescript.ts';
+import TypeScriptLogo from '../assets/images/icons/typescript.svg';
 
 import theme from '../theme';
 
