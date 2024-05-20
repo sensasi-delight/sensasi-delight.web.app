@@ -1,12 +1,10 @@
-name: Deploy to Live Channel
+name: Deploy to Preview Channel
 
 on:
-  release:
-    branches:
-      - main
+  pull_request:
 
 jobs:
-  deploy_live_website:
+  build_and_preview:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -15,5 +13,5 @@ jobs:
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_SENSASI_DELIGHT }}"
+          expires: 30d
           projectId: sensasi-delight
-          channelId: live
