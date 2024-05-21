@@ -18,15 +18,16 @@
     "@mui/material": "^5.11.15",
     "@typescript-eslint/eslint-plugin": "^7.10.0",
     "@typescript-eslint/parser": "^7.10.0",
+    "dayjs": "^1.11.11",
     "firebase": "^9.19.1",
-    "moment": "^2.29.4",
-    "num-to-words": "^0.2.1",
+    "number-to-words": "^1.2.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-material-ui-carousel": "^3.4.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.3.0",
+    "@types/number-to-words": "^1.2.3",
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "3.1.0",

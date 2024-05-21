@@ -14,7 +14,22 @@ import simulasiGradingPreview from '../assets/images/projects/simulasi-grading.p
 import chickenSlaughterhousePreview from '../assets/images/projects/csbn.webp'
 import materialBladePreview from '../assets/images/projects/material-blade.png'
 
-export default [
+export type Project = {
+    name: string
+    year: string
+    imgPreview: string
+    description: string
+    stacks: {
+        logoImg: string
+        alt: string
+    }[]
+    buttons: {
+        name: string
+        link: string
+    }[]
+}
+
+const projects: Project[] = [
     {
         name: 'Sensasi Logistic',
         year: '2023',
@@ -111,3 +126,5 @@ export default [
         ],
     },
 ]
+
+export default projects
