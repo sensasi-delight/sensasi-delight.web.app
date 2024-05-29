@@ -7,7 +7,8 @@ import TextField from '@mui/material/TextField'
 // assets
 import '../../assets/js/vendor/tagcanvas.js'
 // data
-import skills from '../../data/skills.js'
+import skills, { Skill } from '../../data/skills'
+import { useTheme } from '@mui/material'
 
 declare global {
     interface Window {
@@ -42,15 +43,15 @@ export default function SkillsSectionContent() {
 
         if (isFilterButton) {
             filteredSkills = filteredSkills.filter(skill => {
-                if (advanced && skill.weight === 3) {
+                if (advanced && skill.level === 'advanced') {
                     return true
                 }
 
-                if (intermediate && skill.weight === 2) {
+                if (intermediate && skill.level === 'intermediate') {
                     return true
                 }
 
-                if (beginner && skill.weight === 1) {
+                if (beginner && skill.level === 'beginner') {
                     return true
                 }
 
@@ -140,24 +141,8 @@ export default function SkillsSectionContent() {
                     className="to-fade-in fast-anim"></canvas>
                 <div id="taglist" style={{ display: 'none' }}>
                     <ul>
-                        {filteredSkills.map(skill => (
-                            <li key={skill.title}>
-                                <a
-                                    data-weight={skill.weight}
-                                    style={{
-                                        color: skill.color,
-                                    }}
-                                    href={skill.href}
-                                    onClick={e => e.preventDefault()}>
-                                    {skill.title}
-                                    <img
-                                        src={skill.logo}
-                                        alt={skill.title}
-                                        height="32px"
-                                        width="32px"
-                                    />
-                                </a>
-                            </li>
+                        {filteredSkills.map((skill, i) => (
+                            <SkillLi key={i} data={skill} />
                         ))}
                     </ul>
                 </div>
@@ -203,5 +188,46 @@ export default function SkillsSectionContent() {
                 </Box>
             </Box>
         </Box>
+    )
+}
+
+function SkillLi({
+    data: { title, logo, href = '#', level },
+}: {
+    data: Skill
+}) {
+    const { palette } = useTheme()
+
+    let color
+    let weight
+
+    switch (level) {
+        case 'beginner':
+            color = palette.success.main
+            weight = 1
+            break
+        case 'intermediate':
+            color = palette.info.dark
+            weight = 2
+            break
+        case 'advanced':
+            color = palette.error.dark
+            weight = 3
+            break
+    }
+
+    return (
+        <li key={title}>
+            <a
+                data-weight={weight}
+                style={{
+                    color: color,
+                }}
+                href={href}
+                onClick={e => e.preventDefault()}>
+                {title}
+                <img src={logo} alt={title} height="32px" width="32px" />
+            </a>
+        </li>
     )
 }

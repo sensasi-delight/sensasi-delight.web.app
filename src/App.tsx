@@ -2,28 +2,28 @@
 import React, { useState } from 'react'
 // materials
 import Box from '@mui/material/Box'
+import Fade from '@mui/material/Fade'
 import CssBaseline from '@mui/material/CssBaseline'
 // components
-import RowNumber from './components/RowNumber'
+import NumberBar from './components/NumberBar'
 import MainContent from './components/MainContent'
 import Footer from './components/Footer'
 import Sidebar from './components/Sidebar'
 import Header from './components/Header'
 // assets
 import './assets/css/star-field.css'
+import StarBackground from './components/StarBackground'
 
 export default function App() {
-    const [isBackground, setIsBackground] = useState(true)
+    const [showBackground, setShowBackground] = useState(true)
 
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
             <Header />
             <Sidebar
-                import={{
-                    isBackground: isBackground,
-                    setIsBackground: setIsBackground,
-                }}
+                showBackground={showBackground}
+                setShowBackground={setShowBackground}
             />
             <Box
                 sx={{
@@ -33,18 +33,18 @@ export default function App() {
                     pt: 3,
                     mb: 4,
                 }}>
-                {isBackground && (
-                    <Box className="star-field">
-                        <div className="layer"></div>
-                        <div className="layer"></div>
-                        <div className="layer"></div>
-                    </Box>
-                )}
+                <Fade in={showBackground} unmountOnExit>
+                    <div>
+                        <StarBackground />
+                    </div>
+                </Fade>
 
-                <RowNumber />
+                <NumberBar />
+
                 <Box
                     sx={{
                         flexGrow: 1,
+                        mt: 4,
                     }}>
                     <MainContent />
                 </Box>
