@@ -6,8 +6,8 @@ import { StyledEngineProvider } from '@mui/material/styles'
 import ThemeProvider from '@mui/material/styles/ThemeProvider'
 // components
 import App from './App'
-// theme
-import theme from './theme'
+// helpers
+import getTheme from './theme/getTheme'
 
 const rootElement = document.getElementById('root')
 
@@ -19,7 +19,7 @@ const root = createRoot(rootElement)
 
 root.render(
     <StyledEngineProvider injectFirst>
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={getTheme()}>
             <App />
         </ThemeProvider>
     </StyledEngineProvider>,

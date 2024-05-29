@@ -4,13 +4,13 @@ import React, { Suspense, lazy } from 'react'
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 // components
-import SectionTitle from './SectionTitle'
+import SectionTitle from './Section/components/Title'
 import SummarySection from '../sections/Summary'
 import AboutSectionContent from '../sections/About/Content'
 const SkillsSectionContent = lazy(() => import('../sections/Skills/Content'))
 // data
 import socials from '../data/socials'
-import ThreeLineSkeleton from './ThreeLineSkeleton'
+import ThreeLineSkeleton from './ThreeLineSkeletons'
 import CardCarousel from './CardCarousel/CardCarousel'
 import projects from '../data/projects'
 import ProjectCard from './CardCarousel/cards/ProjectCard/ProjectCard'
@@ -18,6 +18,7 @@ import WritingCard from './CardCarousel/cards/ProjectCard/WritingCard'
 import writings from '../data/writings'
 import ContactSectionContent from '../sections/Contact/Content'
 import SocialIconButton from './SocialIconButton'
+import Section from './Section/Section'
 
 const GitHub = socials.find(social => social.name === 'GitHub')
 const Medium = socials.find(social => social.name === 'Medium')
@@ -41,17 +42,15 @@ export default function MainContent() {
             }}>
             <SummarySection />
 
-            <Box id="about">
-                <SectionTitle mb={2}>About me</SectionTitle>
+            <Section id="about" title="About me">
                 <AboutSectionContent />
-            </Box>
+            </Section>
 
-            <Box id="skills">
-                <SectionTitle mb={2}>Skills</SectionTitle>
+            <Section id="skills" title="Skills">
                 <Suspense fallback={<ThreeLineSkeleton />}>
                     <SkillsSectionContent />
                 </Suspense>
-            </Box>
+            </Section>
 
             <Box
                 id="projects"
@@ -127,11 +126,9 @@ export default function MainContent() {
                 </CardCarousel>
             </Box>
 
-            <Box id="contacts">
-                <SectionTitle mb={2}>Keep in touch</SectionTitle>
-
+            <Section id="contacts" title="Keep in touch">
                 <ContactSectionContent />
-            </Box>
+            </Section>
         </Container>
     )
 }
