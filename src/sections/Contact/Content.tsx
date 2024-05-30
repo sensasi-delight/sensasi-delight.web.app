@@ -1,5 +1,5 @@
 // vendors
-import React from 'react'
+
 // materials
 import Box from '@mui/material/Box'
 // components

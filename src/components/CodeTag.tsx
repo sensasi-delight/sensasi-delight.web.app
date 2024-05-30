@@ -1,5 +1,5 @@
 // vendors
-import React, { ReactNode } from 'react'
+import { ReactNode } from 'react'
 // materials
 import Typography from '@mui/material/Typography'
 

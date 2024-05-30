@@ -1,7 +1,7 @@
 // types
 import type { Writing } from '../../../../../data/writings'
 // vendors
-import React from 'react'
+
 import dayjs from 'dayjs'
 import LocalizedFormat from 'dayjs/plugin/localizedFormat'
 dayjs.extend(LocalizedFormat)

@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function StarBackground() {
     return (
         <div className="star-field">

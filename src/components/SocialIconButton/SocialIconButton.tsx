@@ -3,7 +3,7 @@ import {
     FontAwesomeIcon,
     FontAwesomeIconProps,
 } from '@fortawesome/react-fontawesome'
-import React from 'react'
+
 // materials
 import IconButton from '@mui/material/IconButton'
 import Tooltip from '@mui/material/Tooltip'

@@ -1,5 +1,5 @@
 // vendors
-import React, { Suspense, lazy } from 'react'
+import { Suspense, lazy } from 'react'
 // materials
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'

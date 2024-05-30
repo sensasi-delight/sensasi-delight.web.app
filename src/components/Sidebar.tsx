@@ -1,5 +1,5 @@
 // vendors
-import React from 'react'
+
 // materials
 import Drawer from '@mui/material/Drawer'
 import List from '@mui/material/List'
@@ -169,7 +169,9 @@ export default function Sidebar({
                                     backgroundColor: 'unset',
                                 },
                             })}
-                            onClick={() => setShowBackground(prev => !prev)}>
+                            onClick={() => {
+                                setShowBackground(prev => !prev)
+                            }}>
                             <ListItemIcon
                                 sx={{
                                     minWidth: 'unset',

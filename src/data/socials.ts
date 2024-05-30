@@ -1,4 +1,5 @@
 import {
+    IconDefinition,
     faGithub,
     faLinkedin,
     faMediumM,
@@ -6,9 +7,9 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope, faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 
-export type Social = {
+export interface Social {
     name: string
-    icon: any
+    icon: IconDefinition
     link: string
 }
 

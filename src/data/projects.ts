@@ -14,7 +14,7 @@ import simulasiGradingPreview from '../assets/images/projects/simulasi-grading.p
 import chickenSlaughterhousePreview from '../assets/images/projects/csbn.webp'
 import materialBladePreview from '../assets/images/projects/material-blade.png'
 
-export type Project = {
+export interface Project {
     name: string
     year: string
     imgPreview: string
@@ -33,13 +33,13 @@ const projects: Project[] = [
     {
         name: 'Sensasi Logistic',
         year: '2023',
-        imgPreview: sensasiLogisticPreview,
+        imgPreview: sensasiLogisticPreview as string,
         description:
             'Sensasi Logistic is an application designed for stock management of raw materials and finished products in production processes. The application allows users to efficiently track inventory, optimize supply chains, and eliminate production delays.',
         stacks: [
-            { logoImg: LaravelLogo, alt: 'Laravel' },
-            { logoImg: AlpineJsLogo, alt: 'AlpineJs' },
-            { logoImg: BootstrapLogo, alt: 'Bootstrap' },
+            { logoImg: LaravelLogo as string, alt: 'Laravel' },
+            { logoImg: AlpineJsLogo as string, alt: 'AlpineJs' },
+            { logoImg: BootstrapLogo as string, alt: 'Bootstrap' },
         ],
         buttons: [
             {
@@ -55,12 +55,12 @@ const projects: Project[] = [
     {
         name: 'Simulasi Grading Kelapa Sawit',
         year: '2022',
-        imgPreview: simulasiGradingPreview,
+        imgPreview: simulasiGradingPreview as string,
         description:
             'Application that designed to help palm oil farmers in East Kalimantan estimate their potential income based on the regulations set by palm oil companies',
         stacks: [
-            { logoImg: ReactLogo, alt: 'React' },
-            { logoImg: MaterialUiLogo, alt: 'Material UI' },
+            { logoImg: ReactLogo as string, alt: 'React' },
+            { logoImg: MaterialUiLogo as string, alt: 'Material UI' },
         ],
         buttons: [
             {
@@ -76,12 +76,12 @@ const projects: Project[] = [
     {
         name: 'Chicken Slaughterhouse Blockchain Network',
         year: '2022',
-        imgPreview: chickenSlaughterhousePreview,
+        imgPreview: chickenSlaughterhousePreview as string,
         description:
             'This project is a part of my final project for my master degree. This project is built using Hyperledger Fabric and Docker.',
         stacks: [
-            { logoImg: HyperledgerLogo, alt: 'Hyperledger Fabric' },
-            { logoImg: DockerLogo, alt: 'Docker' },
+            { logoImg: HyperledgerLogo as string, alt: 'Hyperledger Fabric' },
+            { logoImg: DockerLogo as string, alt: 'Docker' },
         ],
         buttons: [
             {
@@ -93,12 +93,12 @@ const projects: Project[] = [
     {
         name: 'Material Blade',
         year: '2022',
-        imgPreview: materialBladePreview,
+        imgPreview: materialBladePreview as string,
         description:
             'Material Blade is a simple package that provides the beautifulness of Google Material Design components as Laravel Blade components. Material Blade aims to make UI/UX development of your Laravel app faster, inspired by Material UI.',
         stacks: [
-            { logoImg: LaravelLogo, alt: 'Laravel' },
-            { logoImg: PhpLogo, alt: 'PHP' },
+            { logoImg: LaravelLogo as string, alt: 'Laravel' },
+            { logoImg: PhpLogo as string, alt: 'PHP' },
         ],
         buttons: [
             {
@@ -115,8 +115,8 @@ const projects: Project[] = [
         description:
             'Sensasi Navbar is a Chrome extension designed to enhance navigation within the browser, particularly when Chrome is in full-screen mode (F11). It provides a navigation bar that assists in navigating through tabs, offering convenience and ease of use.',
         stacks: [
-            { logoImg: ReactLogo, alt: 'React' },
-            { logoImg: typescriptLogo, alt: 'TypeScript' },
+            { logoImg: ReactLogo as string, alt: 'React' },
+            { logoImg: typescriptLogo as string, alt: 'TypeScript' },
         ],
         buttons: [
             {

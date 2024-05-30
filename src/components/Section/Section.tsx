@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import { ReactNode } from 'react'
 // materials
 import Box from '@mui/material/Box'
 import SectionTitle from './components/Title'

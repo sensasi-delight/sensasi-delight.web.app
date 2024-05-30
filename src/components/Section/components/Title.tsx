@@ -1,5 +1,5 @@
 // vendors
-import React, { ReactNode } from 'react'
+import { ReactNode } from 'react'
 import Typography, { TypographyProps } from '@mui/material/Typography'
 // components
 import CodeTag from '../../CodeTag'

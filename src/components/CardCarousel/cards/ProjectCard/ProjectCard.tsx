@@ -1,7 +1,7 @@
 // types
 import type { Project } from '../../../../data/projects'
 // vendors
-import React from 'react'
+
 // materials
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'

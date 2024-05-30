@@ -1,23 +1,23 @@
 // vendors
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 // materials
 import Box from '@mui/material/Box'
 import Button, { ButtonProps } from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
 // assets
-import '../../assets/js/vendor/tagcanvas.js'
+import '@/assets/js/vendor/tagcanvas.js'
 // data
 import skills, { Skill } from '../../data/skills'
 import { useTheme } from '@mui/material'
 
 declare global {
     interface Window {
-        TagCanvas: any
+        TagCanvas: any // eslint-disable-line
     }
 }
 
 const TagCanvas = window.TagCanvas
-let tagCanvas: any
+let tagCanvas: any // eslint-disable-line
 
 export default function SkillsSectionContent() {
     const [filters, setFilters] = useState<{
@@ -224,7 +224,9 @@ function SkillLi({
                     color: color,
                 }}
                 href={href}
-                onClick={e => e.preventDefault()}>
+                onClick={e => {
+                    e.preventDefault()
+                }}>
                 {title}
                 <img src={logo} alt={title} height="32px" width="32px" />
             </a>

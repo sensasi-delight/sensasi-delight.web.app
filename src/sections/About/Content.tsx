@@ -1,6 +1,4 @@
-/* eslint-disable react/no-unescaped-entities */
 // vendors
-import React from 'react'
 import { toWords } from 'number-to-words'
 // materials
 import Box from '@mui/material/Box'
