@@ -1,5 +1,5 @@
 // vendors
-import React from 'react'
+
 import { createRoot } from 'react-dom/client'
 // materials
 import { StyledEngineProvider } from '@mui/material/styles'

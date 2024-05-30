@@ -1,5 +1,5 @@
 // vendors
-import React, { useState } from 'react'
+import { useState } from 'react'
 // materials
 import Box from '@mui/material/Box'
 import Fade from '@mui/material/Fade'

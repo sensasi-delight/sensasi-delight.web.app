@@ -1,6 +1,6 @@
 import '@mui/material/styles'
 
-type AdditionalThemeOptions = {
+interface AdditionalThemeOptions {
     background: {
         secondary: string
         tertiary: string

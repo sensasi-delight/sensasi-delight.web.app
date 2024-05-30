@@ -1,6 +1,6 @@
-import { MutableRefObject, useEffect, useState } from 'react'
+import { RefObject, useEffect, useState } from 'react'
 
-export default function useOnScreen(ref: MutableRefObject<null>) {
+export default function useOnScreen(ref: RefObject<HTMLElement>) {
     const [isIntersecting, setIntersecting] = useState(false)
 
     useEffect(() => {
@@ -11,16 +11,18 @@ export default function useOnScreen(ref: MutableRefObject<null>) {
             { rootMargin: '-50% 0px' },
         )
 
-        if (ref.current) {
-            observer.observe(ref.current)
+        const refCurrent = ref.current
+
+        if (refCurrent) {
+            observer.observe(refCurrent)
         }
 
         return () => {
-            if (ref.current) {
-                observer.unobserve(ref.current)
+            if (refCurrent) {
+                observer.unobserve(refCurrent)
             }
         }
-    }, [ref])
+    })
 
     return isIntersecting
 }

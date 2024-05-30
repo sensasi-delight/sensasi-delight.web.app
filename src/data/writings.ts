@@ -4,7 +4,7 @@ import janganMasukkanSkripImg from '../assets/images/writings/import-dinamins.we
 import belajarNoSqlImg from '../assets/images/writings/belajar-no-sql.jpg'
 import halalBlockchainImg from '../assets/images/writings/halal-paper.png'
 
-export type Writing = {
+export interface Writing {
     title: string
     type: string
     date: string

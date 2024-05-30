@@ -1,6 +1,6 @@
 // vendors
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
+
 // materials
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'

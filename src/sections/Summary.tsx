@@ -1,17 +1,18 @@
 // vendors
-import React, { useEffect } from 'react'
-import Hover3D from '../assets/js/vendor/hover3D.js'
+import { useEffect } from 'react'
 // materials
 import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
 import Paper from '@mui/material/Paper'
 // components
 import ContactSectionContent from './Contact/Content'
-import CodeTag from '../components/CodeTag.jsx'
+import CodeTag from '../components/CodeTag'
 // assets
-import ProfileImage from '../assets/images/me.jpg'
+import ProfileImage from '@/assets/images/me.jpg'
+// @ts-expect-error idk the type
+import * as Hover3D from '../assets/js/vendor/Hover3D.js'
 
-let myHover3D: any
+let myHover3D: any // eslint-disable-line
 
 export default function SummarySection() {
     useEffect(() => {
