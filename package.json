@@ -1,7 +1,8 @@
 {
     "name": "sensasi-delight-web-profile",
-    "version": "2.0.2",
+    "version": "2.0.3",
     "private": true,
+    "type": "module",
     "scripts": {
         "dev": "vite",
         "build": "vite build",
@@ -9,9 +10,9 @@
         "lint": "eslint ./src/**",
         "lint:fix": "eslint ./src/** --fix",
         "check:update": "ncu",
-        "update:patch": "ncu -u -t patch",
-        "update:minor": "ncu -u -t minor",
-        "update:major": "ncu -u"
+        "update": "ncu -u -t patch && npm install",
+        "update:minor": "ncu -u -t minor && npm install",
+        "update:major": "ncu -u && npm install"
     },
     "dependencies": {
         "@emotion/react": "^11.11.4",
@@ -32,9 +33,9 @@
         "@types/number-to-words": "^1.2.3",
         "@types/react": "^18.3.3",
         "@types/react-dom": "^18.3.0",
-        "@vitejs/plugin-react": "3.1.0",
+        "@vitejs/plugin-react": "4.3.0",
         "npm-check-updates": "^16.14.20",
         "typescript": "^5.4.5",
-        "vite": "^4.5.3"
+        "vite": "^5.2.12"
     }
 }
