@@ -10,7 +10,7 @@ import CodeTag from '../components/CodeTag'
 // assets
 import ProfileImage from '@/assets/images/me.jpg'
 // @ts-expect-error idk the type
-import * as Hover3D from '../assets/js/vendor/Hover3D.js'
+import * as Hover3D from '../assets/js/vendor/hover3D.jsx'
 
 let myHover3D: any // eslint-disable-line
 
