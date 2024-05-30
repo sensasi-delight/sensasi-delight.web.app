@@ -8,10 +8,10 @@
         "serve": "vite preview",
         "lint": "eslint ./src/**",
         "lint:fix": "eslint ./src/** --fix",
-        "update:check": "ncu",
+        "check:update": "ncu",
         "update:patch": "ncu -u -t patch",
         "update:minor": "ncu -u -t minor",
-        "update:major": "ncu -u -t major"
+        "update:major": "ncu -u"
     },
     "dependencies": {
         "@emotion/react": "^11.11.4",
