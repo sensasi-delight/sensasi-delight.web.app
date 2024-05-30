@@ -1,15 +1,25 @@
 import react from '@vitejs/plugin-react'
-import { defineConfig } from 'vite'
+import { defineConfig, splitVendorChunkPlugin } from 'vite'
 
 export default defineConfig({
     build: {
-        chunkSizeWarningLimit: 100,
         rollupOptions: {
             onwarn(warning, warn) {
                 if (warning.code === 'MODULE_LEVEL_DIRECTIVE') {
                     return
                 }
                 warn(warning)
+            },
+            output: {
+                manualChunks(id) {
+                    if (id.includes('node_modules')) {
+                        return id
+                            .toString()
+                            .split('node_modules/')[1]
+                            .split('/')[0]
+                            .toString()
+                    }
+                },
             },
         },
     },
@@ -18,5 +28,5 @@ export default defineConfig({
             '@': '/src',
         },
     },
-    plugins: [react()],
+    plugins: [react(), splitVendorChunkPlugin()],
 })
