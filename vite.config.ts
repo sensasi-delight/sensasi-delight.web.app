@@ -12,7 +12,7 @@ export default defineConfig({
             },
             output: {
                 manualChunks(id) {
-                    if (id.includes('node_modules')) {
+                    if (id.search('node_modules') > -1) {
                         return id
                             .toString()
                             .split('node_modules/')[1]
