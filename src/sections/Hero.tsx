@@ -11,7 +11,7 @@ import CodeTag from '@/components/CodeTag'
 import ProfileImage from '@/assets/images/me.jpg'
 import Hover3D from '@/assets/js/vendor/Hover3D.js'
 
-export default function SummarySection() {
+export default function Hero() {
     useEffect(() => {
         new Hover3D('.photo', {
             xOffset: 20,

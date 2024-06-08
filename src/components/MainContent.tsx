@@ -4,7 +4,7 @@ import { Suspense, lazy } from 'react'
 import Box from '@mui/material/Box'
 // components
 import SectionTitle from './Section/components/Title'
-import SummarySection from '../sections/Summary'
+import Hero from '../sections/Hero'
 import AboutSectionContent from '../sections/About/Content'
 const SkillsSectionContent = lazy(() => import('../sections/Skills/Content'))
 // data
@@ -26,7 +26,7 @@ const GoogleScholar = socials.find(social => social.name === 'Google Scholar')
 export default function MainContent() {
     return (
         <>
-            <SummarySection />
+            <Hero />
 
             <Section id="about" title="About me">
                 <AboutSectionContent />
