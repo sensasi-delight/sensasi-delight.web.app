@@ -3,7 +3,7 @@ import {
     faGithub,
     faLinkedin,
     faMediumM,
-    faTwitter,
+    // faTwitter,
 } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope, faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 
@@ -14,11 +14,11 @@ export interface Social {
 }
 
 const socials: Social[] = [
-    {
-        name: 'Twitter',
-        icon: faTwitter,
-        link: 'https://twitter.com/sensasi_delight',
-    },
+    // {
+    //     name: 'Twitter',
+    //     icon: faTwitter,
+    //     link: 'https://twitter.com/sensasi_delight',
+    // },
     {
         name: 'GitHub',
         icon: faGithub,
