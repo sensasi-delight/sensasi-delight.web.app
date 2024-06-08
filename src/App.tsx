@@ -2,8 +2,9 @@
 import { useState } from 'react'
 // materials
 import Box from '@mui/material/Box'
-import Fade from '@mui/material/Fade'
+import Container from '@mui/material/Container'
 import CssBaseline from '@mui/material/CssBaseline'
+import Fade from '@mui/material/Fade'
 // components
 import NumberBar from './components/NumberBar'
 import MainContent from './components/MainContent'
@@ -18,38 +19,53 @@ export default function App() {
     const [showBackground, setShowBackground] = useState(true)
 
     return (
-        <Box sx={{ display: 'flex' }}>
+        <>
             <CssBaseline />
             <Header />
-            <Sidebar
-                showBackground={showBackground}
-                setShowBackground={setShowBackground}
-            />
-            <Box
-                sx={{
-                    display: 'flex',
-                    width: '100%',
-                    mt: 8,
-                    pt: 3,
-                    mb: 4,
-                }}>
-                <Fade in={showBackground} unmountOnExit>
-                    <div>
-                        <StarBackground />
-                    </div>
-                </Fade>
-
-                <NumberBar />
+            <Box sx={{ display: 'flex' }}>
+                <Sidebar
+                    showBackground={showBackground}
+                    setShowBackground={setShowBackground}
+                />
 
                 <Box
                     sx={{
-                        flexGrow: 1,
-                        mt: 4,
+                        display: 'flex',
+                        width: '100%',
+                        mt: 8,
+                        pt: 3,
+                        mb: 4,
                     }}>
-                    <MainContent />
+                    <NumberBar />
+
+                    <Fade in={showBackground} unmountOnExit>
+                        <div>
+                            <StarBackground />
+                        </div>
+                    </Fade>
+
+                    <Container
+                        maxWidth="md"
+                        disableGutters
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 5,
+                            mt: 4,
+                            px: 4,
+                            mb: {
+                                xs: '50vh',
+                                md: 'unset',
+                            },
+                            '& > div': {
+                                scrollMarginTop: 100,
+                            },
+                        }}>
+                        <MainContent />
+                    </Container>
                 </Box>
             </Box>
             <Footer />
-        </Box>
+        </>
     )
 }

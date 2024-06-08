@@ -6,40 +6,35 @@ import Grid from '@mui/material/Grid'
 import Paper from '@mui/material/Paper'
 // components
 import ContactSectionContent from './Contact/Content'
-import CodeTag from '../components/CodeTag'
+import CodeTag from '@/components/CodeTag'
 // assets
 import ProfileImage from '@/assets/images/me.jpg'
-// @ts-expect-error idk the type
-import Hover3D from '../assets/js/vendor/hover3D.js'
-
-let myHover3D: any // eslint-disable-line
+import Hover3D from '@/assets/js/vendor/Hover3D.js'
 
 export default function SummarySection() {
     useEffect(() => {
-        if (!myHover3D) {
-            myHover3D = new Hover3D('.photo')
-            // X-axis offset
-            myHover3D.xOffset = 20
-            // Y-axis offset
-            myHover3D.yOffset = 20
-            // Attack. How fast the element reacts to cursor movement
-            myHover3D.attack = 0.1
-            // Release. How fast the element repairs its initial state when your cursor leaves it
-            myHover3D.release = 0.5
-            // Sets the distance between the user and the z=0 plane
-            myHover3D.perspective = 500
-
-            myHover3D.create()
-        }
+        new Hover3D('.photo', {
+            xOffset: 20,
+            yOffset: 20,
+            attack: 0.1,
+            release: 0.5,
+            perspective: 500,
+        })
     }, [])
 
     return (
         <Grid
             id="summary"
             container
-            spacing={2}
+            spacing={4}
             justifyContent="center"
-            alignItems="center">
+            alignItems="center"
+            sx={{
+                flexDirection: {
+                    xs: 'column-reverse',
+                    sm: 'row',
+                },
+            }}>
             <Grid item sm={4} display="flex" justifyContent="center">
                 <div
                     style={{
@@ -51,7 +46,7 @@ export default function SummarySection() {
                         className="photo"
                         sx={{
                             borderRadius: 100,
-                            backgroundImage: `url(${ProfileImage})`,
+                            backgroundImage: `url(${ProfileImage as string})`,
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
                             height: '100%',
@@ -60,17 +55,21 @@ export default function SummarySection() {
                     />
                 </div>
             </Grid>
-            <Grid item sm={8}>
-                <Typography variant="h5" component="p" mb={1}>
+            <Grid item sm={8} gap={1.5} display="flex" flexDirection="column">
+                <Typography variant="h5" component="p">
                     Adam <CodeTag>Zain</CodeTag> Akbar
                 </Typography>
 
-                <Typography variant="h2" fontWeight="bold" component="p" mb={1}>
+                <Typography
+                    variant="h2"
+                    fontWeight="bold"
+                    component="p"
+                    lineHeight={0.9}>
                     Coder to the bone
                 </Typography>
 
-                <Typography color="info.main" gutterBottom>
-                    Full time learner, mostly web developer.
+                <Typography color="info.main">
+                    Full time learner, mostly a web developer.
                 </Typography>
 
                 <ContactSectionContent />

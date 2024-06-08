@@ -1,11 +1,13 @@
 export default class Hover3D {
-    constructor(id) {
+    constructor(id, options = {}) {
+        console.log("Hover3D");
         this.id = id;
-        this.xOffset = 10;
-        this.yOffset = 10;
-        this.attack = 0.1;
-        this.release = 0.5;
-        this.perspective = 500;
+        this.xOffset = options.xOffset ?? 10;
+        this.yOffset = options.yOffset ?? 10;
+        this.attack = options.attack ?? 0.1;
+        this.release = options.release ?? 0.5;
+        this.perspective = options.perspective ?? 500;
+
         this.create();
     }
 

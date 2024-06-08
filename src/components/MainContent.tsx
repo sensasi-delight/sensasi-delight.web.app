@@ -2,7 +2,6 @@
 import { Suspense, lazy } from 'react'
 // materials
 import Box from '@mui/material/Box'
-import Container from '@mui/material/Container'
 // components
 import SectionTitle from './Section/components/Title'
 import SummarySection from '../sections/Summary'
@@ -26,20 +25,7 @@ const GoogleScholar = socials.find(social => social.name === 'Google Scholar')
 
 export default function MainContent() {
     return (
-        <Container
-            maxWidth="md"
-            sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 5,
-                mb: {
-                    xs: '50vh',
-                    md: 'unset',
-                },
-                '& > div': {
-                    scrollMarginTop: 100,
-                },
-            }}>
+        <>
             <SummarySection />
 
             <Section id="about" title="About me">
@@ -129,6 +115,6 @@ export default function MainContent() {
             <Section id="contacts" title="Keep in touch">
                 <ContactSectionContent />
             </Section>
-        </Container>
+        </>
     )
 }
