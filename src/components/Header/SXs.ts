@@ -1,7 +1,7 @@
 import { SxProps, Theme } from '@mui/material'
 
 export const appBar: SxProps<Theme> = ({ additional }) => ({
-    pl: `${additional.components.sidebar.width}px`,
+    pl: additional.components.sidebar.width.toString() + 'px',
 })
 
 export const readmeTab: SxProps<Theme> = theme => ({

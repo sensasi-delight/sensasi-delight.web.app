@@ -1,3 +1,9 @@
+declare global {
+    interface Window {
+        TagCanvas: TagCanvas
+    }
+}
+
 // vendors
 import { useEffect, useState } from 'react'
 // materials
@@ -5,19 +11,10 @@ import Box from '@mui/material/Box'
 import Button, { ButtonProps } from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
 // assets
-import '@/assets/js/vendor/tagcanvas.js'
+import '@/assets/js/vendor/TagCanvas.js'
 // data
 import skills, { Skill } from '../../data/skills'
 import { useTheme } from '@mui/material'
-
-declare global {
-    interface Window {
-        TagCanvas: any // eslint-disable-line
-    }
-}
-
-const TagCanvas = window.TagCanvas
-let tagCanvas: any // eslint-disable-line
 
 export default function SkillsSectionContent() {
     const [filters, setFilters] = useState<{
@@ -69,8 +66,8 @@ export default function SkillsSectionContent() {
     }, [filters])
 
     useEffect(() => {
-        if (!tagCanvas) {
-            tagCanvas = TagCanvas.Start('tagcanvas', 'taglist', {
+        if (!window.TagCanvas.started) {
+            window.TagCanvas.Start('tagcanvas', 'taglist', {
                 activeAudio: false,
                 minSpeed: 0.01,
                 freezeActive: true,
@@ -90,7 +87,7 @@ export default function SkillsSectionContent() {
                 initial: [0.3, -0.1],
             })
         } else {
-            tagCanvas.Reload()
+            window.TagCanvas.Reload()
         }
     }, [filteredSkills])
 
