@@ -1,19 +1,19 @@
-import AlpineJsLogo from '../assets/images/icons/alpinejs.svg'
-import BootstrapLogo from '../assets/images/icons/bootstrap.svg'
-import CLogo from '../assets/images/icons/c.svg'
-import DockerLogo from '../assets/images/icons/docker.svg'
-import GitLogo from '../assets/images/icons/git.svg'
-import GithubLogo from '../assets/images/icons/github.svg'
-import GraphQlLogo from '../assets/images/icons/graphql.svg'
-import HyperledgerLogo from '../assets/images/icons/hyperledger.svg'
-import JavascriptLogo from '../assets/images/icons/javascript.svg'
-import LaravelLogo from '../assets/images/icons/laravel.svg'
-import MaterialUiLogo from '../assets/images/icons/materialui.svg'
-import PHPLogo from '../assets/images/icons/php.svg'
-import PostgreSqlLogo from '../assets/images/icons/postgresql.svg'
-import PythonLogo from '../assets/images/icons/python.svg'
-import ReactLogo from '../assets/images/icons/react.svg'
-import TypeScriptLogo from '../assets/images/icons/typescript.svg'
+import AlpineJsLogo from '@/assets/images/icons/alpinejs.svg'
+import BootstrapLogo from '@/assets/images/icons/bootstrap.svg'
+// import CLogo from '@/assets/images/icons/c.svg'
+import DockerLogo from '@/assets/images/icons/docker.svg'
+import GitLogo from '@/assets/images/icons/git.svg'
+import GithubLogo from '@/assets/images/icons/github.svg'
+import GraphQlLogo from '@/assets/images/icons/graphql.svg'
+import HyperledgerLogo from '@/assets/images/icons/hyperledger.svg'
+import JavascriptLogo from '@/assets/images/icons/javascript.svg'
+import LaravelLogo from '@/assets/images/icons/laravel.svg'
+import MaterialUiLogo from '@/assets/images/icons/materialui.svg'
+import PHPLogo from '@/assets/images/icons/php.svg'
+import PostgreSqlLogo from '@/assets/images/icons/postgresql.svg'
+// import PythonLogo from '@/assets/images/icons/python.svg'
+import ReactLogo from '@/assets/images/icons/react.svg'
+import TypeScriptLogo from '@/assets/images/icons/typescript.svg'
 
 export interface Skill {
     href?: string
@@ -71,23 +71,23 @@ const skills: Skill[] = [
     {
         title: 'Hyperledger Fabric',
         logo: HyperledgerLogo as string,
-        level: 'intermediate',
+        level: 'beginner',
     },
     {
         title: 'Docker',
         logo: DockerLogo as string,
         level: 'beginner',
     },
-    {
-        title: 'Python',
-        logo: PythonLogo as string,
-        level: 'beginner',
-    },
-    {
-        title: 'C / C++',
-        logo: CLogo as string,
-        level: 'beginner',
-    },
+    // {
+    //     title: 'Python',
+    //     logo: PythonLogo as string,
+    //     level: 'beginner',
+    // },
+    // {
+    //     title: 'C / C++',
+    //     logo: CLogo as string,
+    //     level: 'beginner',
+    // },
     {
         title: 'SQL',
         logo: PostgreSqlLogo as string,
@@ -101,7 +101,7 @@ const skills: Skill[] = [
     {
         title: 'TypeScript',
         logo: TypeScriptLogo as string,
-        level: 'advanced',
+        level: 'intermediate',
     },
 ]
 
