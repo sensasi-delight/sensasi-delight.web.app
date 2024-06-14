@@ -25,7 +25,7 @@ export default function SkillsSectionContent() {
 
     const [skillsToShow, setSkillsToShow] = useState(skills)
 
-    const debounceSearchText = useDebouncedCallback(value => {
+    const debounceSearchText = useDebouncedCallback((value: string) => {
         setSearchText(value)
     }, 350)
 
@@ -156,7 +156,9 @@ export default function SkillsSectionContent() {
                         gap: 1,
                     }}>
                     <Button
-                        onClick={() => setIsShowBeginnerSkills(prev => !prev)}
+                        onClick={() => {
+                            setIsShowBeginnerSkills(prev => !prev)
+                        }}
                         variant={
                             isShowBeginnerSkills ? 'contained' : 'outlined'
                         }
@@ -165,9 +167,9 @@ export default function SkillsSectionContent() {
                     </Button>
 
                     <Button
-                        onClick={() =>
+                        onClick={() => {
                             setIsShowIntermediateSkills(prev => !prev)
-                        }
+                        }}
                         variant={
                             isShowIntermediateSkills ? 'contained' : 'outlined'
                         }
@@ -176,7 +178,9 @@ export default function SkillsSectionContent() {
                     </Button>
 
                     <Button
-                        onClick={() => setIsShowAdvancedSkills(prev => !prev)}
+                        onClick={() => {
+                            setIsShowAdvancedSkills(prev => !prev)
+                        }}
                         variant={
                             isShowAdvancedSkills ? 'contained' : 'outlined'
                         }
@@ -233,8 +237,8 @@ function SkillLi({
                 <img
                     src={logo}
                     alt={title}
-                    height={sizePx + 'px'}
-                    width={sizePx + 'px'}
+                    height={sizePx.toString() + 'px'}
+                    width={sizePx.toString() + 'px'}
                 />
             </a>
         </li>
