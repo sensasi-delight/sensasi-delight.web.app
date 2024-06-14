@@ -3,12 +3,12 @@ declare global {
         TagCanvas: TagCanvas
     }
 }
-
 // vendors
 import { useEffect, useState } from 'react'
+import { useDebouncedCallback } from 'use-debounce'
 // materials
 import Box from '@mui/material/Box'
-import Button, { ButtonProps } from '@mui/material/Button'
+import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
 // assets
 import '@/assets/js/vendor/TagCanvas.js'
@@ -17,38 +17,39 @@ import skills, { Skill } from '../../data/skills'
 import { useTheme } from '@mui/material'
 
 export default function SkillsSectionContent() {
-    const [filters, setFilters] = useState<{
-        query: string
-        advanced: boolean
-        intermediate: boolean
-        beginner: boolean
-    }>({
-        query: '',
-        advanced: false,
-        intermediate: false,
-        beginner: false,
-    })
+    const [searchText, setSearchText] = useState('')
+    const [isShowAdvancedSkills, setIsShowAdvancedSkills] = useState(false)
+    const [isShowIntermediateSkills, setIsShowIntermediateSkills] =
+        useState(false)
+    const [isShowBeginnerSkills, setIsShowBeginnerSkills] = useState(false)
 
-    const [filteredSkills, setFilteredSkills] = useState(skills)
+    const [skillsToShow, setSkillsToShow] = useState(skills)
+
+    const debounceSearchText = useDebouncedCallback(value => {
+        setSearchText(value)
+    }, 350)
 
     useEffect(() => {
         let filteredSkills = [...skills]
 
-        const { advanced, intermediate, beginner, query } = filters
-
-        const isFilterButton = advanced || intermediate || beginner
-
-        if (isFilterButton) {
+        if (
+            isShowAdvancedSkills ||
+            isShowIntermediateSkills ||
+            isShowBeginnerSkills
+        ) {
             filteredSkills = filteredSkills.filter(skill => {
-                if (advanced && skill.level === 'advanced') {
+                if (isShowAdvancedSkills && skill.level === 'advanced') {
                     return true
                 }
 
-                if (intermediate && skill.level === 'intermediate') {
+                if (
+                    isShowIntermediateSkills &&
+                    skill.level === 'intermediate'
+                ) {
                     return true
                 }
 
-                if (beginner && skill.level === 'beginner') {
+                if (isShowBeginnerSkills && skill.level === 'beginner') {
                     return true
                 }
 
@@ -56,18 +57,23 @@ export default function SkillsSectionContent() {
             })
         }
 
-        if (query) {
-            filteredSkills = filteredSkills.filter(skill => {
-                return skill.title.toLowerCase().includes(query.toLowerCase())
-            })
+        if (searchText) {
+            filteredSkills = filteredSkills.filter(({ title }) =>
+                title.toLowerCase().includes(searchText.toLowerCase()),
+            )
         }
 
-        setFilteredSkills(filteredSkills)
-    }, [filters])
+        setSkillsToShow(filteredSkills)
+    }, [
+        searchText,
+        isShowAdvancedSkills,
+        isShowIntermediateSkills,
+        isShowBeginnerSkills,
+    ])
 
     useEffect(() => {
         if (!window.TagCanvas.started) {
-            window.TagCanvas.Start('tagcanvas', 'taglist', {
+            window.TagCanvas.Start('skills-tagcanvas', 'taglist', {
                 activeAudio: false,
                 minSpeed: 0.01,
                 freezeActive: true,
@@ -87,18 +93,9 @@ export default function SkillsSectionContent() {
                 initial: [0.3, -0.1],
             })
         } else {
-            window.TagCanvas.Reload()
+            window.TagCanvas.Reload('skills-tagcanvas')
         }
-    }, [filteredSkills])
-
-    const filterButtons: {
-        name: 'beginner' | 'intermediate' | 'advanced'
-        color: ButtonProps['color']
-    }[] = [
-        { name: 'beginner', color: 'success' },
-        { name: 'intermediate', color: 'info' },
-        { name: 'advanced', color: 'error' },
-    ]
+    }, [skillsToShow])
 
     return (
         <Box
@@ -113,20 +110,16 @@ export default function SkillsSectionContent() {
             }}>
             <Box>
                 <TextField
-                    onChange={({ target }) => {
-                        setFilters({
-                            ...filters,
-                            query: target.value,
-                        })
-                    }}
+                    onChange={({ target }) => debounceSearchText(target.value)}
                     label="Search"
                     size="small"
-                    variant="standard"></TextField>
+                    variant="standard"
+                />
             </Box>
 
             <Box>
                 <canvas
-                    id="tagcanvas"
+                    id="skills-tagcanvas"
                     width={400}
                     height={400}
                     style={{
@@ -138,7 +131,7 @@ export default function SkillsSectionContent() {
                     className="to-fade-in fast-anim"></canvas>
                 <div id="taglist" style={{ display: 'none' }}>
                     <ul>
-                        {filteredSkills.map((skill, i) => (
+                        {skillsToShow.map((skill, i) => (
                             <SkillLi key={i} data={skill} />
                         ))}
                     </ul>
@@ -162,26 +155,34 @@ export default function SkillsSectionContent() {
                         display: 'inline-flex',
                         gap: 1,
                     }}>
-                    {filterButtons.map(({ name, color }) => (
-                        <Button
-                            key={name}
-                            id={name}
-                            onClick={({ currentTarget }) => {
-                                const name = currentTarget.id as
-                                    | 'beginner'
-                                    | 'intermediate'
-                                    | 'advanced'
+                    <Button
+                        onClick={() => setIsShowBeginnerSkills(prev => !prev)}
+                        variant={
+                            isShowBeginnerSkills ? 'contained' : 'outlined'
+                        }
+                        color="success">
+                        Beginner
+                    </Button>
 
-                                setFilters({
-                                    ...filters,
-                                    [name]: !filters[name],
-                                })
-                            }}
-                            variant={filters[name] ? 'contained' : 'outlined'}
-                            color={color}>
-                            {name}
-                        </Button>
-                    ))}
+                    <Button
+                        onClick={() =>
+                            setIsShowIntermediateSkills(prev => !prev)
+                        }
+                        variant={
+                            isShowIntermediateSkills ? 'contained' : 'outlined'
+                        }
+                        color="info">
+                        Intermediate
+                    </Button>
+
+                    <Button
+                        onClick={() => setIsShowAdvancedSkills(prev => !prev)}
+                        variant={
+                            isShowAdvancedSkills ? 'contained' : 'outlined'
+                        }
+                        color="error">
+                        Advanced
+                    </Button>
                 </Box>
             </Box>
         </Box>
@@ -195,21 +196,25 @@ function SkillLi({
 }) {
     const { palette } = useTheme()
 
-    let color
-    let weight
+    let color: string
+    let weight: number
+    let sizePx: number
 
     switch (level) {
         case 'beginner':
             color = palette.success.main
             weight = 1
+            sizePx = 26
             break
         case 'intermediate':
             color = palette.info.dark
             weight = 2
+            sizePx = 29
             break
         case 'advanced':
             color = palette.error.dark
             weight = 3
+            sizePx = 32
             break
     }
 
@@ -225,7 +230,12 @@ function SkillLi({
                     e.preventDefault()
                 }}>
                 {title}
-                <img src={logo} alt={title} height="32px" width="32px" />
+                <img
+                    src={logo}
+                    alt={title}
+                    height={sizePx + 'px'}
+                    width={sizePx + 'px'}
+                />
             </a>
         </li>
     )

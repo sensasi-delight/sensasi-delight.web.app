@@ -22,6 +22,6 @@ interface TagCanvas {
             initial: number[]
         },
     ) => void
-    Reload: () => void
+    Reload: (canvasId: string) => void
     started: 1 | undefined
 }
