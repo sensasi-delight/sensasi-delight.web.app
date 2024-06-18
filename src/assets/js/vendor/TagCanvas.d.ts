@@ -11,7 +11,7 @@ interface TagCanvas {
             weight: boolean
             textColour: null
             weightFrom: string
-            noTagsMessage: string
+            noTagsMessage?: boolean
             weightSize: number
             imageMode: string
             imagePadding: number

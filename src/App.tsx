@@ -57,7 +57,7 @@ export default function App() {
                         sx={{
                             display: 'flex',
                             flexDirection: 'column',
-                            gap: 5,
+                            gap: 8,
                             mt: 4,
                             px: 4,
                             mb: {

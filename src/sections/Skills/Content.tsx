@@ -5,29 +5,26 @@ declare global {
 }
 // vendors
 import { useEffect, useState } from 'react'
-import { useDebouncedCallback } from 'use-debounce'
+import { useTheme } from '@mui/material'
 // materials
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
-import TextField from '@mui/material/TextField'
 // assets
 import '@/assets/js/vendor/TagCanvas.js'
 // data
 import skills, { Skill } from '../../data/skills'
-import { useTheme } from '@mui/material'
 
-export default function SkillsSectionContent() {
-    const [searchText, setSearchText] = useState('')
+export default function SkillsSectionContent({
+    searchText,
+}: {
+    searchText: string
+}) {
     const [isShowAdvancedSkills, setIsShowAdvancedSkills] = useState(false)
     const [isShowIntermediateSkills, setIsShowIntermediateSkills] =
         useState(false)
     const [isShowBeginnerSkills, setIsShowBeginnerSkills] = useState(false)
 
     const [skillsToShow, setSkillsToShow] = useState(skills)
-
-    const debounceSearchText = useDebouncedCallback((value: string) => {
-        setSearchText(value)
-    }, 350)
 
     useEffect(() => {
         let filteredSkills = [...skills]
@@ -82,7 +79,6 @@ export default function SkillsSectionContent() {
                 weight: true,
                 textColour: null,
                 weightFrom: 'data-weight',
-                noTagsMessage: 'Not found',
                 weightSize: 10,
                 imageMode: 'both',
                 imagePadding: 10,
@@ -99,24 +95,12 @@ export default function SkillsSectionContent() {
 
     return (
         <Box
-            mb={4}
             sx={{
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                '& > *:not(:last-child)': {
-                    mb: 2,
-                },
+                gap: 2,
             }}>
-            <Box>
-                <TextField
-                    onChange={({ target }) => debounceSearchText(target.value)}
-                    label="Search"
-                    size="small"
-                    variant="standard"
-                />
-            </Box>
-
             <Box>
                 <canvas
                     id="skills-tagcanvas"
