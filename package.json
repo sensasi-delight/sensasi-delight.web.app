@@ -1,12 +1,12 @@
 {
     "name": "sensasi-delight-web-profile",
-    "version": "2.1.1",
+    "version": "2.1.2",
     "private": true,
     "type": "module",
     "scripts": {
         "dev": "vite",
         "build": "tsc && vite build",
-        "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+        "lint": "tsc && eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
         "preview": "vite preview",
         "check:update": "ncu",
         "update": "ncu -u -t patch && npm install",
@@ -16,13 +16,15 @@
     "dependencies": {
         "@emotion/react": "^11.11.4",
         "@emotion/styled": "^11.11.5",
+        "@fontsource/roboto": "^5.0.13",
         "@fortawesome/fontawesome-svg-core": "^6.5.2",
         "@fortawesome/free-brands-svg-icons": "^6.5.2",
         "@fortawesome/free-solid-svg-icons": "^6.5.2",
         "@fortawesome/react-fontawesome": "^0.2.2",
-        "@mui/icons-material": "^5.15.19",
-        "@mui/material": "^5.15.19",
+        "@mui/icons-material": "^5.15.20",
+        "@mui/material": "^5.15.20",
         "dayjs": "^1.11.11",
+        "firebase": "^10.12.2",
         "number-to-words": "^1.2.4",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
@@ -33,8 +35,8 @@
         "@types/number-to-words": "^1.2.3",
         "@types/react": "^18.3.3",
         "@types/react-dom": "^18.3.0",
-        "@typescript-eslint/eslint-plugin": "^7.12.0",
-        "@typescript-eslint/parser": "^7.12.0",
+        "@typescript-eslint/eslint-plugin": "^7.13.1",
+        "@typescript-eslint/parser": "^7.13.1",
         "@vitejs/plugin-react-swc": "^3.7.0",
         "eslint": "^8.57.0",
         "eslint-config-prettier": "^9.1.0",
@@ -42,8 +44,8 @@
         "eslint-plugin-react-hooks": "^4.6.2",
         "eslint-plugin-react-refresh": "^0.4.7",
         "npm-check-updates": "^16.14.20",
-        "prettier": "3.3.1",
+        "prettier": "3.3.2",
         "typescript": "^5.4.5",
-        "vite": "^5.2.13"
+        "vite": "^5.3.1"
     }
 }

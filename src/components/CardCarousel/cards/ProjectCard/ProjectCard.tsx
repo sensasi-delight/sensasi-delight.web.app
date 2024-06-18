@@ -1,7 +1,5 @@
 // types
-import type { Project } from '../../../../data/projects'
-// vendors
-
+import type { Project } from '@/data/projects'
 // materials
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
@@ -10,7 +8,7 @@ import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
 import Tooltip from '@mui/material/Tooltip'
 import Typography from '@mui/material/Typography'
-// hooks
+// local components
 import BaseCard from '../../BaseCard'
 
 export default function ProjectCard({ data }: { data: Project }) {
@@ -45,6 +43,7 @@ export default function ProjectCard({ data }: { data: Project }) {
                     {stacks.map((stack, i) => (
                         <Tooltip key={i} title={stack.alt} placement="top">
                             <img
+                                loading="lazy"
                                 src={stack.logoImg}
                                 alt={stack.alt}
                                 height="40px"

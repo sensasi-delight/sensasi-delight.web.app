@@ -6,16 +6,23 @@ import Container from '@mui/material/Container'
 import CssBaseline from '@mui/material/CssBaseline'
 import Fade from '@mui/material/Fade'
 // components
-import NumberBar from './components/NumberBar'
-import MainContent from './components/MainContent'
-import Footer from './components/Footer'
-import Sidebar from './components/Sidebar'
-import Header from './components/Header'
+import Footer from '@/components/Footer'
+import Header from '@/components/Header'
+import MainContent from '@/components/MainContent'
+import NumberBar from '@/components/NumberBar'
+import Sidebar from '@/components/Sidebar'
+import StarBackground from '@/components/StarBackground'
 // assets
-import './assets/css/star-field.css'
-import StarBackground from './components/StarBackground'
+import '@fontsource/roboto/300.css'
+import '@fontsource/roboto/400.css'
+import '@fontsource/roboto/500.css'
+import '@fontsource/roboto/700.css'
+import '@/assets/css/star-field.css'
+// hooks
+import { useFirebase } from '@/hooks/useFirebase'
 
 export default function App() {
+    useFirebase()
     const [showBackground, setShowBackground] = useState(true)
 
     return (

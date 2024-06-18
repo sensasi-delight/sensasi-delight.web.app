@@ -1,18 +1,19 @@
 // icon images
-import AlpineJsLogo from '../assets/images/icons/alpinejs.svg'
-import BootstrapLogo from '../assets/images/icons/bootstrap.svg'
-import DockerLogo from '../assets/images/icons/docker.svg'
-import LaravelLogo from '../assets/images/icons/laravel.svg'
-import HyperledgerLogo from '../assets/images/icons/hyperledger.svg'
-import MaterialUiLogo from '../assets/images/icons/materialui.svg'
-import PhpLogo from '../assets/images/icons/php.svg'
-import ReactLogo from '../assets/images/icons/react.svg'
-import typescriptLogo from '../assets/images/icons/typescript.svg'
+import AlpineJsLogo from '@/assets/images/icons/alpinejs.svg'
+import BootstrapLogo from '@/assets/images/icons/bootstrap.svg'
+import DockerLogo from '@/assets/images/icons/docker.svg'
+import LaravelLogo from '@/assets/images/icons/laravel.svg'
+import HyperledgerLogo from '@/assets/images/icons/hyperledger.svg'
+import MaterialUiLogo from '@/assets/images/icons/materialui.svg'
+import PhpLogo from '@/assets/images/icons/php.svg'
+import ReactLogo from '@/assets/images/icons/react.svg'
+import typescriptLogo from '@/assets/images/icons/typescript.svg'
 // images
-import sensasiLogisticPreview from '../assets/images/projects/sensasi-logistic.png'
-import simulasiGradingPreview from '../assets/images/projects/simulasi-grading.png'
-import chickenSlaughterhousePreview from '../assets/images/projects/csbn.webp'
-import materialBladePreview from '../assets/images/projects/material-blade.png'
+import sensasiLogisticPreview from '@/assets/images/projects/sensasi-logistic.png'
+import simulasiGradingPreview from '@/assets/images/projects/simulasi-grading.png'
+import chickenSlaughterhousePreview from '@/assets/images/projects/csbn.webp'
+import materialBladePreview from '@/assets/images/projects/material-blade.png'
+import navbarCrxPreview from '@/assets/images/projects/navbar-crx.gif'
 
 export interface Project {
     name: string
@@ -110,8 +111,7 @@ const projects: Project[] = [
     {
         name: 'Sensasi Navbar',
         year: '2023',
-        imgPreview:
-            'https://github.com/sensasi-delight/sensasi-navbar-crx/assets/19289785/ee0ebe90-5f53-449b-8bb4-6c3aaba1c4d0',
+        imgPreview: navbarCrxPreview as string,
         description:
             'Sensasi Navbar is a Chrome extension designed to enhance navigation within the browser, particularly when Chrome is in full-screen mode (F11). It provides a navigation bar that assists in navigating through tabs, offering convenience and ease of use.',
         stacks: [
