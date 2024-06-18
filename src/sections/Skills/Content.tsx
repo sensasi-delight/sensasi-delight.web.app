@@ -235,6 +235,7 @@ function SkillLi({
                 }}>
                 {title}
                 <img
+                    loading="lazy"
                     src={logo}
                     alt={title}
                     height={sizePx.toString() + 'px'}
