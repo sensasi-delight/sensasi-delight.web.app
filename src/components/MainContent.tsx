@@ -1,23 +1,21 @@
-// vendors
-import { Suspense, lazy } from 'react'
 // materials
 import Box from '@mui/material/Box'
-// components
-import SectionTitle from './Section/components/Title'
-import Hero from '../sections/Hero'
-import AboutSectionContent from '../sections/About/Content'
-const SkillsSectionContent = lazy(() => import('../sections/Skills/Content'))
-// data
-import socials from '../data/socials'
-import ThreeLineSkeleton from './ThreeLineSkeletons'
+// local components
 import CardCarousel from './CardCarousel/CardCarousel'
-import projects from '../data/projects'
 import ProjectCard from './CardCarousel/cards/ProjectCard/ProjectCard'
-import WritingCard from './CardCarousel/cards/ProjectCard/WritingCard'
-import writings from '../data/writings'
-import ContactSectionContent from '../sections/Contact/Content'
+import SectionTitle from './Section/components/Title'
 import SocialIconButton from './SocialIconButton'
 import Section from './Section/Section'
+import WritingCard from './CardCarousel/cards/ProjectCard/WritingCard'
+// data
+import projects from '@/data/projects'
+import socials from '@/data/socials'
+import writings from '@/data/writings'
+// sections
+import AboutSectionContent from '@/sections/About/Content'
+import ContactSectionContent from '@/sections/Contact/Content'
+import Hero from '@/sections/Hero'
+import SkillSection from '@/sections/Skills'
 
 const GitHub = socials.find(social => social.name === 'GitHub')
 const Medium = socials.find(social => social.name === 'Medium')
@@ -32,11 +30,7 @@ export default function MainContent() {
                 <AboutSectionContent />
             </Section>
 
-            <Section id="skills" title="Skills">
-                <Suspense fallback={<ThreeLineSkeleton />}>
-                    <SkillsSectionContent />
-                </Suspense>
-            </Section>
+            <SkillSection />
 
             <Box
                 id="projects"
