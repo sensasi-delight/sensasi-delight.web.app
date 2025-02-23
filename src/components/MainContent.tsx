@@ -14,7 +14,7 @@ import writings from '@/data/writings'
 // sections
 import AboutSectionContent from '@/sections/About/Content'
 import ContactSectionContent from '@/sections/Contact/Content'
-import Hero from '@/sections/Hero'
+import Hero from '@/sections/hero'
 import SkillSection from '@/sections/Skills'
 
 const GitHub = socials.find(social => social.name === 'GitHub')
