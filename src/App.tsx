@@ -3,7 +3,6 @@ import { useState } from 'react'
 // materials
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
-import CssBaseline from '@mui/material/CssBaseline'
 import Fade from '@mui/material/Fade'
 // components
 import Footer from '@/components/Footer'
@@ -20,14 +19,15 @@ import '@fontsource/roboto/700.css'
 import '@/assets/css/star-field.css'
 // hooks
 import { useFirebase } from '@/hooks/useFirebase'
+//
+import ThemeProvider from './components/theme-provider'
 
 export default function App() {
     useFirebase()
     const [showBackground, setShowBackground] = useState(true)
 
     return (
-        <>
-            <CssBaseline />
+        <ThemeProvider>
             <Header />
             <Box sx={{ display: 'flex' }}>
                 <Sidebar
@@ -73,6 +73,6 @@ export default function App() {
                 </Box>
             </Box>
             <Footer />
-        </>
+        </ThemeProvider>
     )
 }
