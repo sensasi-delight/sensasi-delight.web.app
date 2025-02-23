@@ -1,37 +1,116 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <!-- Meta Charset & Viewport -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Favicon -->
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/assets/favicon/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/assets/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/assets/favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+        <link
+            rel="mask-icon"
+            href="/assets/favicon/safari-pinned-tab.svg"
+            color="#5bbad5"
+        />
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/assets/favicon/site.webmanifest">
-    <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="theme-color" content="#333333">
+        <!-- Primary Meta Tags -->
+        <title>
+            Adam "Zain" Akbar — Web Developer & Full-Time Learner Portfolio
+        </title>
+        <meta
+            name="title"
+            content='Adam "Zain" Akbar — Web Developer Portfolio'
+        />
+        <meta
+            name="description"
+            content="Professional web developer specializing in modern web technologies. Explore my projects and learn about my development process."
+        />
+        <meta name="theme-color" content="#333333" />
+        <meta name="author" content="Adam Zain Akbar" />
+        <meta name="robots" content="index, follow" />
 
-    <!-- link website preview -->
-    <meta property="og:title" content="Sensasi Delight: Adam &quot;Zain&quot; Akbar" />
-    <meta property="og:description" content="Full time learner, mostly web developer." />
-    <meta property="og:image" content="/assets/images/web-preview.jpg" />
-    <meta property="og:url" content="https://sensasi-delight.web.app" />
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://sensasi-delight.web.app/" />
+        <meta
+            property="og:title"
+            content='Adam "Zain" Akbar — Web Developer Portfolio'
+        />
+        <meta
+            property="og:description"
+            content="Professional web developer specializing in modern web technologies. Explore my projects and learn about my development process."
+        />
+        <meta
+            property="og:image"
+            content="https://sensasi-delight.web.app/assets/images/web-preview.jpg"
+        />
 
-    <!-- link website preview -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@sensasi_delight" />
-    <meta name="twitter:creator" content="@sensasi_delight" />
-    <meta name="twitter:title" content="Sensasi Delight: Adam &quot;Zain&quot; Akbar" />
-    <meta name="twitter:description" content="Full time learner, mostly web developer." />
-    <meta name="twitter:image" content="/assets/images/web-preview.jpg" />
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+            property="twitter:url"
+            content="https://sensasi-delight.web.app/"
+        />
+        <meta
+            property="twitter:title"
+            content='Adam "Zain" Akbar — Web Developer Portfolio'
+        />
+        <meta
+            property="twitter:description"
+            content="Professional web developer specializing in modern web technologies. Explore my projects and learn about my development process."
+        />
+        <meta
+            property="twitter:image"
+            content="https://sensasi-delight.web.app/assets/images/web-preview.jpg"
+        />
 
-    <title>Sensasi Delight: Adam "Zain" Akbar</title>
-</head>
+        <!-- Canonical URL -->
+        <link rel="canonical" href="https://sensasi-delight.web.app" />
 
-<body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-</body>
+        <!-- Schema Markup -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "name": "Adam Zain Akbar",
+                "jobTitle": "Web Developer",
+                "url": "https://sensasi-delight.web.app",
+                "sameAs": ["https://twitter.com/sensasi_delight"],
+                "description": "Professional web developer with focus on modern web technologies and continuous learning.",
+                "image": "https://sensasi-delight.web.app/assets/images/web-preview.jpg"
+            }
+        </script>
+    </head>
 
+    <body>
+        <div id="root"></div>
+        <script type="module" src="/src/main.tsx"></script>
+
+        <!-- Fallback content for SEO -->
+        <noscript>
+            <h1>Adam "Zain" Akbar - Web Developer</h1>
+            <p>
+                Professional web developer specializing in modern web
+                technologies. Please enable JavaScript to view the full
+                portfolio.
+            </p>
+        </noscript>
+    </body>
 </html>
