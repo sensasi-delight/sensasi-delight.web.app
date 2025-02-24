@@ -1,8 +1,10 @@
 import type { ReactNode } from 'react'
-import MuiThemeProvider from '@mui/material/styles/ThemeProvider'
-import GlobalStyles from '@mui/material/GlobalStyles'
-import getTheme from '@/components/layout/_components/theme-provider/utils/getTheme'
+// materials
 import CssBaseline from '@mui/material/CssBaseline'
+import GlobalStyles from '@mui/material/GlobalStyles'
+import MuiThemeProvider from '@mui/material/styles/ThemeProvider'
+// sub
+import getTheme from './utils/get-theme'
 
 export default function ThemeProvider({ children }: { children: ReactNode }) {
     return (

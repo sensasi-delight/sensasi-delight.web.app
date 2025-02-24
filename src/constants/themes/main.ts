@@ -13,12 +13,6 @@ const main: ThemeOptions = {
         },
     },
 
-    // components: {
-    //     card: {
-    //         maxWidth: 300,
-    //     },
-    // },
-
     additional: {
         background: {
             secondary: '#333333',

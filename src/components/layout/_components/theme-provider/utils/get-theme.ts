@@ -1,5 +1,5 @@
 import { type ThemeOptions, createTheme } from '@mui/material/styles'
-import main from './options/main'
+import main from '@/constants/themes/main'
 
 export default function getTheme(optionName = 'main') {
     let themeOption: ThemeOptions
