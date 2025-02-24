@@ -3,7 +3,7 @@ import Box from '@mui/material/Box'
 // components
 import CardCarousel from '@/components/CardCarousel'
 import SectionTitle from '@/components/sections/_components/layout/components/Title'
-import SocialIconButton from '@/components/SocialIconButton'
+import SocialIconButton from '@/components/sections/_components/social-icon-button'
 import WritingCard from '@/components/CardCarousel/cards/ProjectCard/WritingCard'
 // data
 import socials from '@/data/socials'

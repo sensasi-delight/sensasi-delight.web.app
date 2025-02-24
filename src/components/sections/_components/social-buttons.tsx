@@ -1,7 +1,7 @@
 // materials
 import Box from '@mui/material/Box'
 // components
-import SocialIconButton from '@/components/SocialIconButton'
+import SocialIconButton from '@/components/sections/_components/social-icon-button'
 // data
 import socials from '@/data/socials'
 

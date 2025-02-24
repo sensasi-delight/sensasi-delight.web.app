@@ -8,7 +8,7 @@ import socials from '@/data/socials'
 //
 import CardCarousel from '@/components//CardCarousel'
 import ProjectCard from '@/components/CardCarousel/cards/ProjectCard/ProjectCard'
-import SocialIconButton from '@/components//SocialIconButton'
+import SocialIconButton from '@/components/sections/_components/social-icon-button'
 
 const GitHub = socials.find(social => social.name === 'GitHub')
 
