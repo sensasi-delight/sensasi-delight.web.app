@@ -1,3 +1,5 @@
+import '@/assets/css/star-field.css'
+
 export default function StarBackground() {
     return (
         <div className="star-field">

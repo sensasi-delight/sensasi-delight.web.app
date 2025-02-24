@@ -10,15 +10,13 @@ import '@fontsource/roboto/300.css'
 import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
-import '@/assets/css/star-field.css'
-// components
-import Footer from '@/components/Footer'
-import Header from '@/components/Header'
-import NumberBar from '@/components/NumberBar'
-import Sidebar from '@/components/Sidebar'
-import StarBackground from '@/components/StarBackground'
-//
-import ThemeProvider from '@/components/theme-provider'
+// sub-components
+import Footer from './_components/footer'
+import Header from './_components/header'
+import NumberBar from './_components/number-bar'
+import Sidebar from './_components/sidebar'
+import StarBackground from './_components/star-background'
+import ThemeProvider from './_components/theme-provider'
 
 export default function Layout({ children }: { children: ReactNode }) {
     const [showBackground, setShowBackground] = useState(true)
