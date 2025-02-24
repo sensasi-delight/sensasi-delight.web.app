@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
 // components
-import CodeTag from '@/components/CodeTag'
+import CodeTag from '@/components/code-tag'
 // assets
 import Hover3D from '@/assets/js/vendor/Hover3D.js'
 // sub-components

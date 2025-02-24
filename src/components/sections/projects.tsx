@@ -1,7 +1,7 @@
 // materials
 import Box from '@mui/material/Box'
 // components
-import SectionTitle from '@/components/Section/components/Title'
+import SectionTitle from '@/components/sections/_components/layout/components/Title'
 // data
 import projects from '@/data/projects'
 import socials from '@/data/socials'

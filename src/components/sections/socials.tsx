@@ -1,4 +1,4 @@
-import Section from '@/components/Section'
+import Section from '@/components/sections/_components/layout'
 import SocialButtons from './_components/social-buttons'
 
 export default function SocialsSection() {

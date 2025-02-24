@@ -3,8 +3,8 @@ import { toWords } from 'number-to-words'
 // materials
 import Typography from '@mui/material/Typography'
 // components
-import CodeTag from '../CodeTag'
-import Section from '@/components/Section'
+import CodeTag from '../code-tag'
+import Section from '@/components/sections/_components/layout'
 
 export default function AboutSection() {
     return (

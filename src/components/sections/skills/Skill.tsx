@@ -6,7 +6,7 @@ import Box from '@mui/material/Box'
 import IconButton from '@mui/material/IconButton'
 import TextField from '@mui/material/TextField'
 // components
-import SectionTitle from '@/components/Section/components/Title'
+import SectionTitle from '@/components/sections/_components/layout/components/Title'
 // locals
 import SkillsSectionContent from './Content'
 // icons

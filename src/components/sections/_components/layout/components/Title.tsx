@@ -2,7 +2,7 @@
 import { ReactNode } from 'react'
 import Typography, { TypographyProps } from '@mui/material/Typography'
 // components
-import CodeTag from '../../CodeTag'
+import CodeTag from '../../../../code-tag'
 
 export default function SectionTitle({
     children,

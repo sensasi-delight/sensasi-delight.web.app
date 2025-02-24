@@ -1,4 +1,5 @@
-import { ReactNode } from 'react'
+// vendors
+import type { ReactNode } from 'react'
 // materials
 import Box from '@mui/material/Box'
 import SectionTitle from './components/Title'

@@ -2,7 +2,7 @@
 import Box from '@mui/material/Box'
 // components
 import CardCarousel from '@/components/CardCarousel/CardCarousel'
-import SectionTitle from '@/components/Section/components/Title'
+import SectionTitle from '@/components/sections/_components/layout/components/Title'
 import SocialIconButton from '@/components/SocialIconButton'
 import WritingCard from '@/components/CardCarousel/cards/ProjectCard/WritingCard'
 // data
