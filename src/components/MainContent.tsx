@@ -12,7 +12,6 @@ import projects from '@/data/projects'
 import socials from '@/data/socials'
 import writings from '@/data/writings'
 // sections
-import AboutSectionContent from '@/sections/About/Content'
 import ContactSectionContent from '@/sections/Contact/Content'
 import SkillSection from '@/sections/Skills'
 
@@ -23,10 +22,6 @@ const GoogleScholar = socials.find(social => social.name === 'Google Scholar')
 export default function MainContent() {
     return (
         <>
-            <Section id="about" title="About me">
-                <AboutSectionContent />
-            </Section>
-
             <SkillSection />
 
             <Box

@@ -1,14 +1,14 @@
 // vendors
 import { toWords } from 'number-to-words'
 // materials
-import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
-// componenents
-import CodeTag from '../../components/CodeTag'
+// components
+import CodeTag from '../CodeTag'
+import Section from '@/components/Section'
 
-export default function AboutSectionContent() {
+export default function AboutSection() {
     return (
-        <Box>
+        <Section id="about" title="About Me">
             <Typography sx={{ mb: 2 }} align="justify">
                 Hello, World!, my name is <CodeTag>Adam Akbar</CodeTag> but
                 everyone calls me <CodeTag>Zain</CodeTag>!, I'm a highly skilled{' '}
@@ -28,6 +28,6 @@ export default function AboutSectionContent() {
                 blockchain technology, and I'm <CodeTag>excited</CodeTag> to
                 bring my expertise to the table on any project I'm involved in.
             </Typography>
-        </Box>
+        </Section>
     )
 }
