@@ -4,11 +4,11 @@ import { useEffect } from 'react'
 import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
 // components
-import ContactSectionContent from '../../../sections/Contact/Content'
 import CodeTag from '@/components/CodeTag'
 // assets
 import Hover3D from '@/assets/js/vendor/Hover3D.js'
 // sub-components
+import ContactButtons from '../_components/social-buttons'
 import ProfileImage from './profile-image'
 
 export default function HeroSection() {
@@ -55,7 +55,7 @@ export default function HeroSection() {
                     Full time learner, mostly a web developer.
                 </Typography>
 
-                <ContactSectionContent />
+                <ContactButtons />
             </Grid>
         </Grid>
     )

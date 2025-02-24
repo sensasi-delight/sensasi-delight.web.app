@@ -5,14 +5,11 @@ import CardCarousel from './CardCarousel/CardCarousel'
 import ProjectCard from './CardCarousel/cards/ProjectCard/ProjectCard'
 import SectionTitle from './Section/components/Title'
 import SocialIconButton from './SocialIconButton'
-import Section from './Section/Section'
 import WritingCard from './CardCarousel/cards/ProjectCard/WritingCard'
 // data
 import projects from '@/data/projects'
 import socials from '@/data/socials'
 import writings from '@/data/writings'
-// sections
-import ContactSectionContent from '@/sections/Contact/Content'
 
 const GitHub = socials.find(social => social.name === 'GitHub')
 const Medium = socials.find(social => social.name === 'Medium')
@@ -94,10 +91,6 @@ export default function MainContent() {
                     ))}
                 </CardCarousel>
             </Box>
-
-            <Section id="contacts" title="Keep in touch">
-                <ContactSectionContent />
-            </Section>
         </>
     )
 }

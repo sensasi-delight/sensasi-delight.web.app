@@ -1,13 +1,11 @@
-// vendors
-
 // materials
 import Box from '@mui/material/Box'
 // components
-import SocialIconButton from '../../components/SocialIconButton'
+import SocialIconButton from '@/components/SocialIconButton'
 // data
-import socials from '../../data/socials'
+import socials from '@/data/socials'
 
-export default function ContactSectionContent() {
+export default function SocialButtons() {
     return (
         <Box>
             {socials.map((social, i) => (

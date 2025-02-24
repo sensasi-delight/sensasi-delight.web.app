@@ -73,8 +73,8 @@ const menuButtons = [
         ),
     },
     {
-        href: '#contacts',
-        text: 'Contacts',
+        href: '#socials',
+        text: 'Socials',
         icon: (
             <ContactIcon
                 sx={{
