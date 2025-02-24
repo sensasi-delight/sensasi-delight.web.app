@@ -7,83 +7,10 @@ import ListItem from '@mui/material/ListItem'
 import ListItemButton from '@mui/material/ListItemButton'
 import ListItemIcon from '@mui/material/ListItemIcon'
 import Tooltip from '@mui/material/Tooltip'
-// icons
-import ContactIcon from '@mui/icons-material/LanOutlined'
-import FaceIcon from '@mui/icons-material/FaceOutlined'
-import HandymanIcon from '@mui/icons-material/HandymanOutlined'
-import NewspaperIcon from '@mui/icons-material/NewspaperOutlined'
-import RocketLaunchIcon from '@mui/icons-material/RocketLaunchOutlined'
+//
+import MENUS from './_constants/menus'
+//
 import WallpaperIcon from '@mui/icons-material/WallpaperOutlined'
-import WavingHandIcon from '@mui/icons-material/WavingHandOutlined'
-
-const menuButtons = [
-    {
-        href: '#summary',
-        text: 'Summary',
-        icon: (
-            <FaceIcon
-                sx={{
-                    fontSize: '1em',
-                }}
-            />
-        ),
-    },
-    {
-        href: '#about',
-        text: 'About me',
-        icon: (
-            <WavingHandIcon
-                sx={{
-                    fontSize: '1em',
-                }}
-            />
-        ),
-    },
-    {
-        href: '#skills',
-        text: 'Skills',
-        icon: (
-            <HandymanIcon
-                sx={{
-                    fontSize: '1em',
-                }}
-            />
-        ),
-    },
-    {
-        href: '#projects',
-        text: 'Projects',
-        icon: (
-            <RocketLaunchIcon
-                sx={{
-                    fontSize: '1em',
-                }}
-            />
-        ),
-    },
-    {
-        href: '#writings',
-        text: 'Writings',
-        icon: (
-            <NewspaperIcon
-                sx={{
-                    fontSize: '1em',
-                }}
-            />
-        ),
-    },
-    {
-        href: '#socials',
-        text: 'Socials',
-        icon: (
-            <ContactIcon
-                sx={{
-                    fontSize: '1em',
-                }}
-            />
-        ),
-    },
-]
 
 export default function Sidebar({
     showBackground,
@@ -111,17 +38,14 @@ export default function Sidebar({
                 sx={{
                     flexGrow: 1,
                 }}>
-                {menuButtons.map((menu, i) => (
-                    <ListItem
-                        key={i}
-                        disablePadding
-                        sx={{ display: 'block', my: 1 }}>
-                        <Tooltip title={menu.text} placement="right">
+                {MENUS.map((menu, i) => (
+                    <ListItem key={i} disablePadding sx={{ my: 2.75 }}>
+                        <Tooltip title={menu.text} placement="right" arrow>
                             <ListItemButton
                                 disableRipple
                                 sx={theme => ({
+                                    p: 0,
                                     justifyContent: 'center',
-                                    fontSize: '2rem',
                                     color: theme.palette.text.secondary,
                                     '&:hover': {
                                         color: theme.palette.text.primary,
@@ -132,10 +56,14 @@ export default function Sidebar({
                                 <ListItemIcon
                                     sx={{
                                         minWidth: 'unset',
-                                        justifyContent: 'center',
+                                        maxWidth: 'unset',
                                         color: 'unset',
                                     }}>
-                                    {menu.icon}
+                                    <menu.Icon
+                                        sx={{
+                                            fontSize: '1.75em',
+                                        }}
+                                    />
                                 </ListItemIcon>
                             </ListItemButton>
                         </Tooltip>
