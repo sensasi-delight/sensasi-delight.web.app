@@ -13,7 +13,6 @@ import socials from '@/data/socials'
 import writings from '@/data/writings'
 // sections
 import ContactSectionContent from '@/sections/Contact/Content'
-import SkillSection from '@/sections/Skills'
 
 const GitHub = socials.find(social => social.name === 'GitHub')
 const Medium = socials.find(social => social.name === 'Medium')
@@ -22,8 +21,6 @@ const GoogleScholar = socials.find(social => social.name === 'Google Scholar')
 export default function MainContent() {
     return (
         <>
-            <SkillSection />
-
             <Box
                 id="projects"
                 sx={{

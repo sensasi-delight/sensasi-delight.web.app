@@ -12,7 +12,7 @@ import Button from '@mui/material/Button'
 // assets
 import '@/assets/js/vendor/TagCanvas.js'
 // data
-import skills, { Skill } from '../../data/skills'
+import skills, { Skill } from '../../../data/skills'
 
 export default function SkillsSectionContent({
     searchText,
