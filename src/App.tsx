@@ -20,6 +20,7 @@ import '@/assets/css/star-field.css'
 // hooks
 import { useFirebase } from '@/hooks/useFirebase'
 //
+import HeroSection from '@/components/sections/hero'
 import ThemeProvider from './components/theme-provider'
 
 export default function App() {
@@ -68,6 +69,7 @@ export default function App() {
                                 scrollMarginTop: 100,
                             },
                         }}>
+                        <HeroSection />
                         <MainContent />
                     </Container>
                 </Box>
