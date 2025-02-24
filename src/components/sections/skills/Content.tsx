@@ -5,14 +5,14 @@ declare global {
 }
 // vendors
 import { useEffect, useState } from 'react'
-import { useTheme } from '@mui/material'
 // materials
+import { useTheme } from '@mui/material/styles'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 // assets
 import '@/assets/js/vendor/TagCanvas.js'
 // data
-import skills, { Skill } from '../../../data/skills'
+import skills, { type Skill } from '@/data/skills'
 
 export default function SkillsSectionContent({
     searchText,

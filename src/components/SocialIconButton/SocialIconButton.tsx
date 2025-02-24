@@ -1,13 +1,13 @@
 // vendors
 import {
     FontAwesomeIcon,
-    FontAwesomeIconProps,
+    type FontAwesomeIconProps,
 } from '@fortawesome/react-fontawesome'
-
 // materials
 import IconButton from '@mui/material/IconButton'
 import Tooltip from '@mui/material/Tooltip'
-import { Social } from '../../data/socials'
+//
+import type { Social } from '@/data/socials'
 
 export default function SocialIconButton({
     data,

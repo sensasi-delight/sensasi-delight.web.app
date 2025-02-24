@@ -1,8 +1,8 @@
 // vendors
-import { ReactNode } from 'react'
-import Typography, { TypographyProps } from '@mui/material/Typography'
+import type { ReactNode } from 'react'
+import Typography, { type TypographyProps } from '@mui/material/Typography'
 // components
-import CodeTag from '../../../../code-tag'
+import CodeTag from '@/components/code-tag'
 
 export default function SectionTitle({
     children,

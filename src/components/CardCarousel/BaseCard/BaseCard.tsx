@@ -1,10 +1,10 @@
 // vendors
-import { useRef, ReactNode } from 'react'
+import { useRef, type ReactNode } from 'react'
 // materials
 import Card from '@mui/material/Card'
 import LinearProgress from '@mui/material/LinearProgress'
 // hooks
-import useOnScreen from '../../../hooks/useOnScreen'
+import useOnScreen from '@/hooks/useOnScreen'
 
 export default function BaseCard({ children }: { children: ReactNode }) {
     const ref = useRef(null)

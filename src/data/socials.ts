@@ -1,5 +1,5 @@
 import {
-    IconDefinition,
+    type IconDefinition,
     faGithub,
     faLinkedin,
     faMediumM,

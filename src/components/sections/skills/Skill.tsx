@@ -32,7 +32,9 @@ export function Skill() {
                 <SectionTitle>Skills</SectionTitle>
 
                 <TextField
-                    onChange={({ target }) => setSearchText(target.value)}
+                    onChange={({ target }) => {
+                        setSearchText(target.value)
+                    }}
                     value={searchText}
                     label="Search"
                     size="small"
@@ -45,7 +47,9 @@ export function Skill() {
                         endAdornment: (
                             <IconButton
                                 size="small"
-                                onClick={() => setSearchText('')}>
+                                onClick={() => {
+                                    setSearchText('')
+                                }}>
                                 <CloseIcon fontSize="small" />
                             </IconButton>
                         ),

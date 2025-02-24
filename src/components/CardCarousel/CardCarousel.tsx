@@ -1,7 +1,5 @@
-// types
-import { CarouselProps } from 'react-material-ui-carousel/dist/components/types'
 // vendors
-
+import type { CarouselProps } from 'react-material-ui-carousel/dist/components/types'
 import Carousel from 'react-material-ui-carousel'
 
 export default function CardCarousel(props: CarouselProps) {

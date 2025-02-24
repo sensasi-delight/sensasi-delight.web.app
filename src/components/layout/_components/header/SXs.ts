@@ -1,4 +1,4 @@
-import { SxProps, Theme } from '@mui/material'
+import type { SxProps, Theme } from '@mui/material/styles'
 
 export const appBar: SxProps<Theme> = ({ additional }) => ({
     pl: additional.components.sidebar.width.toString() + 'px',
