@@ -15,15 +15,30 @@
     "parserOptions": {
         "project": "./tsconfig.json"
     },
-    "plugins": [
-        "react-refresh"
-    ],
+    "plugins": ["react-refresh"],
     "rules": {
         "no-console": "warn",
         "react-refresh/only-export-components": [
             "warn",
             {
                 "allowConstantExport": true
+            }
+        ],
+
+        "no-restricted-imports": [
+            "error",
+            {
+                "paths": [
+                    {
+                        "name": "@mui/material",
+                        "message": "Please use `import [Component] from '@mui/material/[Component]'` instead."
+                    },
+                    {
+                        "name": "@mui/icons-material",
+                        "message": "Please use `import [Component] from '@mui/icons-material/[Component]'` instead."
+                    }
+                ],
+                "patterns": ["!@mui/material/*", "!@mui/icons-material/*"]
             }
         ]
     }
