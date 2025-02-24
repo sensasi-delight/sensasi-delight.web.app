@@ -2,56 +2,19 @@
 import Box from '@mui/material/Box'
 // local components
 import CardCarousel from './CardCarousel/CardCarousel'
-import ProjectCard from './CardCarousel/cards/ProjectCard/ProjectCard'
 import SectionTitle from './Section/components/Title'
 import SocialIconButton from './SocialIconButton'
 import WritingCard from './CardCarousel/cards/ProjectCard/WritingCard'
 // data
-import projects from '@/data/projects'
 import socials from '@/data/socials'
 import writings from '@/data/writings'
 
-const GitHub = socials.find(social => social.name === 'GitHub')
 const Medium = socials.find(social => social.name === 'Medium')
 const GoogleScholar = socials.find(social => social.name === 'Google Scholar')
 
 export default function MainContent() {
     return (
         <>
-            <Box
-                id="projects"
-                sx={{
-                    transition: 'all 0.5s ease-in-out',
-                }}>
-                <Box
-                    mb={2}
-                    sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: 1,
-                        justifyContent: {
-                            xs: 'space-between',
-                            md: 'flex-start',
-                        },
-                    }}>
-                    <SectionTitle>Projects</SectionTitle>
-
-                    {GitHub && (
-                        <SocialIconButton
-                            data={GitHub}
-                            size="sm"
-                            title="See more on my GitHub"
-                        />
-                    )}
-                </Box>
-
-                <CardCarousel autoPlay={true}>
-                    {projects.map((project, i) => (
-                        <ProjectCard key={i} data={project} />
-                    ))}
-                </CardCarousel>
-            </Box>
-
             <Box id="writings">
                 <Box
                     mb={2}
