@@ -31,13 +31,16 @@ export default function Layout({ children }: { children: ReactNode }) {
                 />
 
                 <Box
-                    sx={{
+                    sx={({ additional }) => ({
                         display: 'flex',
-                        width: '100%',
+                        width:
+                            'calc(100% - ' +
+                            additional.components.sidebar.width.toString() +
+                            'px)',
                         mt: 8,
                         pt: 3,
-                        mb: 4,
-                    }}>
+                        mb: 6,
+                    })}>
                     <NumberBar />
 
                     <Fade in={showBackground} unmountOnExit>
@@ -56,7 +59,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                             mt: 4,
                             px: 4,
                             mb: {
-                                xs: '50vh',
+                                xs: '60vh',
                                 md: 'unset',
                             },
                             '& > div': {

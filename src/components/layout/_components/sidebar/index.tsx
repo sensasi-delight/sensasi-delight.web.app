@@ -30,7 +30,7 @@ export default function Sidebar({
                     },
                     backgroundColor: additional.background.secondary,
                     border: 'none',
-                    width: '48px',
+                    width: additional.components.sidebar.width,
                 },
             })}
             variant="permanent">
