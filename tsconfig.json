@@ -29,6 +29,6 @@
             "path": "./tsconfig.node.json"
         }
     ],
-    "include": ["**/*.ts", "**/*.tsx"],
+    "include": ["src"],
     "exclude": ["node_modules", "dist"]
 }
