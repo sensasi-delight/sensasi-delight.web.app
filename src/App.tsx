@@ -1,14 +1,14 @@
 // hooks
 import { useFirebase } from '@/hooks/useFirebase'
 //
-import Layout from './components/layout'
-import MainContent from '@/components/MainContent'
+import Layout from '@/components/layout'
 // sections
-import AboutSection from './components/sections/about'
-import HeroSection from './components/sections/hero'
-import ProjectsSection from './components/sections/projects'
-import SkillsSection from './components/sections/skills'
-import SocialsSection from './components/sections/socials'
+import AboutSection from '@/components/sections/about'
+import HeroSection from '@/components/sections/hero'
+import ProjectsSection from '@/components/sections/projects'
+import SkillsSection from '@/components/sections/skills'
+import SocialsSection from '@/components/sections/socials'
+import WritingsSection from '@/components/sections/writings'
 
 export default function App() {
     useFirebase()
@@ -19,7 +19,7 @@ export default function App() {
             <AboutSection />
             <SkillsSection />
             <ProjectsSection />
-            <MainContent />
+            <WritingsSection />
             <SocialsSection />
         </Layout>
     )

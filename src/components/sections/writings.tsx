@@ -1,10 +1,10 @@
 // materials
 import Box from '@mui/material/Box'
-// local components
-import CardCarousel from './CardCarousel/CardCarousel'
-import SectionTitle from './Section/components/Title'
-import SocialIconButton from './SocialIconButton'
-import WritingCard from './CardCarousel/cards/ProjectCard/WritingCard'
+// components
+import CardCarousel from '@/components/CardCarousel/CardCarousel'
+import SectionTitle from '@/components/Section/components/Title'
+import SocialIconButton from '@/components/SocialIconButton'
+import WritingCard from '@/components/CardCarousel/cards/ProjectCard/WritingCard'
 // data
 import socials from '@/data/socials'
 import writings from '@/data/writings'
@@ -12,7 +12,7 @@ import writings from '@/data/writings'
 const Medium = socials.find(social => social.name === 'Medium')
 const GoogleScholar = socials.find(social => social.name === 'Google Scholar')
 
-export default function MainContent() {
+export default function WritingsSection() {
     return (
         <>
             <Box id="writings">
