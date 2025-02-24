@@ -3,8 +3,8 @@ import Box from '@mui/material/Box'
 // components
 import SectionTitle from '@/components/sections/_components/layout/components/Title'
 // data
-import projects from '@/data/projects'
-import socials from '@/data/socials'
+import projects from '@/constants/data/projects'
+import socials from '@/constants/data/socials'
 //
 import CardCarousel from '@/components//CardCarousel'
 import ProjectCard from '@/components/CardCarousel/cards/ProjectCard/ProjectCard'

@@ -3,7 +3,7 @@ import Box from '@mui/material/Box'
 // components
 import SocialIconButton from '@/components/sections/_components/social-icon-button'
 // data
-import socials from '@/data/socials'
+import socials from '@/constants/data/socials'
 
 export default function SocialButtons() {
     return (

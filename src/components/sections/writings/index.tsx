@@ -6,8 +6,8 @@ import SocialIconButton from '@/components/sections/_components/social-icon-butt
 // sub-components
 import WritingCard from './_components/writing-card-item'
 // data
-import socials from '@/data/socials'
-import writings from '@/data/writings'
+import socials from '@/constants/data/socials'
+import writings from '@/constants/data/writings'
 
 const Medium = socials.find(social => social.name === 'Medium')
 const GoogleScholar = socials.find(social => social.name === 'Google Scholar')

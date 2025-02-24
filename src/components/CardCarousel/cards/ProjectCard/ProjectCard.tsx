@@ -1,5 +1,5 @@
 // types
-import type { Project } from '@/data/projects'
+import type { Project } from '@/constants/data/projects'
 // materials
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'

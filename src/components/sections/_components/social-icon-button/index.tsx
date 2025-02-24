@@ -7,7 +7,7 @@ import {
 import IconButton from '@mui/material/IconButton'
 import Tooltip from '@mui/material/Tooltip'
 //
-import type { Social } from '@/data/socials'
+import type { Social } from '@/constants/data/socials'
 
 export default function SocialIconButton({
     data,
