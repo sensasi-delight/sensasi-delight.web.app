@@ -1,14 +1,15 @@
 // materials
 import Box from '@mui/material/Box'
 // components
-import SectionTitle from '@/components/sections/_components/layout/components/Title'
+import ScrollableXBox from '@/components/scrollable-x-box'
 // data
 import projects from '@/constants/data/projects'
 import socials from '@/constants/data/socials'
-//
-import CardCarousel from '@/components//CardCarousel'
-import ProjectCard from '@/components/CardCarousel/cards/ProjectCard/ProjectCard'
+// parents components
+import SectionTitle from '@/components/sections/_components/layout/components/Title'
 import SocialIconButton from '@/components/sections/_components/social-icon-button'
+// sub
+import ProjectItemCard from './_components/project-item-card'
 
 const GitHub = socials.find(social => social.name === 'GitHub')
 
@@ -41,11 +42,11 @@ export default function ProjectsSection() {
                 )}
             </Box>
 
-            <CardCarousel autoPlay={true}>
+            <ScrollableXBox>
                 {projects.map((project, i) => (
-                    <ProjectCard key={i} data={project} />
+                    <ProjectItemCard key={i} data={project} />
                 ))}
-            </CardCarousel>
+            </ScrollableXBox>
         </Box>
     )
 }

@@ -1,0 +1,13 @@
+export type Brand =
+    | 'alpinejs'
+    | 'bootstrap'
+    | 'docker'
+    | 'hero-ui'
+    | 'laravel'
+    | 'hyperledger'
+    | 'material-ui'
+    | 'nextjs'
+    | 'php'
+    | 'react'
+    | 'remix'
+    | 'typescript'
