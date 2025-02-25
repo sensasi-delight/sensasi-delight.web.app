@@ -25,82 +25,82 @@ export interface Skill {
 const skills: Skill[] = [
     {
         title: 'Git',
-        logo: GitLogo as string,
+        logo: GitLogo,
         level: 'beginner',
     },
     {
         title: 'GitHub',
-        logo: GithubLogo as string,
+        logo: GithubLogo,
         level: 'intermediate',
     },
     {
         title: 'PHP',
-        logo: PHPLogo as string,
+        logo: PHPLogo,
         level: 'advanced',
     },
     {
         title: 'Laravel',
-        logo: LaravelLogo as string,
+        logo: LaravelLogo,
         level: 'advanced',
     },
     {
         title: 'React',
-        logo: ReactLogo as string,
+        logo: ReactLogo,
         level: 'intermediate',
     },
     {
         title: 'JavaScript',
-        logo: JavascriptLogo as string,
+        logo: JavascriptLogo,
         level: 'advanced',
     },
     {
         title: 'AlpineJS',
-        logo: AlpineJsLogo as string,
+        logo: AlpineJsLogo,
         level: 'intermediate',
     },
     {
         title: 'Material UI',
-        logo: MaterialUiLogo as string,
+        logo: MaterialUiLogo,
         level: 'intermediate',
     },
     {
         title: 'Bootstrap',
-        logo: BootstrapLogo as string,
+        logo: BootstrapLogo,
         level: 'intermediate',
     },
     {
         title: 'Hyperledger Fabric',
-        logo: HyperledgerLogo as string,
+        logo: HyperledgerLogo,
         level: 'beginner',
     },
     {
         title: 'Docker',
-        logo: DockerLogo as string,
+        logo: DockerLogo,
         level: 'beginner',
     },
     // {
     //     title: 'Python',
-    //     logo: PythonLogo as string,
+    //     logo: PythonLogo,
     //     level: 'beginner',
     // },
     // {
     //     title: 'C / C++',
-    //     logo: CLogo as string,
+    //     logo: CLogo,
     //     level: 'beginner',
     // },
     {
         title: 'SQL',
-        logo: PostgreSqlLogo as string,
+        logo: PostgreSqlLogo,
         level: 'intermediate',
     },
     {
         title: 'GraphQL',
-        logo: GraphQlLogo as string,
+        logo: GraphQlLogo,
         level: 'beginner',
     },
     {
         title: 'TypeScript',
-        logo: TypeScriptLogo as string,
+        logo: TypeScriptLogo,
         level: 'intermediate',
     },
 ]
