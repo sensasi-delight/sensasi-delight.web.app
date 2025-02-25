@@ -17,10 +17,8 @@ export default function ProjectItemCard({ data }: { data: Project }) {
             sx={{
                 borderRadius: 4,
                 minWidth: 300,
-
-                height: 'fit-content',
             }}>
-            <CardContent>
+            <CardContent sx={{ position: 'relative', height: '100%' }}>
                 <Typography mb={1} variant="body2" color="text.secondary">
                     Stacks:
                 </Typography>
@@ -30,7 +28,7 @@ export default function ProjectItemCard({ data }: { data: Project }) {
                         display: 'flex',
                         gap: 2,
                         alignItems: 'center',
-                        mb: 3,
+                        mb: 4,
                     }}>
                     {stacks.map(stack => (
                         <BrandIconImg key={stack} brand={stack} />
@@ -45,9 +43,16 @@ export default function ProjectItemCard({ data }: { data: Project }) {
                     {year}
                 </Typography>
 
-                <Typography variant="body2">{description}</Typography>
+                <Typography variant="body2" mb={8}>
+                    {description}
+                </Typography>
 
-                <Box display="flex" gap={1} mt={2}>
+                <Box
+                    display="flex"
+                    gap={1}
+                    mt={2}
+                    position="absolute"
+                    bottom={16}>
                     {buttons.map(button => (
                         <Button
                             color="info"

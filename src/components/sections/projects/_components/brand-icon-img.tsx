@@ -21,7 +21,7 @@ export default function BrandIconImg({ brand }: { brand: Brand }) {
 
     return (
         <Tooltip title={alt} placement="top" arrow>
-            <img loading="lazy" src={logoSrc} alt={alt} height="32px" />
+            <img loading="lazy" src={logoSrc} alt={alt} height="20px" />
         </Tooltip>
     )
 }
