@@ -7,11 +7,7 @@
         "dev": "vite",
         "build": "tsc && vite build",
         "lint": "tsc && eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-        "preview": "vite preview",
-        "check:update": "ncu",
-        "update": "ncu -u -t patch && npm install",
-        "update:minor": "ncu -u -t minor && npm install",
-        "update:major": "ncu -u && npm install"
+        "preview": "vite preview"
     },
     "dependencies": {
         "@emotion/react": "^11.14.0",
@@ -28,7 +24,6 @@
         "number-to-words": "^1.2.4",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
-        "react-material-ui-carousel": "^3.4.2",
         "use-debounce": "^10.0.4"
     },
     "devDependencies": {
