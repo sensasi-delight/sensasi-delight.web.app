@@ -58,10 +58,6 @@ export default function Layout({ children }: { children: ReactNode }) {
                             gap: 8,
                             mt: 4,
                             px: 4,
-                            mb: {
-                                xs: '60vh',
-                                md: 'unset',
-                            },
                             '& > div': {
                                 scrollMarginTop: 100,
                             },
