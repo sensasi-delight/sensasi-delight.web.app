@@ -2,6 +2,7 @@
 import dayjs from 'dayjs'
 import LocalizedFormat from 'dayjs/plugin/localizedFormat'
 // materials
+import Button from '@mui/material/Button'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Chip from '@mui/material/Chip'
@@ -23,12 +24,11 @@ export default function WritingCardItem({ data }: { data: Writing }) {
             sx={{
                 borderRadius: 4,
                 minWidth: 300,
-                height: 'fit-content',
             }}>
-            <CardContent>
+            <CardContent sx={{ position: 'relative', height: '100%' }}>
                 <Chip label={type} variant="outlined" color="info" />
 
-                <Typography variant="h6" component="div" mt={2}>
+                <Typography variant="h6" component="div" mt={3}>
                     {title}
                 </Typography>
 
@@ -39,19 +39,25 @@ export default function WritingCardItem({ data }: { data: Writing }) {
                     • {dayjs(date).format('LL')}
                 </Typography>
 
-                <Typography variant="body2" mt={3} mb={1}>
+                <Typography variant="body2" mt={3} mb={6}>
                     {previewText}
                 </Typography>
 
-                <Link href={link} target="_blank" fontSize={12}>
+                <Button
+                    href={link}
+                    target="_blank"
+                    size="small"
+                    sx={{
+                        position: 'absolute',
+                        bottom: 8,
+                        transform: 'translateX(-4px)',
+                    }}>
                     Read More{' '}
                     <OpenInNew
                         fontSize="inherit"
-                        sx={{
-                            verticalAlign: 'middle',
-                        }}
+                        sx={{ ml: 1, verticalAlign: 'middle' }}
                     />
-                </Link>
+                </Button>
             </CardContent>
         </Card>
     )
