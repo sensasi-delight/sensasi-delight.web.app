@@ -1,10 +1,7 @@
 import type { ReactNode } from 'react'
-// vendors
-import { useState } from 'react'
 // materials
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
-import Fade from '@mui/material/Fade'
 // assets
 import '@fontsource/roboto/300.css'
 import '@fontsource/roboto/400.css'
@@ -19,16 +16,11 @@ import StarBackground from './_components/star-background'
 import ThemeProvider from './_components/theme-provider'
 
 export default function Layout({ children }: { children: ReactNode }) {
-    const [showBackground, setShowBackground] = useState(true)
-
     return (
         <ThemeProvider>
             <Header />
             <Box sx={{ display: 'flex' }}>
-                <Sidebar
-                    showBackground={showBackground}
-                    setShowBackground={setShowBackground}
-                />
+                <Sidebar />
 
                 <Box
                     sx={({ additional }) => ({
@@ -43,11 +35,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                     })}>
                     <NumberBar />
 
-                    <Fade in={showBackground} unmountOnExit>
-                        <div>
-                            <StarBackground />
-                        </div>
-                    </Fade>
+                    <StarBackground />
 
                     <Container
                         maxWidth="md"

@@ -1,5 +1,3 @@
-// vendors
-
 // materials
 import Drawer from '@mui/material/Drawer'
 import List from '@mui/material/List'
@@ -9,16 +7,8 @@ import ListItemIcon from '@mui/material/ListItemIcon'
 import Tooltip from '@mui/material/Tooltip'
 //
 import MENUS from './_constants/menus'
-//
-import WallpaperIcon from '@mui/icons-material/WallpaperOutlined'
 
-export default function Sidebar({
-    showBackground,
-    setShowBackground,
-}: {
-    showBackground: boolean
-    setShowBackground: React.Dispatch<React.SetStateAction<boolean>>
-}) {
+export default function Sidebar() {
     return (
         <Drawer
             sx={({ additional }) => ({
@@ -71,7 +61,7 @@ export default function Sidebar({
                 ))}
             </List>
 
-            <List
+            {/* <List
                 sx={{
                     mb: 4,
                 }}>
@@ -111,7 +101,7 @@ export default function Sidebar({
                         </ListItemButton>
                     </Tooltip>
                 </ListItem>
-            </List>
+            </List> */}
         </Drawer>
     )
 }
