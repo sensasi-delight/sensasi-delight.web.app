@@ -40,11 +40,10 @@ export default function Footer() {
                     <FontAwesomeIcon icon={faPizzaSlice} />
                 </Typography>
             </Box>
-            <Box>
-                <Typography variant="body2" my={0.5}>
-                    made with ❤ by myself
-                </Typography>
-            </Box>
+
+            <Typography variant="caption" my={0.5}>
+                made with ❤️ by myself
+            </Typography>
         </Box>
     )
 }
