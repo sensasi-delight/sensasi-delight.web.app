@@ -51,4 +51,6 @@ const writings: Writing[] = [
     },
 ]
 
-export default writings
+export default writings.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+)
