@@ -51,7 +51,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                             },
                             mt: 4,
                             px: 4,
-                            '& > div': {
+                            '& > section': {
                                 scrollMarginTop: 100,
                             },
                         }}>

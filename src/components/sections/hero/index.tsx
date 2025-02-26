@@ -25,6 +25,7 @@ export default function HeroSection() {
     return (
         <Grid
             id="summary"
+            component="section"
             container
             spacing={4}
             justifyContent="center"
