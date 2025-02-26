@@ -27,7 +27,7 @@ export default function Section({
                     alignItems: 'center',
                     gap: 1,
                 }}
-                mb={3}>
+                mb={4}>
                 <SectionTitle>{title}</SectionTitle>
 
                 {endTitle}
