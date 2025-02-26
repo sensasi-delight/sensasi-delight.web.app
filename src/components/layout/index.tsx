@@ -19,6 +19,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     return (
         <ThemeProvider>
             <Header />
+
             <Box sx={{ display: 'flex' }}>
                 <Sidebar />
 
@@ -44,6 +45,10 @@ export default function Layout({ children }: { children: ReactNode }) {
                             display: 'flex',
                             flexDirection: 'column',
                             gap: 8,
+                            width: {
+                                sm: '100%',
+                                md: 'calc(100% - 38px)',
+                            },
                             mt: 4,
                             px: 4,
                             '& > div': {
