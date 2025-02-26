@@ -2,7 +2,7 @@
 import type { ReactNode } from 'react'
 // materials
 import Box from '@mui/material/Box'
-import SectionTitle from './components/Title'
+import CodeTag from '@/components/code-tag'
 
 export default function Section({
     id,
@@ -28,7 +28,9 @@ export default function Section({
                     gap: 1,
                 }}
                 mb={4}>
-                <SectionTitle>{title}</SectionTitle>
+                <CodeTag component="h2" fontSize="2em">
+                    {title}
+                </CodeTag>
 
                 {endTitle}
             </Box>
