@@ -32,7 +32,7 @@ const socials: Social[] = [
     {
         name: 'Medium',
         icon: faMediumM,
-        link: 'https://medium.com/@sensasi_delight',
+        link: 'https://medium.com/@sensasi-delight',
     },
     {
         name: 'Google Scholar',
