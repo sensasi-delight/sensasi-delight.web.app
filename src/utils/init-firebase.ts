@@ -10,20 +10,12 @@ const firebaseConfig = {
     apiKey: 'AIzaSyDCXiQimmZGLoxRKTyYnLqB5BUfoz7oLaI',
     authDomain: 'sensasi-delight.firebaseapp.com',
     projectId: 'sensasi-delight',
-    storageBucket: 'sensasi-delight.appspot.com',
+    storageBucket: 'sensasi-delight.firebasestorage.app',
     messagingSenderId: '1013227742447',
     appId: '1:1013227742447:web:3cb8809843d845d285e71a',
     measurementId: 'G-XCHKG5XBWL',
 }
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig)
-const analytics = getAnalytics(app)
-
-const instance = {
-    app,
-    analytics,
-}
-
-export function useFirebase() {
-    return instance
-}
+getAnalytics(app)
