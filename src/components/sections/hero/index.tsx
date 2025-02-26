@@ -2,7 +2,7 @@
 import { useEffect } from 'react'
 // materials
 import Typography from '@mui/material/Typography'
-import Grid from '@mui/material/Grid'
+import Grid2 from '@mui/material/Grid2'
 // components
 import CodeTag from '@/components/code-tag'
 // assets
@@ -23,7 +23,7 @@ export default function HeroSection() {
     }, [])
 
     return (
-        <Grid
+        <Grid2
             id="summary"
             component="section"
             container
@@ -36,10 +36,10 @@ export default function HeroSection() {
                     sm: 'row',
                 },
             }}>
-            <Grid item sm={4} display="flex" justifyContent="center">
+            <Grid2 size={4} display="flex" justifyContent="center">
                 <ProfileImage />
-            </Grid>
-            <Grid item sm={8} gap={1.5} display="flex" flexDirection="column">
+            </Grid2>
+            <Grid2 size={8} gap={1.5} display="flex" flexDirection="column">
                 <Typography variant="h5" component="p">
                     Adam <CodeTag>Zain</CodeTag> Akbar
                 </Typography>
@@ -57,7 +57,7 @@ export default function HeroSection() {
                 </Typography>
 
                 <ContactButtons />
-            </Grid>
-        </Grid>
+            </Grid2>
+        </Grid2>
     )
 }

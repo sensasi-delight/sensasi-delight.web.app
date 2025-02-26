@@ -13,7 +13,7 @@ export default function ProfileImage() {
                 className="photo"
                 sx={{
                     borderRadius: 100,
-                    backgroundImage: `url(${profileImageJpg as string})`,
+                    backgroundImage: `url(${profileImageJpg})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     height: '100%',
