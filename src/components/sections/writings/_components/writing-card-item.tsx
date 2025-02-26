@@ -52,7 +52,7 @@ export default function WritingCardItem({ data }: { data: Writing }) {
                         bottom: 8,
                         transform: 'translateX(-4px)',
                     }}>
-                    Read More{' '}
+                    Read on {platform}
                     <OpenInNew
                         fontSize="inherit"
                         sx={{ ml: 1, verticalAlign: 'middle' }}

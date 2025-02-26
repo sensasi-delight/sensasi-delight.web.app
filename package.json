@@ -7,7 +7,7 @@
         "dev": "vite",
         "build": "tsc && vite build",
         "lint": "tsc && eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-        "preview": "vite preview"
+        "preview": "firebase emulators:start"
     },
     "dependencies": {
         "@emotion/react": "^11.14.0",
