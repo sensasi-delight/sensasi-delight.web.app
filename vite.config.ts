@@ -11,13 +11,14 @@ export default defineConfig({
                 warn(warning)
             },
             output: {
+                compact: true,
                 manualChunks(id) {
                     if (id.search('node_modules') > -1) {
                         return id
                             .toString()
                             .split('node_modules/')[1]
-                            .split('/')[0]
-                            .toString()
+                            ?.split('/')[0]
+                            ?.toString()
                     }
                 },
             },
