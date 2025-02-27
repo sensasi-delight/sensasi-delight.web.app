@@ -36,10 +36,23 @@ export default function HeroSection() {
                     sm: 'row',
                 },
             }}>
-            <Grid2 size={4} display="flex" justifyContent="center">
+            <Grid2
+                size={{
+                    xs: 12,
+                    sm: 4,
+                }}
+                display="flex"
+                justifyContent="center">
                 <ProfileImage />
             </Grid2>
-            <Grid2 size={8} gap={1.5} display="flex" flexDirection="column">
+            <Grid2
+                size={{
+                    xs: 12,
+                    sm: 8,
+                }}
+                gap={1.5}
+                display="flex"
+                flexDirection="column">
                 <Typography variant="h5" component="p">
                     Adam <CodeTag>Zain</CodeTag> Akbar
                 </Typography>
