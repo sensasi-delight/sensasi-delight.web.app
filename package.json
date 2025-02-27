@@ -5,7 +5,6 @@
     "type": "module",
     "scripts": {
         "build": "tsc && vite build",
-        "deploy": "npm run build && firebase deploy --only hosting",
         "dev": "vite",
         "lint": "tsc && eslint .",
         "lint:fix": "eslint . --fix",
