@@ -103,7 +103,7 @@ const projects: Project[] = [
         name: 'MUI DataTable Delight',
         year: 2025,
         description:
-            'A simple Point of Sale application designed to help record sales of goods at stalls / shops / UMKM / stands / outlets / supermarkets.',
+            'A responsive DataTable component built with MUI for React-based project.',
         stacks: ['react', 'material-ui'],
         buttons: [
             {
