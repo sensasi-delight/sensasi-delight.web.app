@@ -1,5 +1,6 @@
 // components
 import Layout from '@/components/layout'
+import LangSelector from '@/components/lang-selector'
 // sections
 import AboutSection from '@/components/sections/about'
 import HeroSection from '@/components/sections/hero'
@@ -15,6 +16,9 @@ export default function App() {
     return (
         <Layout>
             <HeroSection />
+
+            <LangSelector />
+
             <AboutSection />
             <SkillsSection />
             <ProjectsSection />
