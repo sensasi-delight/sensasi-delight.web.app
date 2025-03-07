@@ -10,8 +10,23 @@ import Hover3D from '@/assets/js/vendor/Hover3D.js'
 // sub-components
 import ContactButtons from '../_components/social-buttons'
 import ProfileImage from './profile-image'
+import useLang from '@/hooks/use-lang'
+
+const contents = {
+    sentence1: {
+        en: 'Coder to the bone',
+        jp: 'コーダーとなる',
+    },
+
+    sentence2: {
+        en: 'Full time learner, mostly a web developer.',
+        jp: 'フルタイム学習者、主にウェブ開発者。',
+    },
+}
 
 export default function HeroSection() {
+    const lang = useLang()
+
     useEffect(() => {
         new Hover3D('.photo', {
             xOffset: 20,
@@ -62,11 +77,11 @@ export default function HeroSection() {
                     fontWeight="bold"
                     component="p"
                     lineHeight={0.9}>
-                    Coder to the bone
+                    {contents.sentence1[lang]}
                 </Typography>
 
                 <Typography color="info.main">
-                    Full time learner, mostly a web developer.
+                    {contents.sentence2[lang]}
                 </Typography>
 
                 <ContactButtons />
