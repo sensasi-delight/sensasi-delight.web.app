@@ -4,6 +4,10 @@ const main: ThemeOptions = {
     palette: {
         mode: 'dark',
 
+        primary: {
+            main: '#007acc',
+        },
+
         background: {
             default: '#1e1e1e',
         },
