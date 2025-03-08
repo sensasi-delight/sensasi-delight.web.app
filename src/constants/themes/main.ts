@@ -35,6 +35,10 @@ const main: ThemeOptions = {
             },
         },
     },
+
+    typography: {
+        fontFamily: 'var(--font-roboto)',
+    },
 }
 
 export default main
