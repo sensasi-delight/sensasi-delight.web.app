@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+
 import AlpineJsLogo from '@/assets/images/icons/alpinejs.svg'
 import BootstrapLogo from '@/assets/images/icons/bootstrap.svg'
 // import CLogo from '@/assets/images/icons/c.svg'

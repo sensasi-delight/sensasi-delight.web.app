@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+
 // vendors
 import Tooltip from '@mui/material/Tooltip'
 // icon images
@@ -15,20 +17,28 @@ import remixLogoSrc from '@/assets/images/icons/remix-letter-glowing.svg'
 import typescriptLogoSrc from '@/assets/images/icons/typescript.svg'
 //
 import type { Brand } from '@/types/brand'
+import type { StaticImageData } from 'next/image'
+import Image from 'next/image'
 
 export default function BrandIconImg({ brand }: { brand: Brand }) {
     const { alt, logoSrc } = getBrandData(brand)
 
     return (
         <Tooltip title={alt} placement="top" arrow>
-            <img loading="lazy" src={logoSrc} alt={alt} height="20px" />
+            <Image
+                loading="lazy"
+                src={logoSrc}
+                alt={alt}
+                width={20}
+                height={20}
+            />
         </Tooltip>
     )
 }
 
 interface BrandData {
     alt: string
-    logoSrc: string
+    logoSrc: StaticImageData
 }
 
 function getBrandData(brand: Brand): BrandData {
