@@ -16,6 +16,8 @@ const firebaseConfig = {
     measurementId: 'G-XCHKG5XBWL',
 }
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig)
-getAnalytics(app)
+if (typeof window !== 'undefined' && process.env.NODE_ENV === 'production') {
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig)
+    getAnalytics(app)
+}
