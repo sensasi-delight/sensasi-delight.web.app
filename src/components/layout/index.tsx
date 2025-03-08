@@ -2,11 +2,6 @@ import type { ReactNode } from 'react'
 // materials
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
-// assets
-import '@fontsource/roboto/300.css'
-import '@fontsource/roboto/400.css'
-import '@fontsource/roboto/500.css'
-import '@fontsource/roboto/700.css'
 // sub-components
 import Footer from './_components/footer'
 import Header from './_components/header'
