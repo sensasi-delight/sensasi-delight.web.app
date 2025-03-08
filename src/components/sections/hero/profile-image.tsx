@@ -1,5 +1,3 @@
-'use client'
-
 import { useEffect } from 'react'
 import Paper from '@mui/material/Paper'
 import profileImageJpg from '@/assets/images/me.jpg'
@@ -27,7 +25,7 @@ export default function ProfileImage() {
                 className="photo"
                 sx={{
                     borderRadius: 100,
-                    backgroundImage: `url(${profileImageJpg})`,
+                    backgroundImage: `url(${profileImageJpg.src})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     height: '100%',
