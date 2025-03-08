@@ -5,6 +5,7 @@ declare global {
 }
 // vendors
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 // materials
 import { useTheme } from '@mui/material/styles'
 import Box from '@mui/material/Box'
@@ -218,12 +219,12 @@ function SkillLi({
                     e.preventDefault()
                 }}>
                 {title}
-                <img
+                <Image
                     loading="lazy"
                     src={logo}
                     alt={title}
-                    height={sizePx.toString() + 'px'}
-                    width={sizePx.toString() + 'px'}
+                    height={sizePx}
+                    width={sizePx}
                 />
             </a>
         </li>
