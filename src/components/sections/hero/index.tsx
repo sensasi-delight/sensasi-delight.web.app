@@ -1,12 +1,9 @@
-// vendors
-import { useEffect } from 'react'
 // materials
 import Typography from '@mui/material/Typography'
 import Grid2 from '@mui/material/Grid2'
 // components
 import CodeTag from '@/components/code-tag'
 // assets
-import Hover3D from '@/assets/js/vendor/Hover3D.js'
 // sub-components
 import ContactButtons from '../_components/social-buttons'
 import ProfileImage from './profile-image'
@@ -26,16 +23,6 @@ const contents = {
 
 export default function HeroSection() {
     const lang = useLang()
-
-    useEffect(() => {
-        new Hover3D('.photo', {
-            xOffset: 20,
-            yOffset: 20,
-            attack: 0.1,
-            release: 0.5,
-            perspective: 500,
-        })
-    }, [])
 
     return (
         <Grid2
