@@ -12,10 +12,6 @@ const CUSTOM_RULES = {
     },
     rules: {
         ...reactHooks.configs.recommended.rules,
-        'react-refresh/only-export-components': [
-            'warn',
-            { allowConstantExport: true },
-        ],
 
         'no-console': 'warn',
 
