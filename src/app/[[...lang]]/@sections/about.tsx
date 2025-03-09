@@ -41,9 +41,14 @@ const content: Record<Locale, ReactNode[]> = {
     ],
 }
 
+const sectionTitle: Record<Locale, string> = {
+    en: 'About Me',
+    ja: '私について',
+}
+
 export default function AboutSection({ locale }: { locale: Locale }) {
     return (
-        <Section id="about" title="About Me">
+        <Section id="about" title={sectionTitle[locale]}>
             <Typography sx={{ mb: 2 }} align="justify">
                 {content[locale][0]}
             </Typography>

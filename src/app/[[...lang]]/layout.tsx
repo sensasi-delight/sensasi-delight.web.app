@@ -123,7 +123,7 @@ export default async function RootLayout({
             <body className={roboto.variable}>
                 <AppRouterCacheProvider>
                     <ThemeProvider>
-                        <PageLayout>{children}</PageLayout>
+                        <PageLayout locale={lang[0]}>{children}</PageLayout>
                     </ThemeProvider>
                 </AppRouterCacheProvider>
             </body>

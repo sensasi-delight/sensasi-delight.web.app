@@ -1,5 +1,6 @@
 // vendors
 import { useState } from 'react'
+import { useParams } from 'next/navigation'
 import { useDebouncedCallback } from 'use-debounce'
 // materials
 import Box from '@mui/material/Box'
@@ -16,6 +17,9 @@ export default function SearchBar({
 }: {
     onChangeDebounce: (value: string) => void
 }) {
+    const { lang = ['en'] } = useParams()
+    const locale = lang[0]
+
     const [isOpen, setIsOpen] = useState(false)
     const [searchText, setSearchText] = useState('')
 
@@ -40,7 +44,7 @@ export default function SearchBar({
                         debounced(value)
                     }}
                     value={searchText}
-                    label="Search"
+                    label={locale === 'ja' ? '検索' : 'Search'}
                     size="small"
                     variant="standard"
                     margin="none"

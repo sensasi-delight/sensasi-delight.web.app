@@ -9,32 +9,50 @@ import SummarizeOutlinedIcon from '@mui/icons-material/SummarizeOutlined'
 const MENUS = [
     {
         href: '#summary',
-        text: 'Summary',
+        text: {
+            en: 'Summary',
+            ja: 'サマリー',
+        },
         Icon: PhotoOutlinedIcon,
     },
     {
         href: '#about',
-        text: 'About me',
+        text: {
+            en: 'About',
+            ja: '自己紹介',
+        },
         Icon: SummarizeOutlinedIcon,
     },
     {
         href: '#skills',
-        text: 'Skills',
+        text: {
+            en: 'Skills',
+            ja: 'スキル',
+        },
         Icon: HandymanIcon,
     },
     {
         href: '#projects',
-        text: 'Projects',
+        text: {
+            en: 'Projects',
+            ja: 'プロジェクト',
+        },
         Icon: RocketLaunchIcon,
     },
     {
         href: '#writings',
-        text: 'Writings',
+        text: {
+            en: 'Writings',
+            ja: '記事',
+        },
         Icon: NewspaperIcon,
     },
     {
         href: '#socials',
-        text: 'Socials',
+        text: {
+            en: 'Socials',
+            ja: 'SNS',
+        },
         Icon: ContactIcon,
     },
 ] as const
