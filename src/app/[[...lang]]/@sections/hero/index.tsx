@@ -4,23 +4,12 @@ import Grid2 from '@mui/material/Grid2'
 // components
 import CodeTag from '@/components/code-tag'
 // sub-components
-import type { Lang } from '@/app/[[...lang]]/@types/lang'
+import type { Locale } from '@/app/[[...lang]]/@types/locale'
 import ContactButtons from '../_components/social-buttons'
 import ProfileImage from './profile-image'
+import DICTIONARIES from '@/constants/dictionaries'
 
-const contents = {
-    sentence1: {
-        en: 'Coder to the bone',
-        jp: 'コーダーとなる',
-    },
-
-    sentence2: {
-        en: 'Full time learner, mostly a web developer.',
-        jp: 'フルタイム学習者、主にウェブ開発者。',
-    },
-}
-
-export default function HeroSection({ lang }: { lang: Lang }) {
+export default function HeroSection({ locale }: { locale: Locale }) {
     return (
         <Grid2
             id="summary"
@@ -61,11 +50,11 @@ export default function HeroSection({ lang }: { lang: Lang }) {
                     fontWeight="bold"
                     component="p"
                     lineHeight={0.9}>
-                    {contents.sentence1[lang]}
+                    {DICTIONARIES.roleTitle1[locale]}
                 </Typography>
 
                 <Typography color="info.main">
-                    {contents.sentence2[lang]}
+                    {DICTIONARIES.roleTitle2[locale]}
                 </Typography>
 
                 <ContactButtons />

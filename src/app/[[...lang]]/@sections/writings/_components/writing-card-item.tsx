@@ -17,36 +17,36 @@ import Typography from '@mui/material/Typography'
 // icons
 import OpenInNew from '@mui/icons-material/OpenInNew'
 // types
-import type { Lang } from '@/app/[[...lang]]/@types/lang'
+import type { Locale } from '@/app/[[...lang]]/@types/locale'
 import type Writing from '@/types/writings'
 
 dayjs.extend(LocalizedFormat)
 
 const DICTIONARIES: {
-    readOn: Record<Lang, string>
+    readOn: Record<Locale, string>
     writingType: {
-        blog: Record<Lang, string>
-        paper: Record<Lang, string>
-        book: Record<Lang, string>
+        blog: Record<Locale, string>
+        paper: Record<Locale, string>
+        book: Record<Locale, string>
     }
 } = {
     readOn: {
         en: 'Read on $1',
-        jp: '続きは$1で',
+        ja: '続きは$1で',
     },
 
     writingType: {
         blog: {
             en: 'Blog',
-            jp: 'ブログ',
+            ja: 'ブログ',
         },
         paper: {
             en: 'Paper',
-            jp: '論文',
+            ja: '論文',
         },
         book: {
             en: 'Book',
-            jp: '書籍',
+            ja: '書籍',
         },
     },
 }
@@ -56,7 +56,7 @@ export default function WritingCardItem({
     locale,
 }: {
     data: Writing
-    locale: Lang
+    locale: Locale
 }) {
     return (
         <Card
@@ -88,10 +88,7 @@ export default function WritingCardItem({
                     <Link href={link} target="_blank">
                         {platform}
                     </Link>{' '}
-                    •{' '}
-                    {dayjs(date)
-                        .locale(locale === 'jp' ? 'ja' : 'en')
-                        .format('LL')}
+                    • {dayjs(date).locale(locale).format('LL')}
                 </Typography>
 
                 <Typography variant="body2" mt={3} mb={6}>

@@ -132,5 +132,5 @@ export default async function RootLayout({
 }
 
 export function generateStaticParams() {
-    return [{ lang: ['jp'] }, { lang: [''] }]
+    return [{ lang: ['ja'] }, { lang: [''] }]
 }

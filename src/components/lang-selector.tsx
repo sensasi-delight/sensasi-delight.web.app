@@ -6,18 +6,18 @@ import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Divider from '@mui/material/Divider'
 //
-import type { Lang } from '@/app/[[...lang]]/@types/lang'
+import type { Locale } from '@/app/[[...lang]]/@types/locale'
 
-export default function LangSelector({ lang }: { lang: Lang }) {
+export default function LangSelector({ locale }: { locale: Locale }) {
     return (
         <Box display="flex" marginTop={-4}>
-            <LangButton href="/" isActive={lang === 'en'}>
+            <LangButton href="/" isActive={locale === 'en'}>
                 En
             </LangButton>
 
             <Divider orientation="vertical" />
 
-            <LangButton href="/jp" isActive={lang === 'jp'}>
+            <LangButton href="/ja" isActive={locale === 'ja'}>
                 日本語
             </LangButton>
         </Box>
