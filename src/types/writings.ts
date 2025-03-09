@@ -1,8 +1,17 @@
 export default interface Writing {
     date: string
+    lang: 'id' | 'en'
     link: string
     platform: string
-    previewText: string
-    title: string
-    type: 'Blog' | 'Paper' | 'Book'
+    previewText: {
+        en: string
+        id?: string
+        jp: string
+    }
+    title: {
+        en: string
+        id?: string
+        jp: string
+    }
+    type: 'blog' | 'paper' | 'book'
 }

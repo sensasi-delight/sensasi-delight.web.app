@@ -1,23 +1,63 @@
 // vendors
+import 'dayjs/locale/en'
+import 'dayjs/locale/ja'
+
 import dayjs from 'dayjs'
+import Flag from 'react-flagkit'
 import LocalizedFormat from 'dayjs/plugin/localizedFormat'
 // materials
+import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Chip from '@mui/material/Chip'
 import Link from '@mui/material/Link'
+import Tooltip from '@mui/material/Tooltip'
 import Typography from '@mui/material/Typography'
 // icons
 import OpenInNew from '@mui/icons-material/OpenInNew'
 // types
+import type { Lang } from '@/app/[[...lang]]/@types/lang'
 import type Writing from '@/types/writings'
 
 dayjs.extend(LocalizedFormat)
 
-export default function WritingCardItem({ data }: { data: Writing }) {
-    const { title, date, type, previewText, link, platform } = data
+const DICTIONARIES: {
+    readOn: Record<Lang, string>
+    writingType: {
+        blog: Record<Lang, string>
+        paper: Record<Lang, string>
+        book: Record<Lang, string>
+    }
+} = {
+    readOn: {
+        en: 'Read on $1',
+        jp: '続きは$1で',
+    },
 
+    writingType: {
+        blog: {
+            en: 'Blog',
+            jp: 'ブログ',
+        },
+        paper: {
+            en: 'Paper',
+            jp: '論文',
+        },
+        book: {
+            en: 'Book',
+            jp: '書籍',
+        },
+    },
+}
+
+export default function WritingCardItem({
+    data: { date, lang, link, platform, previewText, title, type },
+    locale,
+}: {
+    data: Writing
+    locale: Lang
+}) {
     return (
         <Card
             elevation={4}
@@ -26,21 +66,36 @@ export default function WritingCardItem({ data }: { data: Writing }) {
                 minWidth: 300,
             }}>
             <CardContent sx={{ position: 'relative', height: '100%' }}>
-                <Chip label={type} variant="outlined" color="info" />
+                <Box
+                    display="flex"
+                    alignItems="center"
+                    gap={1}
+                    justifyContent="space-between">
+                    <Chip
+                        label={DICTIONARIES.writingType[type][locale]}
+                        variant="outlined"
+                        color="info"
+                    />
+
+                    <LangFlag lang={lang} />
+                </Box>
 
                 <Typography variant="h6" component="div" mt={3}>
-                    {title}
+                    {title[locale]}
                 </Typography>
 
                 <Typography variant="body2" color="text.secondary">
                     <Link href={link} target="_blank">
                         {platform}
                     </Link>{' '}
-                    • {dayjs(date).format('LL')}
+                    •{' '}
+                    {dayjs(date)
+                        .locale(locale === 'jp' ? 'ja' : 'en')
+                        .format('LL')}
                 </Typography>
 
                 <Typography variant="body2" mt={3} mb={6}>
-                    {previewText}
+                    {previewText[locale]}
                 </Typography>
 
                 <Button
@@ -52,7 +107,7 @@ export default function WritingCardItem({ data }: { data: Writing }) {
                         bottom: 8,
                         transform: 'translateX(-4px)',
                     }}>
-                    Read on {platform}
+                    {DICTIONARIES.readOn[locale].replace('$1', platform)}
                     <OpenInNew
                         fontSize="inherit"
                         sx={{ ml: 1, verticalAlign: 'middle' }}
@@ -60,5 +115,18 @@ export default function WritingCardItem({ data }: { data: Writing }) {
                 </Button>
             </CardContent>
         </Card>
+    )
+}
+
+function LangFlag({ lang }: { lang: Writing['lang'] }) {
+    return (
+        <Tooltip
+            title={lang === 'id' ? 'Bahasa Indonesia' : 'English'}
+            arrow
+            placement="left">
+            <Box mr={0.5}>
+                <Flag country={lang === 'id' ? 'ID' : 'GB'} />
+            </Box>
+        </Tooltip>
     )
 }

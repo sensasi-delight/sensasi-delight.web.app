@@ -8,6 +8,7 @@ import WritingCard from './_components/writing-card-item'
 import SocialIconButton from '../_components/social-icon-button'
 import Section from '../_components/layout'
 // data
+import type { Lang } from '../../@types/lang'
 import socials from '@/constants/data/socials'
 import writings from '@/constants/data/writings'
 
@@ -16,18 +17,33 @@ const googleScholarData = socials.find(
     social => social.name === 'Google Scholar',
 )
 
-export default function WritingsSection() {
+const DICTIONARIES = {
+    title: {
+        en: 'Writings',
+        jp: '書籍',
+    },
+
+    readMore: {
+        en: 'Read more on my $1',
+        jp: '続きは$1で',
+    },
+}
+
+export default function WritingsSection({ lang }: { lang: Lang }) {
     return (
         <Section
             id="writings"
-            title="Writings"
+            title={DICTIONARIES.title[lang]}
             endTitle={
                 <Box>
                     {mediumData && (
                         <SocialIconButton
                             data={mediumData}
                             size="sm"
-                            title="Read more on my Medium"
+                            title={DICTIONARIES.readMore[lang].replace(
+                                '$1',
+                                'medium.com',
+                            )}
                         />
                     )}
 
@@ -35,14 +51,17 @@ export default function WritingsSection() {
                         <SocialIconButton
                             data={googleScholarData}
                             size="sm"
-                            title="Read more on my Google Scholar"
+                            title={DICTIONARIES.readMore[lang].replace(
+                                '$1',
+                                'Google Scholar',
+                            )}
                         />
                     )}
                 </Box>
             }>
             <ScrollableXBox>
                 {writings.map((writing, i) => (
-                    <WritingCard key={i} data={writing} />
+                    <WritingCard key={i} data={writing} locale={lang} />
                 ))}
             </ScrollableXBox>
         </Section>
