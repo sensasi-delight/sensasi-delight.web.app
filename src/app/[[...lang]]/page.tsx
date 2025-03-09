@@ -21,10 +21,10 @@ export default async function Index({ params }: { params: Promise<Params> }) {
             <LangSelector locale={lang} />
 
             <AboutSection locale={lang} />
-            <SkillsSection />
-            <ProjectsSection />
+            <SkillsSection locale={lang} />
+            <ProjectsSection locale={lang} />
             <WritingsSection locale={lang} />
-            <SocialsSection />
+            <SocialsSection locale={lang} />
 
             <RandomQuote />
         </>

@@ -6,10 +6,11 @@ import ListItemButton from '@mui/material/ListItemButton'
 import ListItemIcon from '@mui/material/ListItemIcon'
 import Tooltip from '@mui/material/Tooltip'
 //
+import type { Locale } from '@/app/[[...lang]]/@types/locale'
 import MENUS from './_constants/menus'
 import SIDEBAR_WIDTH from '@/constants/themes/sidebar-width'
 
-export default function Sidebar() {
+export default function Sidebar({ locale }: { locale: Locale }) {
     return (
         <Drawer
             sx={{
@@ -31,7 +32,10 @@ export default function Sidebar() {
                 }}>
                 {MENUS.map((menu, i) => (
                     <ListItem key={i} disablePadding sx={{ my: 2.75 }}>
-                        <Tooltip title={menu.text} placement="right" arrow>
+                        <Tooltip
+                            title={menu.text[locale]}
+                            placement="right"
+                            arrow>
                             <ListItemButton
                                 disableRipple
                                 sx={{

@@ -25,7 +25,7 @@ const socials: Social[] = [
         link: 'https://github.com/sensasi-delight',
     },
     {
-        name: 'Linked In',
+        name: 'LinkedIn',
         icon: faLinkedin,
         link: 'https://www.linkedin.com/in/sensasi-delight/',
     },

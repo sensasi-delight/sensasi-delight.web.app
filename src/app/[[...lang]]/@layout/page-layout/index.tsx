@@ -9,14 +9,21 @@ import NumberBar from './components/number-bar'
 import Sidebar from './components/sidebar'
 import StarBackground from './components/star-background'
 import SIDEBAR_WIDTH from '@/constants/themes/sidebar-width'
+import type { Locale } from '../../@types/locale'
 
-export default function PageLayout({ children }: { children: ReactNode }) {
+export default function PageLayout({
+    children,
+    locale,
+}: {
+    children: ReactNode
+    locale: Locale
+}) {
     return (
         <>
             <Header />
 
             <Box sx={{ display: 'flex' }}>
-                <Sidebar />
+                <Sidebar locale={locale} />
 
                 <Box
                     sx={{
