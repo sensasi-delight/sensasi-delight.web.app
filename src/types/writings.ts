@@ -1,17 +1,15 @@
+import type { Locale } from '@/app/[[...lang]]/@types/locale'
+
 export default interface Writing {
     date: string
     lang: 'id' | 'en'
     link: string
     platform: string
-    previewText: {
-        en: string
+    previewText: Record<Locale, string> & {
         id?: string
-        jp: string
     }
-    title: {
-        en: string
+    title: Record<Locale, string> & {
         id?: string
-        jp: string
     }
-    type: 'blog' | 'paper' | 'book'
+    type: 'blog' | 'book' | 'paper'
 }

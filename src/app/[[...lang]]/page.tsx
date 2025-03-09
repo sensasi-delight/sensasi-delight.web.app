@@ -16,14 +16,14 @@ export default async function Index({ params }: { params: Promise<Params> }) {
 
     return (
         <>
-            <HeroSection lang={lang} />
+            <HeroSection locale={lang} />
 
-            <LangSelector lang={lang} />
+            <LangSelector locale={lang} />
 
-            <AboutSection lang={lang} />
+            <AboutSection locale={lang} />
             <SkillsSection />
             <ProjectsSection />
-            <WritingsSection lang={lang} />
+            <WritingsSection locale={lang} />
             <SocialsSection />
 
             <RandomQuote />

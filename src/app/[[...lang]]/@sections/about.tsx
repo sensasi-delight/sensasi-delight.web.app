@@ -1,14 +1,15 @@
 // vendors
+import type { ReactNode } from 'react'
 import { toWords } from 'number-to-words'
 // materials
 import Typography from '@mui/material/Typography'
 // sub-components
 import Section from './_components/layout'
 // components
-import type { Lang } from '../@types/lang'
+import type { Locale } from '../@types/locale'
 import CodeTag from '@/components/code-tag'
 
-const content = {
+const content: Record<Locale, ReactNode[]> = {
     en: [
         <>
             Hello, World!, my name is <CodeTag>Adam Akbar</CodeTag> but everyone
@@ -30,7 +31,7 @@ const content = {
         </>,
     ],
 
-    jp: [
+    ja: [
         <>
             ハロー、ワールド！私の名前はアダム・アクバルですが、皆からはザインと呼ばれています！9年以上にわたるPHP開発の実績を誇る高度なスキルを持った開発者です。クライアントの期待を満たし、さらに上回る高品質なソリューションを提供できる能力を誇りに思っています。
         </>,
@@ -40,14 +41,14 @@ const content = {
     ],
 }
 
-export default function AboutSection({ lang }: { lang: Lang }) {
+export default function AboutSection({ locale }: { locale: Locale }) {
     return (
         <Section id="about" title="About Me">
             <Typography sx={{ mb: 2 }} align="justify">
-                {content[lang][0]}
+                {content[locale][0]}
             </Typography>
 
-            <Typography align="justify">{content[lang][1]}</Typography>
+            <Typography align="justify">{content[locale][1]}</Typography>
         </Section>
     )
 }

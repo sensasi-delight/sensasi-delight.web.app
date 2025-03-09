@@ -8,7 +8,7 @@ import WritingCard from './_components/writing-card-item'
 import SocialIconButton from '../_components/social-icon-button'
 import Section from '../_components/layout'
 // data
-import type { Lang } from '../../@types/lang'
+import type { Locale } from '../../@types/locale'
 import socials from '@/constants/data/socials'
 import writings from '@/constants/data/writings'
 
@@ -20,27 +20,27 @@ const googleScholarData = socials.find(
 const DICTIONARIES = {
     title: {
         en: 'Writings',
-        jp: '書籍',
+        ja: '書籍',
     },
 
     readMore: {
         en: 'Read more on my $1',
-        jp: '続きは$1で',
+        ja: '続きは$1で',
     },
 }
 
-export default function WritingsSection({ lang }: { lang: Lang }) {
+export default function WritingsSection({ locale }: { locale: Locale }) {
     return (
         <Section
             id="writings"
-            title={DICTIONARIES.title[lang]}
+            title={DICTIONARIES.title[locale]}
             endTitle={
                 <Box>
                     {mediumData && (
                         <SocialIconButton
                             data={mediumData}
                             size="sm"
-                            title={DICTIONARIES.readMore[lang].replace(
+                            title={DICTIONARIES.readMore[locale].replace(
                                 '$1',
                                 'medium.com',
                             )}
@@ -51,7 +51,7 @@ export default function WritingsSection({ lang }: { lang: Lang }) {
                         <SocialIconButton
                             data={googleScholarData}
                             size="sm"
-                            title={DICTIONARIES.readMore[lang].replace(
+                            title={DICTIONARIES.readMore[locale].replace(
                                 '$1',
                                 'Google Scholar',
                             )}
@@ -61,7 +61,7 @@ export default function WritingsSection({ lang }: { lang: Lang }) {
             }>
             <ScrollableXBox>
                 {writings.map((writing, i) => (
-                    <WritingCard key={i} data={writing} locale={lang} />
+                    <WritingCard key={i} data={writing} locale={locale} />
                 ))}
             </ScrollableXBox>
         </Section>
