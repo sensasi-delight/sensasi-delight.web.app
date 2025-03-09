@@ -23,7 +23,7 @@ export default async function Index({ params }: { params: Promise<Params> }) {
             <AboutSection lang={lang} />
             <SkillsSection />
             <ProjectsSection />
-            <WritingsSection />
+            <WritingsSection lang={lang} />
             <SocialsSection />
 
             <RandomQuote />
