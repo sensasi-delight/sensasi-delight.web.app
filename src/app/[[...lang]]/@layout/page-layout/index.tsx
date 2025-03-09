@@ -3,14 +3,14 @@ import type { ReactNode } from 'react'
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 // sub-components
-import Footer from './_components/footer'
-import Header from './_components/header'
-import NumberBar from './_components/number-bar'
-import Sidebar from './_components/sidebar'
-import StarBackground from './_components/star-background'
+import Footer from './components/footer'
+import Header from './components/top-bar'
+import NumberBar from './components/number-bar'
+import Sidebar from './components/sidebar'
+import StarBackground from './components/star-background'
 import SIDEBAR_WIDTH from '@/constants/themes/sidebar-width'
 
-export default function Layout({ children }: { children: ReactNode }) {
+export default function PageLayout({ children }: { children: ReactNode }) {
     return (
         <>
             <Header />
@@ -46,7 +46,8 @@ export default function Layout({ children }: { children: ReactNode }) {
                             '& > section': {
                                 scrollMarginTop: 100,
                             },
-                        }}>
+                        }}
+                        component="main">
                         {children}
                     </Container>
                 </Box>

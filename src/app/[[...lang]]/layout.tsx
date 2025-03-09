@@ -1,7 +1,12 @@
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
+// vendors
 import type { Metadata, Viewport } from 'next'
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
 import { Roboto } from 'next/font/google'
+// sub
 import ThemeProvider from './@layout/theme-provider'
+import PageLayout from '@/app/[[...lang]]/@layout/page-layout'
+// utils
+import '@/utils/init-firebase'
 
 const roboto = Roboto({
     weight: ['300', '400', '500', '700'],
@@ -116,7 +121,9 @@ export default async function RootLayout({
             </head>
             <body className={roboto.variable}>
                 <AppRouterCacheProvider>
-                    <ThemeProvider>{children}</ThemeProvider>
+                    <ThemeProvider>
+                        <PageLayout>{children}</PageLayout>
+                    </ThemeProvider>
                 </AppRouterCacheProvider>
             </body>
         </html>
