@@ -3,11 +3,10 @@ import Typography from '@mui/material/Typography'
 import Grid2 from '@mui/material/Grid2'
 // components
 import CodeTag from '@/components/code-tag'
-// assets
 // sub-components
+import type { Lang } from '@/app/[[...lang]]/@types/lang'
 import ContactButtons from '../_components/social-buttons'
 import ProfileImage from './profile-image'
-import useLang from '@/hooks/use-lang'
 
 const contents = {
     sentence1: {
@@ -21,9 +20,7 @@ const contents = {
     },
 }
 
-export default function HeroSection() {
-    const lang = useLang()
-
+export default function HeroSection({ lang }: { lang: Lang }) {
     return (
         <Grid2
             id="summary"

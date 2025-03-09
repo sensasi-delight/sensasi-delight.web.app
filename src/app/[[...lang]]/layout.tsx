@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
 import { Roboto } from 'next/font/google'
 // sub
+import type Params from './@types/params'
 import ThemeProvider from './@layout/theme-provider'
 import PageLayout from '@/app/[[...lang]]/@layout/page-layout'
 // utils
@@ -65,7 +66,7 @@ export default async function RootLayout({
     params,
 }: {
     children: React.ReactNode
-    params: Promise<{ lang?: ['jp'] }>
+    params: Promise<Params>
 }) {
     const { lang = ['en'] } = await params
 

@@ -1,5 +1,5 @@
-'use client'
-
+// types
+import type Params from './@types/params'
 // components
 import LangSelector from '@/components/lang-selector'
 // sections
@@ -11,14 +11,16 @@ import SkillsSection from './@sections/skills'
 import SocialsSection from './@sections/socials'
 import WritingsSection from './@sections/writings'
 
-export default function Index() {
+export default async function Index({ params }: { params: Promise<Params> }) {
+    const lang = (await params).lang?.[0] ?? 'en'
+
     return (
         <>
-            <HeroSection />
+            <HeroSection lang={lang} />
 
-            <LangSelector />
+            <LangSelector lang={lang} />
 
-            <AboutSection />
+            <AboutSection lang={lang} />
             <SkillsSection />
             <ProjectsSection />
             <WritingsSection />

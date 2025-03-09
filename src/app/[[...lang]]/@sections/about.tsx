@@ -5,9 +5,8 @@ import Typography from '@mui/material/Typography'
 // sub-components
 import Section from './_components/layout'
 // components
+import type { Lang } from '../@types/lang'
 import CodeTag from '@/components/code-tag'
-// hooks
-import useLang from '@/hooks/use-lang'
 
 const content = {
     en: [
@@ -41,9 +40,7 @@ const content = {
     ],
 }
 
-export default function AboutSection() {
-    const lang = useLang()
-
+export default function AboutSection({ lang }: { lang: Lang }) {
     return (
         <Section id="about" title="About Me">
             <Typography sx={{ mb: 2 }} align="justify">

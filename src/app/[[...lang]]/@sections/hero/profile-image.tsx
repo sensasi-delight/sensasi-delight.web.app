@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect } from 'react'
 import Paper from '@mui/material/Paper'
 import profileImageJpg from '@/assets/images/me.jpg'
