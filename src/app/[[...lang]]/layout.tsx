@@ -6,7 +6,7 @@ import { Roboto } from 'next/font/google'
 import ThemeProvider from './@layout/theme-provider'
 import PageLayout from '@/app/[[...lang]]/@layout/page-layout'
 // utils
-import '@/utils/init-firebase'
+import '@/app/[[...lang]]/@layout/utils/init-firebase'
 
 const roboto = Roboto({
     weight: ['300', '400', '500', '700'],

@@ -2,9 +2,11 @@
 import { toWords } from 'number-to-words'
 // materials
 import Typography from '@mui/material/Typography'
+// sub-components
+import Section from './_components/layout'
 // components
-import CodeTag from '../code-tag'
-import Section from '@/components/sections/_components/layout'
+import CodeTag from '@/components/code-tag'
+// hooks
 import useLang from '@/hooks/use-lang'
 
 const content = {

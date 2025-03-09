@@ -4,7 +4,7 @@ import ScrollableXBox from '@/components/scrollable-x-box'
 import projects from '@/constants/data/projects'
 import socials from '@/constants/data/socials'
 // parents components
-import SocialIconButton from '@/components/sections/_components/social-icon-button'
+import SocialIconButton from '../_components/social-icon-button'
 // sub
 import ProjectItemCard from './_components/project-item-card'
 import Section from '../_components/layout'
