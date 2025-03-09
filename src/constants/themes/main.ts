@@ -17,23 +17,8 @@ const main: ThemeOptions = {
         },
     },
 
-    additional: {
-        background: {
-            secondary: '#333333',
-            tertiary: '#252525',
-        },
-        components: {
-            footer: {
-                bgColor: {
-                    primary: '#007acc',
-                    secondary: '#16825d',
-                },
-            },
-            sidebar: {
-                background: '#333333',
-                width: 48,
-            },
-        },
+    typography: {
+        fontFamily: 'var(--font-roboto)',
     },
 }
 

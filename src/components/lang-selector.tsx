@@ -1,15 +1,14 @@
 // vendors
 import type { ReactNode } from 'react'
+import Link from 'next/link'
 // materials
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Divider from '@mui/material/Divider'
 //
-import useLang from '@/hooks/use-lang'
+import type { Lang } from '@/app/[[...lang]]/@types/lang'
 
-export default function LangSelector() {
-    const lang = useLang()
-
+export default function LangSelector({ lang }: { lang: Lang }) {
     return (
         <Box display="flex" marginTop={-4}>
             <LangButton href="/" isActive={lang === 'en'}>
@@ -42,7 +41,8 @@ function LangButton({
                 px: 2,
                 color: isActive ? undefined : 'text.disabled',
             }}
-            href={href}>
+            href={href}
+            LinkComponent={Link}>
             {children}
         </Button>
     )

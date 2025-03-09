@@ -20,6 +20,9 @@
  */
 ;(function () {
     'use strict'
+
+    if (typeof window === 'undefined') return
+
     var i,
         j,
         abs = Math.abs,

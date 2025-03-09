@@ -17,18 +17,18 @@ export default function CodeTag({
             color="info.main"
             component={component}
             fontSize={fontSize}
-            sx={theme => ({
+            sx={{
                 fontFamily: 'monospace',
                 fontWeight: 'bold',
                 '&:after': {
                     content: '">"',
-                    color: theme.palette.text.secondary,
+                    color: 'text.secondary',
                 },
                 '&:before': {
                     content: "'<'",
-                    color: theme.palette.text.secondary,
+                    color: 'text.secondary',
                 },
-            })}>
+            }}>
             {children}
         </Typography>
     )
