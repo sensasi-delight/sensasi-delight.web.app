@@ -9,6 +9,7 @@ import NumberBar from './_components/number-bar'
 import Sidebar from './_components/sidebar'
 import StarBackground from './_components/star-background'
 import ThemeProvider from './_components/theme-provider'
+import SIDEBAR_WIDTH from '@/constants/themes/sidebar-width'
 
 export default function Layout({ children }: { children: ReactNode }) {
     return (
@@ -19,16 +20,13 @@ export default function Layout({ children }: { children: ReactNode }) {
                 <Sidebar />
 
                 <Box
-                    sx={({ additional }) => ({
+                    sx={{
                         display: 'flex',
-                        width:
-                            'calc(100% - ' +
-                            additional.components.sidebar.width.toString() +
-                            'px)',
+                        width: `calc(100% - ${SIDEBAR_WIDTH.toString()}px)`,
                         mt: 8,
                         pt: 3,
                         mb: 6,
-                    })}>
+                    }}>
                     <NumberBar />
 
                     <StarBackground />

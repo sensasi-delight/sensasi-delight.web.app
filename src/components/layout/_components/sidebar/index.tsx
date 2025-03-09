@@ -7,22 +7,23 @@ import ListItemIcon from '@mui/material/ListItemIcon'
 import Tooltip from '@mui/material/Tooltip'
 //
 import MENUS from './_constants/menus'
+import SIDEBAR_WIDTH from '@/constants/themes/sidebar-width'
 
 export default function Sidebar() {
     return (
         <Drawer
-            sx={({ additional }) => ({
-                width: additional.components.sidebar.width,
+            sx={{
+                width: SIDEBAR_WIDTH,
                 '& .MuiDrawer-paper': {
                     overflowY: 'scroll',
                     '&::-webkit-scrollbar': {
                         display: 'none',
                     },
-                    backgroundColor: additional.background.secondary,
+                    backgroundColor: '#333',
                     border: 'none',
-                    width: additional.components.sidebar.width,
+                    width: SIDEBAR_WIDTH,
                 },
-            })}
+            }}
             variant="permanent">
             <List
                 sx={{
@@ -33,15 +34,15 @@ export default function Sidebar() {
                         <Tooltip title={menu.text} placement="right" arrow>
                             <ListItemButton
                                 disableRipple
-                                sx={theme => ({
+                                sx={{
                                     p: 0,
                                     justifyContent: 'center',
-                                    color: theme.palette.text.secondary,
+                                    color: 'text.secondary',
                                     '&:hover': {
-                                        color: theme.palette.text.primary,
+                                        color: 'text.primary',
                                         backgroundColor: 'unset',
                                     },
-                                })}
+                                }}
                                 href={menu.href}>
                                 <ListItemIcon
                                     sx={{

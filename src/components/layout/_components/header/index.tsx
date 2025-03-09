@@ -7,13 +7,26 @@ import Typography from '@mui/material/Typography'
 import InfoIcon from '@mui/icons-material/InfoOutlined'
 import NavigateNextIcon from '@mui/icons-material/NavigateNext'
 // styles
-import { appBar, readmeTab } from './SXs'
+import SIDEBAR_WIDTH from '@/constants/themes/sidebar-width'
 
 export default function Header() {
     return (
-        <AppBar position="fixed" sx={appBar}>
+        <AppBar
+            position="fixed"
+            sx={{
+                pl: `${SIDEBAR_WIDTH.toString()}px`,
+            }}>
             <Box>
-                <Box sx={readmeTab}>
+                <Box
+                    sx={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        backgroundColor: 'background.default',
+                        flexGrow: 0,
+                        p: 1,
+                        pl: 2,
+                        pt: 1.2,
+                    }}>
                     <InfoIcon color="info" fontSize="small" />
                     <Typography mx={1}>README.md</Typography>
                 </Box>
@@ -23,15 +36,15 @@ export default function Header() {
                 <Breadcrumbs
                     separator={<NavigateNextIcon />}
                     aria-label="breadcrumb"
-                    sx={({ palette }) => ({
-                        backgroundColor: palette.background.default,
+                    sx={{
+                        backgroundColor: 'background.default',
                         px: 2,
                         py: 0.2,
                         '& .MuiBreadcrumbs-separator': {
-                            color: palette.text.secondary,
+                            color: 'text.secondary',
                             m: 0,
                         },
-                    })}>
+                    }}>
                     <Typography>src</Typography>,
                     <Typography
                         sx={{

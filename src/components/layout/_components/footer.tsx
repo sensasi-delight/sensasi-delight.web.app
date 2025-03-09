@@ -13,35 +13,31 @@ import {
 export default function Footer() {
     return (
         <Box
-            sx={theme => ({
+            sx={{
                 display: 'flex',
                 position: 'fixed',
+                alignItems: 'center',
                 bottom: 0,
                 left: 0,
                 right: 0,
-                backgroundColor:
-                    theme.additional.components.footer.bgColor.primary,
-                zIndex: theme.zIndex.drawer + 2,
+                backgroundColor: '#007acc',
+                zIndex: 1200,
                 '& > *': {
                     px: 1,
+                    py: 0.3,
                 },
-            })}>
+            }}>
             <Box
-                sx={theme => ({
-                    backgroundColor:
-                        theme.additional.components.footer.bgColor.secondary,
-                })}>
-                <Typography variant="body2" my={0.5}>
-                    <FontAwesomeIcon icon={faBoltLightning} />
-                </Typography>
+                sx={{
+                    backgroundColor: '#16825d',
+                }}>
+                <FontAwesomeIcon icon={faBoltLightning} width={11} />
             </Box>
             <Box flexGrow={1}>
-                <Typography variant="body2" my={0.5}>
-                    <FontAwesomeIcon icon={faPizzaSlice} />
-                </Typography>
+                <FontAwesomeIcon icon={faPizzaSlice} width={14} />
             </Box>
 
-            <Typography variant="caption" my={0.5}>
+            <Typography variant="caption" component="div">
                 made with ❤️ by myself
             </Typography>
         </Box>
