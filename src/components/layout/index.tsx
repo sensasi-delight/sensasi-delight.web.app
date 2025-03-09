@@ -8,12 +8,11 @@ import Header from './_components/header'
 import NumberBar from './_components/number-bar'
 import Sidebar from './_components/sidebar'
 import StarBackground from './_components/star-background'
-import ThemeProvider from './_components/theme-provider'
 import SIDEBAR_WIDTH from '@/constants/themes/sidebar-width'
 
 export default function Layout({ children }: { children: ReactNode }) {
     return (
-        <ThemeProvider>
+        <>
             <Header />
 
             <Box sx={{ display: 'flex' }}>
@@ -53,6 +52,6 @@ export default function Layout({ children }: { children: ReactNode }) {
                 </Box>
             </Box>
             <Footer />
-        </ThemeProvider>
+        </>
     )
 }

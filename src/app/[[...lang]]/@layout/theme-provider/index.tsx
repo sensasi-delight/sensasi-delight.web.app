@@ -1,3 +1,5 @@
+'use client'
+
 import type { ReactNode } from 'react'
 // materials
 import CssBaseline from '@mui/material/CssBaseline'
@@ -6,9 +8,11 @@ import MuiThemeProvider from '@mui/material/styles/ThemeProvider'
 // sub
 import getTheme from './utils/get-theme'
 
+const theme = getTheme()
+
 export default function ThemeProvider({ children }: { children: ReactNode }) {
     return (
-        <MuiThemeProvider theme={getTheme()}>
+        <MuiThemeProvider theme={theme}>
             <GlobalStyles
                 styles={{
                     '::-webkit-scrollbar': {
