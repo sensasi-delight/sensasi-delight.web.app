@@ -5,10 +5,17 @@ import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
 //
+import type { Locale } from '@/app/[[...lang]]/@types/locale'
 import type Project from '@/types/project'
 import BrandIconImg from './brand-icon-img'
 
-export default function ProjectItemCard({ data }: { data: Project }) {
+export default function ProjectItemCard({
+    data,
+    locale,
+}: {
+    data: Project
+    locale: Locale
+}) {
     const { name, year, description, stacks, buttons } = data
 
     return (
@@ -44,7 +51,7 @@ export default function ProjectItemCard({ data }: { data: Project }) {
                 </Typography>
 
                 <Typography variant="body2" mb={8}>
-                    {description}
+                    {description[locale]}
                 </Typography>
 
                 <Box
@@ -62,7 +69,7 @@ export default function ProjectItemCard({ data }: { data: Project }) {
                             variant="outlined"
                             startIcon={button.Icon ? <button.Icon /> : null}
                             target="_blank">
-                            {button.text}
+                            {button.text[locale]}
                         </Button>
                     ))}
                 </Box>
