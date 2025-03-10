@@ -1,0 +1,10 @@
+.profile-picture {
+    border-radius: inherit;
+    background-image: url('./profile-picture-assets/pp-360.jpg');
+    background-image: image-set(url('./profile-picture-assets/pp-360.avif') type('image/avif'),
+            url("./profile-picture-assets/pp-360.webp") type("image/webp"));
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+}
