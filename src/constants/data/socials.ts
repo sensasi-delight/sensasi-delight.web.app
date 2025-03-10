@@ -1,5 +1,6 @@
 import {
     type IconDefinition,
+    faInstagram,
     faGithub,
     faLinkedin,
     faMediumM,
@@ -19,6 +20,11 @@ const socials: Social[] = [
     //     icon: faTwitter,
     //     link: 'https://twitter.com/sensasi_delight',
     // },
+    {
+        name: 'Instagram',
+        icon: faInstagram,
+        link: 'https://instagram.com/sensasi_delight',
+    },
     {
         name: 'GitHub',
         icon: faGithub,
