@@ -1,5 +1,3 @@
-'use client'
-
 // vendors
 import {
     FontAwesomeIcon,
@@ -25,7 +23,11 @@ export default function SocialIconButton({
     return (
         <Tooltip title={title ?? name} arrow placement="top">
             <IconButton href={link} target="_blank">
-                <FontAwesomeIcon size={size} icon={icon} />
+                {icon.vendor === 'fa' && (
+                    <FontAwesomeIcon size={size} icon={icon.value} />
+                )}
+
+                {icon.vendor === 'mui' && <icon.value fontSize="large" />}
             </IconButton>
         </Tooltip>
     )
