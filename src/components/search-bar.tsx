@@ -37,7 +37,7 @@ export default function SearchBar({
                 </IconButton>
             </Grow>
 
-            <Grow in={isOpen} exit={false}>
+            <Grow in={isOpen} exit={false} unmountOnExit>
                 <TextField
                     onChange={({ target: { value } }) => {
                         setSearchText(value)
