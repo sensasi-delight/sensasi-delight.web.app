@@ -2,27 +2,16 @@
 
 // materials
 import Box from '@mui/material/Box'
-import List from '@mui/material/List'
-import ListItem from '@mui/material/ListItem'
-import ListItemText from '@mui/material/ListItemText'
 
-function renderRowNumber(rowNumber: number) {
+function RenderRowNumber({ rowNumber }: { rowNumber: number }) {
     const items = []
 
     for (let i = 1; i <= rowNumber; i++) {
         items.push(
-            <ListItem
-                key={i}
-                sx={{
-                    py: 0,
-                    pr: 0,
-                    textAlign: 'end',
-                    '&:hover': {
-                        color: '#f1f1f1',
-                    },
-                }}>
-                <ListItemText>{i}</ListItemText>
-            </ListItem>,
+            <div key={i}>
+                <div className="line-anchor"></div>
+                {i}
+            </div>,
         )
     }
 
@@ -36,12 +25,29 @@ export default function NumberBar() {
                 userSelect: 'none',
                 display: {
                     xs: 'none',
-                    md: 'block',
+                    md: 'flex',
                 },
-            }}
-            fontFamily="monospace"
-            color="text.secondary">
-            <List sx={{ py: 0, cursor: 'unset' }}>{renderRowNumber(94)}</List>
+                ml: 2.5,
+                fontFamily: 'monospace',
+                fontSize: '1em',
+                flexDirection: 'column',
+                gap: 1,
+                color: 'text.secondary',
+
+                '& > div': {
+                    textAlign: 'end',
+                    '&:hover': {
+                        color: '#f1f1f1',
+                    },
+                },
+
+                '& > div > .line-anchor': {
+                    position: 'absolute',
+                    minWidth: '90vw',
+                    height: 'calc(1.5em + 8px)',
+                },
+            }}>
+            <RenderRowNumber rowNumber={94} />
         </Box>
     )
 }
