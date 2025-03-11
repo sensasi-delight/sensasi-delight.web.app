@@ -9,6 +9,10 @@ import PageLayout from '@/app/[[...lang]]/@layout/page-layout'
 // utils
 import '@/app/[[...lang]]/@layout/utils/init-firebase'
 
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+config.autoAddCss = false
+
 export { default as metadata } from './@layout/metadata'
 export { default as generateMetadata } from './@layout/utils/generate-metadata'
 

@@ -5,10 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 // icons
-import {
-    faBoltLightning,
-    faPizzaSlice,
-} from '@fortawesome/free-solid-svg-icons'
+import { faBoltLightning } from '@fortawesome/free-solid-svg-icons/faBoltLightning'
+import { faPizzaSlice } from '@fortawesome/free-solid-svg-icons/faPizzaSlice'
 
 export default function Footer() {
     return (
