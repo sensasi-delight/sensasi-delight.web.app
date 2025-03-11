@@ -41,6 +41,13 @@ export default async function RootLayout({
                 <meta name="robots" content="index, follow" />
 
                 <meta
+                    name="google"
+                    content="nositelinkssearchbox"
+                    key="sitelinks"
+                />
+                <meta name="google" content="notranslate" key="notranslate" />
+
+                <meta
                     name="apple-mobile-web-app-title"
                     content="sensasi-delight"
                 />
