@@ -1,6 +1,5 @@
 // vendors
 import type { ReactNode } from 'react'
-import Link from 'next/link'
 // materials
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
@@ -41,8 +40,7 @@ function LangButton({
                 px: 2,
                 color: isActive ? undefined : 'text.disabled',
             }}
-            href={href}
-            LinkComponent={Link}>
+            href={href}>
             {children}
         </Button>
     )
