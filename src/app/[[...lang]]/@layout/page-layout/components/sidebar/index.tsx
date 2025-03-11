@@ -1,5 +1,5 @@
 // materials
-import Drawer from '@mui/material/Drawer'
+import Box from '@mui/material/Box'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 import ListItemButton from '@mui/material/ListItemButton'
@@ -12,23 +12,16 @@ import SIDEBAR_WIDTH from '@/constants/themes/sidebar-width'
 
 export default function Sidebar({ locale }: { locale: Locale }) {
     return (
-        <Drawer
+        <Box
+            minWidth={SIDEBAR_WIDTH}
             sx={{
-                width: SIDEBAR_WIDTH,
-                '& .MuiDrawer-paper': {
-                    overflowY: 'scroll',
-                    '&::-webkit-scrollbar': {
-                        display: 'none',
-                    },
-                    backgroundColor: '#333',
-                    border: 'none',
-                    width: SIDEBAR_WIDTH,
-                },
-            }}
-            variant="permanent">
+                backgroundColor: '#333',
+                zIndex: 1200,
+            }}>
             <List
                 sx={{
-                    flexGrow: 1,
+                    position: 'sticky',
+                    top: 0,
                 }}>
                 {MENUS.map((menu, i) => (
                     <ListItem key={i} disablePadding sx={{ my: 2.75 }}>
@@ -107,6 +100,6 @@ export default function Sidebar({ locale }: { locale: Locale }) {
                     </Tooltip>
                 </ListItem>
             </List> */}
-        </Drawer>
+        </Box>
     )
 }
