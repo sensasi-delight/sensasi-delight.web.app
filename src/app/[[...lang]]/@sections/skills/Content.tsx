@@ -7,9 +7,9 @@ declare global {
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 // materials
-import { useTheme } from '@mui/material/styles'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
+import Typography from '@mui/material/Typography'
 // assets
 import '@/assets/js/vendor/TagCanvas.js'
 // data
@@ -100,7 +100,6 @@ export default function SkillsSectionContent({
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                gap: 2,
             }}>
             <Box>
                 <canvas
@@ -123,57 +122,40 @@ export default function SkillsSectionContent({
                 </div>
             </Box>
 
-            <Box
-                sx={{
-                    maxWidth: `calc(100vw - 48px - 32px - 16px - 1px)`,
-                    overflowX: 'scroll',
-                    alignSelf: {
-                        xs: 'flex-start',
-                        sm: 'center',
-                    },
-                    '&::-webkit-scrollbar': {
-                        display: 'none',
-                    },
-                }}>
-                <Box
-                    sx={{
-                        display: 'inline-flex',
-                        gap: 1,
-                    }}>
-                    <Button
-                        onClick={() => {
-                            setIsShowBeginnerSkills(prev => !prev)
-                        }}
-                        variant={
-                            isShowBeginnerSkills ? 'contained' : 'outlined'
-                        }
-                        color="success">
-                        Beginner
-                    </Button>
+            <Box display="flex" gap={1} mt={6} mb={1}>
+                <Button
+                    onClick={() => {
+                        setIsShowBeginnerSkills(prev => !prev)
+                    }}
+                    variant={isShowBeginnerSkills ? 'contained' : 'outlined'}
+                    color="success">
+                    Beginner
+                </Button>
 
-                    <Button
-                        onClick={() => {
-                            setIsShowIntermediateSkills(prev => !prev)
-                        }}
-                        variant={
-                            isShowIntermediateSkills ? 'contained' : 'outlined'
-                        }
-                        color="info">
-                        Intermediate
-                    </Button>
+                <Button
+                    onClick={() => {
+                        setIsShowIntermediateSkills(prev => !prev)
+                    }}
+                    variant={
+                        isShowIntermediateSkills ? 'contained' : 'outlined'
+                    }
+                    color="info">
+                    Intermediate
+                </Button>
 
-                    <Button
-                        onClick={() => {
-                            setIsShowAdvancedSkills(prev => !prev)
-                        }}
-                        variant={
-                            isShowAdvancedSkills ? 'contained' : 'outlined'
-                        }
-                        color="error">
-                        Advanced
-                    </Button>
-                </Box>
+                <Button
+                    onClick={() => {
+                        setIsShowAdvancedSkills(prev => !prev)
+                    }}
+                    variant={isShowAdvancedSkills ? 'contained' : 'outlined'}
+                    color="error">
+                    Advanced
+                </Button>
             </Box>
+
+            <Typography variant="body2" component="div" color="text.secondary">
+                click to apply filter(s)
+            </Typography>
         </Box>
     )
 }
@@ -183,41 +165,20 @@ function SkillLi({
 }: {
     data: Skill
 }) {
-    const { palette } = useTheme()
-
-    let color: string
-    let weight: number
-    let sizePx: number
-
-    switch (level) {
-        case 'beginner':
-            color = palette.success.main
-            weight = 1
-            sizePx = 26
-            break
-        case 'intermediate':
-            color = palette.info.dark
-            weight = 2
-            sizePx = 29
-            break
-        case 'advanced':
-            color = palette.error.dark
-            weight = 3
-            sizePx = 32
-            break
-    }
+    const { color, weight, sizePx } = getStylesByLevel(level)
 
     return (
         <li key={title}>
-            <a
+            <Box
                 data-weight={weight}
-                style={{
+                sx={{
                     color: color,
                 }}
                 href={href}
                 onClick={e => {
                     e.preventDefault()
-                }}>
+                }}
+                component="a">
                 {title}
                 <Image
                     loading="lazy"
@@ -226,7 +187,32 @@ function SkillLi({
                     height={sizePx}
                     width={sizePx}
                 />
-            </a>
+            </Box>
         </li>
     )
+}
+
+function getStylesByLevel(level: Skill['level']) {
+    if (level === 'beginner') {
+        return {
+            color: 'success.main',
+            weight: 1,
+            sizePx: 26,
+        }
+    }
+
+    if (level === 'intermediate') {
+        return {
+            color: 'info.main',
+            weight: 2,
+            sizePx: 29,
+        }
+    }
+
+    // default is advanced
+    return {
+        color: 'error.main',
+        weight: 3,
+        sizePx: 32,
+    }
 }
