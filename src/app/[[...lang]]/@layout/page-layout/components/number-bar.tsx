@@ -9,7 +9,7 @@ function RenderRowNumber({ rowNumber }: { rowNumber: number }) {
     for (let i = 1; i <= rowNumber; i++) {
         items.push(
             <div key={i}>
-                <div className="line-anchor"></div>
+                {/* <div className="line-anchor"></div> */}
                 {i}
             </div>,
         )
@@ -41,11 +41,11 @@ export default function NumberBar() {
                     },
                 },
 
-                '& > div > .line-anchor': {
-                    position: 'absolute',
-                    minWidth: '90vw',
-                    height: 'calc(1.5em + 8px)',
-                },
+                // '& > div > .line-anchor': {
+                //     position: 'absolute',
+                //     minWidth: '90vw',
+                //     height: 'calc(1.5em + 8px)',
+                // },
             }}>
             <RenderRowNumber rowNumber={94} />
         </Box>
