@@ -153,7 +153,11 @@ export default function SkillsSectionContent({
                 </Button>
             </Box>
 
-            <Typography variant="body2" component="div" color="text.secondary">
+            <Typography
+                variant="body2"
+                component="div"
+                color="text.secondary"
+                fontFamily="monospace">
                 click to apply filter(s)
             </Typography>
         </Box>
