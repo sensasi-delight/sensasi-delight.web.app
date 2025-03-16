@@ -16,8 +16,8 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
             <GlobalStyles
                 styles={{
                     '::-webkit-scrollbar': {
-                        width: '5px',
-                        height: '5px',
+                        width: '8px',
+                        height: '8px',
                     },
 
                     '::-webkit-scrollbar-thumb': {
