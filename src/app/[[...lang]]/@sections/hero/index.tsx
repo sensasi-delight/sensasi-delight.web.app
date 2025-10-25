@@ -1,6 +1,6 @@
 // materials
 import Typography from '@mui/material/Typography'
-import Grid2 from '@mui/material/Grid2'
+import Grid from '@mui/material/Grid'
 // components
 import CodeTag from '@/components/code-tag'
 // sub-components
@@ -11,7 +11,7 @@ import DICTIONARIES from '@/constants/dictionaries'
 
 export default function HeroSection({ locale }: { locale: Locale }) {
     return (
-        <Grid2
+        <Grid
             id="summary"
             component="section"
             container
@@ -24,7 +24,7 @@ export default function HeroSection({ locale }: { locale: Locale }) {
                     sm: 'row',
                 },
             }}>
-            <Grid2
+            <Grid
                 size={{
                     xs: 12,
                     sm: 4,
@@ -32,8 +32,8 @@ export default function HeroSection({ locale }: { locale: Locale }) {
                 display="flex"
                 justifyContent="center">
                 <ProfileImage />
-            </Grid2>
-            <Grid2
+            </Grid>
+            <Grid
                 size={{
                     xs: 12,
                     sm: 8,
@@ -58,7 +58,7 @@ export default function HeroSection({ locale }: { locale: Locale }) {
                 </Typography>
 
                 <ContactButtons />
-            </Grid2>
-        </Grid2>
+            </Grid>
+        </Grid>
     )
 }
