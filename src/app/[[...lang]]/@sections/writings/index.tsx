@@ -60,8 +60,12 @@ export default function WritingsSection({ locale }: { locale: Locale }) {
                 </Box>
             }>
             <ScrollableXBox>
-                {writings.map((writing, i) => (
-                    <WritingCard key={i} data={writing} locale={locale} />
+                {writings.map(writing => (
+                    <WritingCard
+                        key={writing.link}
+                        data={writing}
+                        locale={locale}
+                    />
                 ))}
             </ScrollableXBox>
         </Section>

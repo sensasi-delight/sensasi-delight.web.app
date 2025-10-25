@@ -115,8 +115,8 @@ export default function SkillsSectionContent({
                     className="to-fade-in fast-anim"></canvas>
                 <div id="taglist" style={{ display: 'none' }}>
                     <ul>
-                        {skillsToShow.map((skill, i) => (
-                            <SkillLi key={i} data={skill} />
+                        {skillsToShow.map(skill => (
+                            <SkillLi key={skill.title} data={skill} />
                         ))}
                     </ul>
                 </div>
