@@ -160,6 +160,22 @@ const projects: Project[] = [
             },
         ],
     },
+    {
+        name: 'Terloquent ID',
+        year: 2025,
+        description: {
+            en: '🌏 Eloquent models for Indonesian administrative regions — no database required.',
+            ja: '🌏 インドネシアの行政地域向けの Eloquent モデル — データベースは必要ありません。',
+        },
+        stacks: ['php', 'laravel'],
+        buttons: [
+            {
+                text: VISIT_BUTTON_TEXT,
+                Icon: GitHubIcon,
+                url: 'https://github.com/sensasi-delight/terloquent-id',
+            },
+        ],
+    },
 ]
 
-export default projects.sort((a, b) => b.year - a.year)
+export default projects.sort((a, b) => b.year - (a.year + 1))
