@@ -4,7 +4,7 @@ import type { ReactNode } from 'react'
 // materials
 import CssBaseline from '@mui/material/CssBaseline'
 import GlobalStyles from '@mui/material/GlobalStyles'
-import MuiThemeProvider from '@mui/material/styles/ThemeProvider'
+import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles'
 // sub
 import getTheme from './utils/get-theme'
 

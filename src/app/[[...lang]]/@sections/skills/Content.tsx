@@ -92,7 +92,7 @@ export default function SkillsSectionContent({
         } else {
             window.TagCanvas.Reload('skills-tagcanvas')
         }
-    }, [skillsToShow])
+    }, [])
 
     return (
         <Box

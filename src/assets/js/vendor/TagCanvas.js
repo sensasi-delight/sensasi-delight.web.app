@@ -1,3 +1,5 @@
+// biome-ignore-all lint: skip
+
 /**
  * Copyright (C) 2010-2021 Graham Breach
  *
@@ -18,9 +20,7 @@
  * TagCanvas 2.11
  * For more information, please contact <graham@goat1000.com>
  */
-;(function () {
-    'use strict'
-
+;(() => {
     if (typeof window === 'undefined') return
 
     var i,
@@ -73,23 +73,23 @@
         handlers = {}
     for (i = 0; i < 256; ++i) {
         j = i.toString(16)
-        if (i < 16) j = '0' + j
-        hexlookup2[j] = hexlookup2[j.toUpperCase()] = i.toString() + ','
+        if (i < 16) j = `0${j}`
+        hexlookup2[j] = hexlookup2[j.toUpperCase()] = `${i.toString()},`
     }
     function Defined(d) {
-        return typeof d != 'undefined'
+        return typeof d !== 'undefined'
     }
     function IsObject(o) {
-        return typeof o == 'object' && o != null
+        return typeof o === 'object' && o != null
     }
     function Clamp(v, mn, mx) {
-        return isNaN(v) ? mx : min(mx, max(mn, v))
+        return Number.isNaN(v) ? mx : min(mx, max(mn, v))
     }
     function Nop() {
         return false
     }
     function TimeNow() {
-        return new Date().valueOf()
+        return Date.now()
     }
     function SortList(l, f) {
         var nl = [],
@@ -185,7 +185,7 @@
     Vproto.angle = function (v) {
         var dot = this.dot(v),
             ac
-        if (dot == 0) return Math.PI / 2.0
+        if (dot === 0) return Math.PI / 2.0
         ac = dot / (this.length() * v.length())
         if (ac >= 1) return 0
         if (ac <= -1) return Math.PI
@@ -209,10 +209,8 @@
         this[3] = { 1: a[6], 2: a[7], 3: a[8] }
     }
     Mproto = Matrix.prototype
-    Matrix.Identity = function () {
-        return new Matrix([1, 0, 0, 0, 1, 0, 0, 0, 1])
-    }
-    Matrix.Rotation = function (angle, u) {
+    Matrix.Identity = () => new Matrix([1, 0, 0, 0, 1, 0, 0, 0, 1])
+    Matrix.Rotation = (angle, u) => {
         var sina = sin(angle),
             cosa = cos(angle),
             mcos = 1 - cosa
@@ -317,19 +315,19 @@
         return Cylinder(n, 1, xr, yr, zr, m)
     }
     function PointsOnRingV(n, xr, yr, zr, offset) {
-        offset = isNaN(offset) ? 0 : offset * 1
+        offset = Number.isNaN(offset) ? 0 : offset * 1
         return Ring(0, n, xr, yr, zr, offset)
     }
     function PointsOnRingH(n, xr, yr, zr, offset) {
-        offset = isNaN(offset) ? 0 : offset * 1
+        offset = Number.isNaN(offset) ? 0 : offset * 1
         return Ring(1, n, xr, yr, zr, offset)
     }
     function CentreImage(t) {
         var i = new Image()
-        i.onload = function () {
+        i.onload = () => {
             var dx = i.width / 2,
                 dy = i.height / 2
-            t.centreFunc = function (c, w, h, cx, cy) {
+            t.centreFunc = (c, _w, _h, cx, cy) => {
                 c.setTransform(1, 0, 0, 1, 0, 0)
                 c.globalAlpha = 1
                 c.drawImage(i, cx - dx, cy - dy)
@@ -341,7 +339,7 @@
         var d = c,
             p1,
             p2,
-            ae = (a * 1).toPrecision(3) + ')'
+            ae = `${(a * 1).toPrecision(3)})`
         if (c[0] === '#') {
             if (!hexlookup3[c])
                 if (c.length === 4)
@@ -358,11 +356,11 @@
                         hexlookup2[c.substr(5, 2)]
             d = hexlookup3[c] + ae
         } else if (c.substr(0, 4) === 'rgb(' || c.substr(0, 4) === 'hsl(') {
-            d = c.replace('(', 'a(').replace(')', ',' + ae)
+            d = c.replace('(', 'a(').replace(')', `,${ae}`)
         } else if (c.substr(0, 5) === 'rgba(' || c.substr(0, 5) === 'hsla(') {
             ;(p1 = c.lastIndexOf(',') + 1), (p2 = c.indexOf(')'))
             a *= parseFloat(c.substring(p1, p2))
-            d = c.substr(0, p1) + a.toPrecision(3) + ')'
+            d = `${c.substr(0, p1) + a.toPrecision(3)})`
         }
         return d
     }
@@ -419,7 +417,7 @@
         }
         r = max(min(r || 0, h - 1), 0)
         d = c.getImageData(~~((l - 1) * p), r, 1, 1).data
-        return 'rgba(' + d[0] + ',' + d[1] + ',' + d[2] + ',' + d[3] / 255 + ')'
+        return `rgba(${d[0]},${d[1]},${d[2]},${d[3] / 255})`
     }
     function TextSet(
         ctxt,
@@ -460,14 +458,14 @@
         for (i = 0; i < strings.length; ++i) {
             xc = 0
             if (widths) {
-                if ('right' == align) {
+                if ('right' === align) {
                     xc = maxWidth - widths[i]
-                } else if ('centre' == align) {
+                } else if ('centre' === align) {
                     xc = (maxWidth - widths[i]) / 2
                 }
             }
             ctxt.fillText(strings[i], xo + xc, yo)
-            yo += parseInt(font)
+            yo += parseInt(font, 10)
         }
     }
     function RRect(c, x, y, w, h, r, s) {
@@ -525,10 +523,10 @@
         this.ialign = align
         this.ivalign = valign
     }
-    TCVproto.Align = function (size, space, a) {
+    TCVproto.Align = (size, space, a) => {
         var pos = 0
-        if (a == 'right' || a == 'bottom') pos = space - size
-        else if (a != 'left' && a != 'top') pos = (space - size) / 2
+        if (a === 'right' || a === 'bottom') pos = space - size
+        else if (a !== 'left' && a !== 'top') pos = (space - size) / 2
         return pos
     }
     TCVproto.Create = function (
@@ -572,11 +570,11 @@
             ix = iy = padding + bgOutlineThickness
             iw = this.iwidth
             ih = this.iheight
-            if (this.ipos == 'top' || this.ipos == 'bottom') {
+            if (this.ipos === 'top' || this.ipos === 'bottom') {
                 if (iw < this.width)
                     ix += this.Align(iw, this.width, this.ialign)
                 else offx += this.Align(this.width, iw, this.align)
-                if (this.ipos == 'top') offy += ih + this.ipad
+                if (this.ipos === 'top') offy += ih + this.ipad
                 else iy += this.height + this.ipad
                 cw = max(cw, iw + x1)
                 ch += ih + this.ipad
@@ -584,7 +582,7 @@
                 if (ih < this.height)
                     iy += this.Align(ih, this.height, this.ivalign)
                 else offy += this.Align(this.height, ih, this.valign)
-                if (this.ipos == 'right') ix += this.width + this.ipad
+                if (this.ipos === 'right') ix += this.width + this.ipad
                 else offx += iw + this.ipad
                 cw += iw + this.ipad
                 ch = max(ch, ih + y1)
@@ -776,8 +774,8 @@
         return { image: cv, width: cw / scale, height: ch / scale }
     }
     function FindTextBoundingBox(s, f, ht) {
-        var w = parseInt(s.toString().length * ht),
-            h = parseInt(ht * 2 * s.length),
+        var w = parseInt(s.toString().length * ht, 10),
+            h = parseInt(ht * 2 * s.length, 10),
             cv = NewCanvas(w, h),
             c,
             idata,
@@ -791,7 +789,7 @@
         c = cv.getContext('2d')
         c.fillStyle = '#000'
         c.fillRect(0, 0, w, h)
-        TextSet(c, ht + 'px ' + f, '#fff', s, 0, 0, 0, 0, [], 'centre')
+        TextSet(c, `${ht}px ${f}`, '#fff', s, 0, 0, 0, 0, [], 'centre')
 
         idata = c.getImageData(0, 0, w, h)
         w1 = idata.width
@@ -812,11 +810,11 @@
             }
         }
         // device pixels might not be css pixels
-        if (w1 != w) {
+        if (w1 !== w) {
             ex.min.x *= w / w1
             ex.max.x *= w / w1
         }
-        if (h1 != h) {
+        if (h1 !== h) {
             ex.min.y *= w / h1
             ex.max.y *= w / h1
         }
@@ -825,17 +823,17 @@
         return ex
     }
     function FixFont(f) {
-        return "'" + f.replace(/(\'|\")/g, '').replace(/\s*,\s*/g, "', '") + "'"
+        return `'${f.replace(/('|")/g, '').replace(/\s*,\s*/g, "', '")}'`
     }
     function AddHandler(h, f, e) {
         e = e || doc
         if (e.addEventListener) e.addEventListener(h, f, false)
-        else e.attachEvent('on' + h, f)
+        else e.attachEvent(`on${h}`, f)
     }
     function RemoveHandler(h, f, e) {
         e = e || doc
         if (e.removeEventListener) e.removeEventListener(h, f)
-        else e.detachEvent('on' + h, f)
+        else e.detachEvent(`on${h}`, f)
     }
     function AddImage(i, o, alt, t, tc) {
         var s = tc.imageScale,
@@ -849,7 +847,7 @@
         if (!o.complete)
             return AddHandler(
                 'load',
-                function () {
+                () => {
                     AddImage(i, o, alt, t, tc)
                 },
                 o,
@@ -857,7 +855,7 @@
         if (!i.complete)
             return AddHandler(
                 'load',
-                function () {
+                () => {
                     AddImage(i, o, alt, t, tc)
                 },
                 i,
@@ -865,7 +863,7 @@
         if (alt && !alt.complete)
             return AddHandler(
                 'load',
-                function () {
+                () => {
                     AddImage(i, o, alt, t, tc)
                 },
                 alt,
@@ -922,16 +920,16 @@
                 }
                 if (tc.bgColour || tc.bgOutlineThickness) {
                     bc =
-                        tc.bgColour == 'tag'
+                        tc.bgColour === 'tag'
                             ? GetProperty(t.a, 'background-color')
                             : tc.bgColour
                     oc =
-                        tc.bgOutline == 'tag'
+                        tc.bgOutline === 'tag'
                             ? GetProperty(t.a, 'color')
                             : tc.bgOutline || tc.textColour
                     iw = t.fimage.width
                     ih = t.fimage.height
-                    if (tc.outlineMethod == 'colour') {
+                    if (tc.outlineMethod === 'colour') {
                         // create the outline version first, using the current image state
                         ic = AddBackgroundToImage(
                             t.fimage,
@@ -964,7 +962,7 @@
                         t.h = ic.height
                     }
                 }
-                if (tc.outlineMethod == 'size') {
+                if (tc.outlineMethod === 'size') {
                     if (tc.outlineIncrease > 0) {
                         t.iw += 2 * tc.outlineIncrease
                         t.ih += 2 * tc.outlineIncrease
@@ -995,14 +993,10 @@
     }
     function GetProperty(e, p) {
         var dv = doc.defaultView,
-            pc = p.replace(/\-([a-z])/g, function (a) {
-                return a.charAt(1).toUpperCase()
-            })
+            pc = p.replace(/-([a-z])/g, a => a.charAt(1).toUpperCase())
         return (
-            (dv &&
-                dv.getComputedStyle &&
-                dv.getComputedStyle(e, null).getPropertyValue(p)) ||
-            (e.currentStyle && e.currentStyle[pc])
+            dv?.getComputedStyle?.(e, null).getPropertyValue(p) ||
+            e.currentStyle?.[pc]
         )
     }
     function FindWeight(a, wFrom, tHeight) {
@@ -1026,8 +1020,8 @@
     function EventXY(e, c) {
         var xy,
             p,
-            xmul = parseInt(GetProperty(c, 'width')) / c.width,
-            ymul = parseInt(GetProperty(c, 'height')) / c.height
+            xmul = parseInt(GetProperty(c, 'width'), 10) / c.width,
+            ymul = parseInt(GetProperty(c, 'height'), 10) / c.height
         if (Defined(e.offsetX)) {
             xy = { x: e.offsetX, y: e.offsetY }
         } else {
@@ -1077,7 +1071,7 @@
         var t = TagCanvas,
             cb = doc.addEventListener ? 0 : 1,
             tg = EventToCanvasId(e)
-        if (tg && e.button == cb && t.tc[tg]) {
+        if (tg && e.button === cb && t.tc[tg]) {
             t.tc[tg].BeginDrag(e)
         }
     }
@@ -1086,7 +1080,7 @@
             cb = doc.addEventListener ? 0 : 1,
             tg = EventToCanvasId(e),
             tc
-        if (tg && e.button == cb && t.tc[tg]) {
+        if (tg && e.button === cb && t.tc[tg]) {
             tc = t.tc[tg]
             MouseMove(e)
             if (!tc.EndDrag() && !tc.touchState) tc.Clicked(e)
@@ -1097,7 +1091,7 @@
             tc = tg && TagCanvas.tc[tg],
             p
         if (tc && e.changedTouches) {
-            if (e.touches.length == 1 && tc.touchState == 0) {
+            if (e.touches.length === 1 && tc.touchState === 0) {
                 tc.touchState = 1
                 tc.BeginDrag(e)
                 if ((p = EventXY(e, tc.canvas))) {
@@ -1105,7 +1099,7 @@
                     tc.my = p.y
                     tc.drawn = 0
                 }
-            } else if (e.targetTouches.length == 2 && tc.pinchZoom) {
+            } else if (e.targetTouches.length === 2 && tc.pinchZoom) {
                 tc.touchState = 3
                 tc.EndDrag()
                 tc.BeginPinch(e)
@@ -1170,18 +1164,18 @@
         if (tg && t.tc[tg]) {
             e.cancelBubble = true
             e.returnValue = false
-            e.preventDefault && e.preventDefault()
+            e.preventDefault?.()
             t.tc[tg].Wheel((e.wheelDelta || e.detail) > 0)
         }
     }
-    function Scroll(e) {
+    function Scroll(_e) {
         var i,
             t = TagCanvas
         clearTimeout(t.scrollTimer)
         for (i in t.tc) {
             t.tc[i].Pause()
         }
-        t.scrollTimer = setTimeout(function () {
+        t.scrollTimer = setTimeout(() => {
             var i,
                 t = TagCanvas
             for (i in t.tc) {
@@ -1253,10 +1247,10 @@
         cl = cn.length
 
         for (i = 0; i < cl; ++i) {
-            if (cn[i].nodeName == 'BR') {
+            if (cn[i].nodeName === 'BR') {
                 this.text.push(this.line.join(' '))
                 this.br = 1
-            } else if (cn[i].nodeType == 3) {
+            } else if (cn[i].nodeType === 3) {
                 if (this.br) {
                     this.line = [cn[i].nodeValue]
                     this.br = 0
@@ -1275,13 +1269,13 @@
             j,
             words,
             text = []
-        c.font = h + 'px ' + f
+        c.font = `${h}px ${f}`
         for (i = 0; i < this.text.length; ++i) {
             words = this.text[i].split(/\s+/)
             this.line = [words[0]]
             for (j = 1; j < words.length; ++j) {
                 if (
-                    c.measureText(this.line.join(' ') + ' ' + words[j]).width >
+                    c.measureText(`${this.line.join(' ')} ${words[j]}`).width >
                     w
                 ) {
                     text.push(this.line.join(' '))
@@ -1309,8 +1303,8 @@
         this.adash = ~~tc.outlineDash
         this.agap = ~~tc.outlineDashSpace || this.adash
         this.aspeed = tc.outlineDashSpeed * 1
-        if (this.colour == 'tag') this.colour = GetProperty(t.a, 'color')
-        else if (this.colour == 'tagbg')
+        if (this.colour === 'tag') this.colour = GetProperty(t.a, 'color')
+        else if (this.colour === 'tagbg')
             this.colour = GetProperty(t.a, 'background-color')
         this.Draw = this.pulsate ? this.DrawPulsate : this.DrawSimple
         this.radius = tc.outlineRadius | 0
@@ -1327,10 +1321,8 @@
                 none: ['LastDraw'],
             },
             funcs = methods[om] || methods.outline
-        if (om == 'none') {
-            this.Draw = function () {
-                return 1
-            }
+        if (om === 'none') {
+            this.Draw = () => 1
         } else {
             this.drawFunc = this[funcs[1]]
         }
@@ -1387,7 +1379,7 @@
         this.Ants(c)
         RRect(c, x, y, w, h, r, true)
     }
-    Oproto.DrawSize = function (c, x, y, w, h, colour, tag, x1, y1) {
+    Oproto.DrawSize = function (c, _x, _y, _w, _h, _colour, tag, x1, y1) {
         var tw = tag.w,
             th = tag.h,
             m,
@@ -1436,7 +1428,7 @@
             y1,
         )
     }
-    Oproto.DrawColourText = function (c, x, y, w, h, colour, tag, x1, y1) {
+    Oproto.DrawColourText = (c, _x, _y, _w, _h, colour, tag, x1, y1) => {
         var normal = tag.colour
         tag.colour = colour
         tag.alpha = 1
@@ -1522,7 +1514,7 @@
         this.pulse = ga = TagCanvas.Smooth(1, ga)
         return this.DrawSimple(c, tag, x1, y1, ga, 1)
     }
-    Oproto.Active = function (c, x, y) {
+    Oproto.Active = function (_c, x, y) {
         var a =
             x >= this.x &&
             y >= this.y &&
@@ -1579,7 +1571,7 @@
         this.audio = null
     }
     Tproto = Tag.prototype
-    Tproto.Init = function (e) {
+    Tproto.Init = function (_e) {
         var tc = this.tc
         this.textHeight = tc.textHeight
         if (this.HasText()) {
@@ -1600,9 +1592,9 @@
     }
     Tproto.EqualTo = function (e) {
         var i = e.getElementsByTagName('img')
-        if (this.a.href != e.href) return 0
-        if (i.length) return this.image.src == i[0].src
-        return (e.innerText || e.textContent) == this.text_original
+        if (this.a.href !== e.href) return 0
+        if (i.length) return this.image.src === i[0].src
+        return (e.innerText || e.textContent) === this.text_original
     }
     Tproto.SetImage = function (i) {
         this.image = this.fimage = i
@@ -1647,12 +1639,12 @@
             tcv
         // add the gap at the top to the height to make equal gap at bottom
         theight = extents ? extents.max.y + extents.min.y : this.textHeight
-        c.font = this.font = this.textHeight + 'px ' + this.textFont
+        c.font = this.font = `${this.textHeight}px ${this.textFont}`
         twidth = this.MeasureText(c)
         if (t.txtOpt) {
             s = t.txtScale
             th = s * this.textHeight
-            f = th + 'px ' + this.textFont
+            f = `${th}px ${this.textFont}`
             soff = [s * t.shadowOffset[0], s * t.shadowOffset[1]]
             c.font = f
             cw = this.MeasureText(c)
@@ -1693,7 +1685,7 @@
             )
 
             // add outline image using highlight colour
-            if (t.outlineMethod == 'colour') {
+            if (t.outlineMethod === 'colour') {
                 this.oimage = tcv.Create(
                     this.outline.colour,
                     this.bgColour,
@@ -1705,7 +1697,7 @@
                     s * this.padding,
                     s * this.bgRadius,
                 )
-            } else if (t.outlineMethod == 'size') {
+            } else if (t.outlineMethod === 'size') {
                 extents = FindTextBoundingBox(
                     this.text,
                     this.textFont,
@@ -1796,7 +1788,7 @@
         this.weighted = true
         for (s = 0; s < wl; ++s) {
             m = modes[s] || 'size'
-            if ('both' == m) {
+            if ('both' === m) {
                 this.Weight(
                     w[s],
                     tc.ctxt,
@@ -1829,17 +1821,17 @@
         }
         this.Measure(tc.ctxt, tc)
     }
-    Tproto.Weight = function (w, c, t, m, wmin, wmax, wnum) {
-        w = isNaN(w) ? 1 : w
+    Tproto.Weight = function (w, _c, t, m, wmin, wmax, wnum) {
+        w = Number.isNaN(w) ? 1 : w
         var nweight = (w - wmin) / (wmax - wmin)
-        if ('colour' == m) this.colour = FindGradientColour(t, nweight, wnum)
-        else if ('bgcolour' == m)
+        if ('colour' === m) this.colour = FindGradientColour(t, nweight, wnum)
+        else if ('bgcolour' === m)
             this.bgColour = FindGradientColour(t, nweight, wnum)
-        else if ('bgoutline' == m)
+        else if ('bgoutline' === m)
             this.bgOutline = FindGradientColour(t, nweight, wnum)
-        else if ('outline' == m)
+        else if ('outline' === m)
             this.outline.colour = FindGradientColour(t, nweight, wnum)
-        else if ('size' == m) {
+        else if ('size' === m) {
             if (t.weightSizeMin > 0 && t.weightSizeMax > t.weightSizeMin) {
                 this.textHeight =
                     t.weightSize *
@@ -1851,10 +1843,10 @@
             }
         }
     }
-    Tproto.SetShadowColourFixed = function (c, s, a) {
+    Tproto.SetShadowColourFixed = (c, s, _a) => {
         c.shadowColor = s
     }
-    Tproto.SetShadowColourAlpha = function (c, s, a) {
+    Tproto.SetShadowColourAlpha = (c, s, a) => {
         c.shadowColor = SetAlpha(s, a)
     }
     Tproto.DrawText = function (c, xoff, yoff) {
@@ -1872,9 +1864,9 @@
         y += yoff / s - this.h / 2
         for (i = 0; i < this.text.length; ++i) {
             xl = x
-            if ('right' == t.textAlign) {
+            if ('right' === t.textAlign) {
                 xl += this.w / 2 - this.line_widths[i]
-            } else if ('centre' == t.textAlign) {
+            } else if ('centre' === t.textAlign) {
                 xl -= this.line_widths[i] / 2
             } else {
                 xl -= this.w / 2
@@ -1931,7 +1923,7 @@
             a * Clamp(mnb + ((mxb - mnb) * (r - this.z)) / (2 * r), 0, 1)
         return this.xformed
     }
-    Tproto.UpdateActive = function (c, xoff, yoff) {
+    Tproto.UpdateActive = function (_c, xoff, yoff) {
         var o = this.outline,
             w = this.w,
             h = this.h,
@@ -1945,12 +1937,12 @@
             o = this.UpdateActive(c, xoff, yoff)
         return o.Active(c, t.mx, t.my) ? o : null
     }
-    Tproto.Clicked = function (e) {
+    Tproto.Clicked = function (_e) {
         var a = this.a,
             t = a.target,
             h = a.href,
             evt
-        if (t != '' && t != '_self') {
+        if (t !== '' && t !== '_self') {
             if (self.frames[t]) {
                 self.frames[t].document.location = h
             } else {
@@ -1959,7 +1951,7 @@
                         top.frames[t].document.location = h
                         return
                     }
-                } catch (err) {
+                } catch (_err) {
                     // different domain/port/protocol?
                 }
                 window.open(h, t)
@@ -2017,15 +2009,15 @@
         }
 
         if (a) {
-            if (audio.state == sus) audio.resume()
-            if (audio.state == sus) return
+            if (audio.state === sus) audio.resume()
+            if (audio.state === sus) return
 
             g.gain.value = min(2, max(0, this.tc.audioVolume * 1))
             a.currentTime = 0
             this.stopped = 0
             p = a.play()
             if (p !== undefined) {
-                p.then(r => {
+                p.then(_r => {
                     this.stopped ? this.audio.pause() : (this.playing = 1)
                 })
             }
@@ -2076,8 +2068,8 @@
         this.minBrightness = Clamp(this.minBrightness, 0, 1)
         this.maxBrightness = Clamp(this.maxBrightness, this.minBrightness, 1)
         this.ctxt.textBaseline = 'top'
-        this.lx = (this.lock + '').indexOf('x') + 1
-        this.ly = (this.lock + '').indexOf('y') + 1
+        this.lx = `${this.lock}`.indexOf('x') + 1
+        this.ly = `${this.lock}`.indexOf('y') + 1
         this.frozen = this.dx = this.dy = this.fixedAnim = this.touchState = 0
         this.fixedAlpha = 1
         this.source = lctr || cid
@@ -2099,7 +2091,7 @@
             ? this.AnimateDrag
             : this.AnimatePosition
         this.animTiming =
-            typeof TagCanvas[this.animTiming] == 'function'
+            typeof TagCanvas[this.animTiming] === 'function'
                 ? TagCanvas[this.animTiming]
                 : TagCanvas.Smooth
         if (this.shadowBlur || this.shadowOffset[0] || this.shadowOffset[1]) {
@@ -2117,12 +2109,12 @@
         }
         this.Load()
         if (lctr && this.hideTags) {
-            ;(function (t) {
+            ;(t => {
                 if (TagCanvas.loaded) t.HideTags()
                 else
                     AddHandler(
                         'load',
-                        function () {
+                        () => {
                             t.HideTags()
                         },
                         window,
@@ -2135,7 +2127,7 @@
         if (this.tooltip) {
             this.ctitle = c.title
             c.title = ''
-            if (this.tooltip == 'native') {
+            if (this.tooltip === 'native') {
                 this.Tooltip = this.TooltipNative
             } else {
                 this.Tooltip = this.TooltipDiv
@@ -2146,7 +2138,7 @@
                     this.ttdiv.style.zIndex = c.style.zIndex + 1
                     AddHandler(
                         'mouseover',
-                        function (e) {
+                        e => {
                             e.target.style.display = 'none'
                         },
                         this.ttdiv,
@@ -2194,7 +2186,7 @@
     }
     TCproto = TagCanvas.prototype
     TCproto.SourceElements = function () {
-        if (doc.querySelectorAll) return doc.querySelectorAll('#' + this.source)
+        if (doc.querySelectorAll) return doc.querySelectorAll(`#${this.source}`)
         return [doc.getElementById(this.source)]
     }
     TCproto.HideTags = function () {
@@ -2229,7 +2221,7 @@
             x,
             z
         for (i = 0; i < tc.length; ++i) {
-            if (tc[i] != ' ') {
+            if (tc[i] !== ' ') {
                 p = i - tc.length / 2
                 a = doc.createElement('A')
                 a.href = '#'
@@ -2276,8 +2268,8 @@
             bc,
             boc,
             p = [0, 0, 0],
-            au
-        if ('text' != this.imageMode) {
+            _au
+        if ('text' !== this.imageMode) {
             im = e.getElementsByTagName('img')
             if (im.length) {
                 i = new Image()
@@ -2293,7 +2285,7 @@
                 }
             }
         }
-        if ('image' != this.imageMode) {
+        if ('image' !== this.imageMode) {
             ts = new TextSplitter(e)
             txt = ts.Lines()
             if (!ts.Empty()) {
@@ -2307,11 +2299,11 @@
                     )
 
                 bc =
-                    this.bgColour == 'tag'
+                    this.bgColour === 'tag'
                         ? GetProperty(e, 'background-color')
                         : this.bgColour
                 boc =
-                    this.bgOutline == 'tag'
+                    this.bgOutline === 'tag'
                         ? GetProperty(e, 'color')
                         : this.bgOutline
             } else {
@@ -2333,7 +2325,7 @@
                 this.bgOutlineThickness,
                 font,
                 this.padding,
-                ts && ts.original,
+                ts?.original,
             )
             if (i) {
                 t.SetImage(i)
@@ -2349,20 +2341,20 @@
         var colour = this.textColour || GetProperty(a, 'color'),
             font = this.textFont || FixFont(GetProperty(a, 'font-family')),
             bc =
-                this.bgColour == 'tag'
+                this.bgColour === 'tag'
                     ? GetProperty(a, 'background-color')
                     : this.bgColour,
             boc =
-                this.bgOutline == 'tag'
+                this.bgOutline === 'tag'
                     ? GetProperty(a, 'color')
                     : this.bgOutline
         t.a = a
         t.title = a.title
         if (
-            t.colour != colour ||
-            t.textFont != font ||
-            t.bgColour != bc ||
-            t.bgOutline != boc
+            t.colour !== colour ||
+            t.textFont !== font ||
+            t.bgColour !== bc ||
+            t.bgOutline !== boc
         )
             t.SetFont(font, colour, bc, boc)
     }
@@ -2447,10 +2439,10 @@
         }
         if (this.noTagsMessage && !taglist.length) {
             i =
-                this.imageMode && this.imageMode != 'both'
-                    ? this.imageMode + ' '
+                this.imageMode && this.imageMode !== 'both'
+                    ? `${this.imageMode} `
                     : ''
-            taglist = this.Message('No ' + i + 'tags')
+            taglist = this.Message(`No ${i}tags`)
         }
         this.taglist = taglist
     }
@@ -2492,7 +2484,7 @@
 
             // clean out found tags from removed list
             for (i = 0, j = 0; i < ol; ++i) {
-                if (removed[j] == -1) removed.splice(j, 1)
+                if (removed[j] === -1) removed.splice(j, 1)
                 else ++j
             }
 
@@ -2506,9 +2498,7 @@
                 }
 
                 // remove any more (in reverse order)
-                removed.sort(function (a, b) {
-                    return a - b
-                })
+                removed.sort((a, b) => a - b)
                 while (removed.length) {
                     newlist.splice(removed.pop(), 1)
                 }
@@ -2550,7 +2540,7 @@
         this.track.connect(this.gain)
         this.gain.connect(audio.destination)
         this.hasAudio = 1
-        audioClick = function (e) {
+        audioClick = _e => {
             audio.resume()
             doc.removeEventListener('click', audioClick)
         }
@@ -2586,7 +2576,7 @@
     }
     TCproto.ToggleAudio = function () {
         var on = this.audioOff || (audio && audio.state === 'suspended')
-        on || (this.currentAudio && this.currentAudio.StopAudio())
+        on || this.currentAudio?.StopAudio()
         this.audioOff = !on
     }
     TCproto.Draw = function (t) {
@@ -2605,19 +2595,17 @@
             aindex = -1,
             tl = this.taglist,
             l = tl.length,
-            last = this.active && this.active.tag,
+            last = this.active?.tag,
             cursor = '',
             frontsel = this.frontSelect,
-            centreDrawn = this.centreFunc == Nop,
+            centreDrawn = this.centreFunc === Nop,
             fixed
         this.time = t
         if (this.frozen && this.drawn) return this.Animate(cw, ch, tdelta)
         fixed = this.AnimateFixed()
         c.setTransform(1, 0, 0, 1, 0, 0)
         for (i = 0; i < l; ++i) tl[i].Calc(this.transform, this.fixedAlpha)
-        tl = SortList(tl, function (a, b) {
-            return b.z - a.z
-        })
+        tl = SortList(tl, (a, b) => b.z - a.z)
 
         if (fixed && this.fixedAnim.active) {
             active = this.fixedAnim.tag.UpdateActive(c, x, y)
@@ -2660,18 +2648,18 @@
             if (
                 !(
                     active &&
-                    active.tag == tl[i] &&
+                    active.tag === tl[i] &&
                     active.PreDraw(c, tl[i], x, y)
                 )
             )
                 tl[i].Draw(c, x, y)
-            active && active.tag == tl[i] && active.PostDraw(c)
+            active && active.tag === tl[i] && active.PostDraw(c)
         }
         if (this.freezeActive && active) {
             this.Freeze()
         } else {
             this.UnFreeze()
-            this.drawn = l == this.listLength
+            this.drawn = l === this.listLength
         }
         if (this.fixedCallback) {
             this.fixedCallback(this, this.fixedCallbackTag)
@@ -2680,9 +2668,9 @@
         fixed || this.Animate(cw, ch, tdelta)
         if (active) {
             active.LastDraw(c)
-            if (active.tag != last) {
+            if (active.tag !== last) {
                 this.currentAudio &&
-                    this.currentAudio != active.tag &&
+                    this.currentAudio !== active.tag &&
                     this.currentAudio.StopAudio()
                 if (active.tag.PlayAudio()) this.currentAudio = active.tag
             }
@@ -2692,25 +2680,24 @@
         this.Tooltip(active, this.taglist[aindex])
         this.audioIcon && this.ShowAudioIcon()
     }
-    TCproto.TooltipNone = function () {}
+    TCproto.TooltipNone = () => {}
     TCproto.TooltipNative = function (active, tag) {
-        if (active) this.canvas.title = tag && tag.title ? tag.title : ''
+        if (active) this.canvas.title = tag?.title ? tag.title : ''
         else this.canvas.title = this.ctitle
     }
     TCproto.SetTTDiv = function (title, tag) {
-        var tc = this,
-            s = tc.ttdiv.style
-        if (title != tc.ttdiv.innerHTML) s.display = 'none'
-        tc.ttdiv.innerHTML = title
-        tag && (tag.title = tc.ttdiv.innerHTML)
-        if (s.display == 'none' && !tc.tttimer) {
-            tc.tttimer = setTimeout(function () {
-                var p = AbsPos(tc.canvas.id)
+        var s = this.ttdiv.style
+        if (title !== this.ttdiv.innerHTML) s.display = 'none'
+        this.ttdiv.innerHTML = title
+        tag && (tag.title = this.ttdiv.innerHTML)
+        if (s.display === 'none' && !this.tttimer) {
+            this.tttimer = setTimeout(() => {
+                var p = AbsPos(this.canvas.id)
                 s.display = 'block'
-                s.left = p.x + tc.mx + 'px'
-                s.top = p.y + tc.my + 24 + 'px'
-                tc.tttimer = null
-            }, tc.tooltipDelay)
+                s.left = `${p.x + this.mx}px`
+                s.top = `${p.y + this.my + 24}px`
+                this.tttimer = null
+            }, this.tooltipDelay)
         }
     }
     TCproto.TooltipDiv = function (active, tag) {
@@ -2718,8 +2705,8 @@
             this.SetTTDiv(tag.title, tag)
         } else if (
             !active &&
-            this.mx != -1 &&
-            this.my != -1 &&
+            this.mx !== -1 &&
+            this.my !== -1 &&
             this.ctitle.length
         ) {
             this.SetTTDiv(this.ctitle)
@@ -2727,7 +2714,7 @@
             this.ttdiv.style.display = 'none'
         }
     }
-    TCproto.Transform = function (tc, p, y) {
+    TCproto.Transform = (tc, p, y) => {
         if (p || y) {
             var sp = sin(p),
                 cp = cos(p),
@@ -2767,39 +2754,37 @@
             }
             m = Matrix.Rotation(angle, fa.axis)
             this.transform = this.transform.mul(m)
-            return this.fixedAnim != 0
+            return this.fixedAnim !== 0
         }
         return false
     }
     TCproto.AnimatePosition = function (w, h, t) {
-        var tc = this,
-            x = tc.mx,
-            y = tc.my,
+        var x = this.mx,
+            y = this.my,
             s,
             r
-        if (!tc.frozen && x >= 0 && y >= 0 && x < w && y < h) {
-            ;(s = tc.maxSpeed), (r = tc.reverse ? -1 : 1)
-            tc.lx || (tc.yaw = ((x * 2 * s) / w - s) * r * t)
-            tc.ly || (tc.pitch = ((y * 2 * s) / h - s) * -r * t)
-            tc.initial = null
-        } else if (!tc.initial) {
-            if (tc.frozen && !tc.freezeDecel) tc.yaw = tc.pitch = 0
-            else tc.Decel(tc)
+        if (!this.frozen && x >= 0 && y >= 0 && x < w && y < h) {
+            ;(s = this.maxSpeed), (r = this.reverse ? -1 : 1)
+            this.lx || (this.yaw = ((x * 2 * s) / w - s) * r * t)
+            this.ly || (this.pitch = ((y * 2 * s) / h - s) * -r * t)
+            this.initial = null
+        } else if (!this.initial) {
+            if (this.frozen && !this.freezeDecel) this.yaw = this.pitch = 0
+            else this.Decel(this)
         }
-        this.Transform(tc, tc.pitch, tc.yaw)
+        this.Transform(this, this.pitch, this.yaw)
     }
-    TCproto.AnimateDrag = function (w, h, t) {
-        var tc = this,
-            rs = (100 * t * tc.maxSpeed) / tc.max_radius / tc.zoom
-        if (tc.dx || tc.dy) {
-            tc.lx || (tc.yaw = (tc.dx * rs) / tc.stretchX)
-            tc.ly || (tc.pitch = (tc.dy * -rs) / tc.stretchY)
-            tc.dx = tc.dy = 0
-            tc.initial = null
-        } else if (!tc.initial) {
-            tc.Decel(tc)
+    TCproto.AnimateDrag = function (_w, _h, t) {
+        var rs = (100 * t * this.maxSpeed) / this.max_radius / this.zoom
+        if (this.dx || this.dy) {
+            this.lx || (this.yaw = (this.dx * rs) / this.stretchX)
+            this.ly || (this.pitch = (this.dy * -rs) / this.stretchY)
+            this.dx = this.dy = 0
+            this.initial = null
+        } else if (!this.initial) {
+            this.Decel(this)
         }
-        this.Transform(tc, tc.pitch, tc.yaw)
+        this.Transform(this, this.pitch, this.yaw)
     }
     TCproto.Freeze = function () {
         if (!this.frozen) {
@@ -2815,7 +2800,7 @@
             this.frozen = 0
         }
     }
-    TCproto.Decel = function (tc) {
+    TCproto.Decel = tc => {
         var s = tc.minSpeed,
             ay = abs(tc.yaw),
             ap = abs(tc.pitch)
@@ -2833,19 +2818,19 @@
         }
         var a = this.active
         try {
-            if (a && a.tag)
+            if (a?.tag)
                 if (this.clickToFront === false || this.clickToFront === null)
                     a.tag.Clicked(e)
                 else
                     this.TagToFront(
                         a.tag,
                         this.clickToFront,
-                        function () {
+                        () => {
                             a.tag.Clicked(e)
                         },
                         true,
                     )
-        } catch (ex) {}
+        } catch (_ex) {}
     }
     TCproto.Wheel = function (i) {
         var z = this.zoom + this.zoomStep * (i ? 1 : -1)
@@ -2856,9 +2841,9 @@
         this.down = EventXY(e, this.canvas)
         e.cancelBubble = true
         e.returnValue = false
-        e.preventDefault && e.preventDefault()
+        e.preventDefault?.()
     }
-    TCproto.Drag = function (e, p) {
+    TCproto.Drag = function (_e, p) {
         if (this.dragControl && this.down) {
             var t2 = this.dragThreshold * this.dragThreshold,
                 dx = p.x - this.down.x,
@@ -2884,7 +2869,7 @@
     }
     TCproto.BeginPinch = function (e) {
         this.pinched = [PinchDistance(e), this.zoom]
-        e.preventDefault && e.preventDefault()
+        e.preventDefault?.()
     }
     TCproto.Pinch = function (e) {
         var z,
@@ -2896,7 +2881,7 @@
         this.zoom = min(this.zoomMax, max(this.zoomMin, z))
         this.Zoom(this.zoom)
     }
-    TCproto.EndPinch = function (e) {
+    TCproto.EndPinch = function (_e) {
         this.pinched = null
     }
     TCproto.Pause = function () {
@@ -2919,7 +2904,7 @@
         else if (Defined(t.text)) (srch = 'innerText'), (tgt = t.text)
 
         for (i = 0; i < this.taglist.length; ++i)
-            if (this.taglist[i].a[srch] == tgt) return this.taglist[i]
+            if (this.taglist[i].a[srch] === tgt) return this.taglist[i]
     }
     TCproto.RotateTag = function (tag, lt, lg, time, callback, active) {
         var t = tag.Calc(this.transform, 1),
@@ -2927,7 +2912,7 @@
             v2 = MakeVector(lg, lt),
             angle = v1.angle(v2),
             u = v1.cross(v2).unit()
-        if (angle == 0) {
+        if (angle === 0) {
             this.fixedCallbackTag = tag
             this.fixedCallback = callback
         } else {
@@ -2948,51 +2933,47 @@
     TCproto.Volume = function (vol) {
         this.audioVolume = vol * 1
     }
-    TagCanvas.Start = function (id, l, o) {
+    TagCanvas.Start = (id, l, o) => {
         TagCanvas.Delete(id)
         TagCanvas.tc[id] = new TagCanvas(id, l, o)
     }
     function tccall(f, id) {
-        TagCanvas.tc[id] && TagCanvas.tc[id][f]()
+        TagCanvas.tc[id]?.[f]()
     }
-    TagCanvas.Linear = function (t, t0) {
-        return t0 / t
-    }
-    TagCanvas.Smooth = function (t, t0) {
-        return 0.5 - cos((t0 * Math.PI) / t) / 2
-    }
-    TagCanvas.Pause = function (id) {
+    TagCanvas.Linear = (t, t0) => t0 / t
+    TagCanvas.Smooth = (t, t0) => 0.5 - cos((t0 * Math.PI) / t) / 2
+    TagCanvas.Pause = id => {
         tccall('Pause', id)
     }
-    TagCanvas.Resume = function (id) {
+    TagCanvas.Resume = id => {
         tccall('Resume', id)
     }
-    TagCanvas.Reload = function (id) {
+    TagCanvas.Reload = id => {
         tccall('Load', id)
     }
-    TagCanvas.Update = function (id) {
+    TagCanvas.Update = id => {
         tccall('Update', id)
     }
-    TagCanvas.SetSpeed = function (id, speed) {
+    TagCanvas.SetSpeed = (id, speed) => {
         if (
             IsObject(speed) &&
             TagCanvas.tc[id] &&
-            !isNaN(speed[0]) &&
-            !isNaN(speed[1])
+            !Number.isNaN(speed[0]) &&
+            !Number.isNaN(speed[1])
         ) {
             TagCanvas.tc[id].SetSpeed(speed)
             return true
         }
         return false
     }
-    TagCanvas.TagToFront = function (id, options) {
+    TagCanvas.TagToFront = (id, options) => {
         if (!IsObject(options)) return false
         options.lat = options.lng = 0
         return TagCanvas.RotateTag(id, options)
     }
-    TagCanvas.RotateTag = function (id, options) {
+    TagCanvas.RotateTag = (id, options) => {
         if (IsObject(options) && TagCanvas.tc[id]) {
-            if (isNaN(options.time)) options.time = 500
+            if (Number.isNaN(options.time)) options.time = 500
             var tt = TagCanvas.tc[id].FindTag(options)
             if (tt) {
                 TagCanvas.tc[id].RotateTag(
@@ -3008,7 +2989,7 @@
         }
         return false
     }
-    TagCanvas.Delete = function (id) {
+    TagCanvas.Delete = id => {
         var i, c
         if (handlers[id]) {
             c = doc.getElementById(id)
@@ -3126,7 +3107,7 @@
     // set a flag for when the window has loaded
     AddHandler(
         'load',
-        function () {
+        () => {
             TagCanvas.loaded = 1
         },
         window,

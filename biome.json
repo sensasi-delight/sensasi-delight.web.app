@@ -1,0 +1,57 @@
+{
+    "$schema": "https://biomejs.dev/schemas/2.3.0/schema.json",
+    "vcs": {
+        "enabled": true,
+        "clientKind": "git",
+        "useIgnoreFile": true
+    },
+    "files": {
+        "ignoreUnknown": true,
+        "includes": ["**", "!node_modules", "!.next", "!dist", "!build"]
+    },
+    "formatter": {
+        "enabled": true,
+        "indentStyle": "space",
+        "indentWidth": 4,
+        "lineEnding": "lf"
+    },
+    "javascript": {
+        "formatter": {
+            "bracketSameLine": true,
+            "quoteStyle": "single",
+            "semicolons": "asNeeded",
+            "arrowParentheses": "asNeeded"
+        }
+    },
+    "linter": {
+        "enabled": true,
+        "rules": {
+            "recommended": true,
+            "suspicious": {
+                "noArrayIndexKey": "warn"
+            },
+            "style": {
+                "noRestrictedImports": {
+                    "level": "error",
+                    "options": {
+                        "paths": {
+                            "@mui/icons-material": "No Barrel Import. Use `import [Icon] from '@mui/icons-material/[Icon]'` instead.",
+                            "@mui/material": "No Barrel Import. Use `import [Component] from '@mui/material/[Component]'` instead."
+                        }
+                    }
+                }
+            }
+        },
+        "domains": {
+            "next": "recommended",
+            "react": "recommended"
+        }
+    },
+    "assist": {
+        "actions": {
+            "source": {
+                "organizeImports": "off"
+            }
+        }
+    }
+}
