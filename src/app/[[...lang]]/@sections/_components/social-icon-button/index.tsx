@@ -24,7 +24,7 @@ export default function SocialIconButton({
 
     return (
         <Tooltip title={title ?? name} arrow placement="top">
-            <IconButton href={link} target="_blank">
+            <IconButton href={link} target="_blank" color="inherit">
                 {icon.vendor === 'fa' && (
                     <FontAwesomeIcon size={size} icon={icon.value} />
                 )}

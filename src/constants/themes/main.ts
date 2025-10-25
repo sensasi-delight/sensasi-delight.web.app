@@ -13,6 +13,7 @@ const main: ThemeOptions = {
         },
 
         text: {
+            primary: '#e6e9e2ff',
             secondary: '#7d7d7d',
         },
     },
