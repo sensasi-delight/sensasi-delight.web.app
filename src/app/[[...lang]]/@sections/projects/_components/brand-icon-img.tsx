@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+'use client'
 
 // vendors
 import Tooltip from '@mui/material/Tooltip'
@@ -119,8 +119,6 @@ function getBrandData(brand: Brand): BrandData {
         }
     }
 
-    // INTENTIONAL
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (brand === 'typescript') {
         return {
             alt: 'TypeScript',

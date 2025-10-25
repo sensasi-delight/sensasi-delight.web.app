@@ -1,6 +1,5 @@
 // vendors
 import type { ReactNode } from 'react'
-import { toWords } from 'number-to-words'
 // materials
 import Typography from '@mui/material/Typography'
 // sub-components
@@ -16,9 +15,9 @@ const content: Record<Locale, ReactNode[]> = {
             calls me <CodeTag>Zain</CodeTag>!, I'm a highly skilled{' '}
             <CodeTag>developer</CodeTag> with a proven track record in{' '}
             <CodeTag>PHP</CodeTag> development spanning over{' '}
-            <CodeTag>{toWords(new Date().getFullYear() - 2016)}</CodeTag> years.
-            I take pride in my ability to deliver high-quality solutions that
-            meet and exceed client expectations.
+            <CodeTag>{new Date().getFullYear() - 2016}</CodeTag> years. I take
+            pride in my ability to deliver high-quality solutions that meet and
+            exceed client expectations.
         </>,
         <>
             On top of my impressive coding skills, I hold a{' '}
@@ -33,10 +32,25 @@ const content: Record<Locale, ReactNode[]> = {
 
     ja: [
         <>
-            ハロー、ワールド！私の名前はアダム・アクバルですが、皆からはザインと呼ばれています！9年以上にわたるPHP開発の実績を誇る高度なスキルを持った開発者です。クライアントの期待を満たし、さらに上回る高品質なソリューションを提供できる能力を誇りに思っています。
+            こんにちは、世界！私の名前は <CodeTag>Adam Akbar</CodeTag> ですが、
+            みんなからは <CodeTag>Zain</CodeTag> と呼ばれています！
+            私は優れたスキルを持つ <CodeTag>デベロッパー</CodeTag> であり、
+            <CodeTag>PHP</CodeTag> 開発の分野で
+            <CodeTag>{new Date().getFullYear() - 2016}</CodeTag>{' '}
+            年以上の実績があります。
+            クライアントの期待を満たすだけでなく、それを超える高品質なソリューションを
+            提供することに誇りを持っています。
         </>,
         <>
-            卓越したコーディングスキルに加え、コンピュータサイエンスの修士号を取得しており、ハイパーレジャーファブリックを使った最先端ブロックチェーンネットワークの構築に焦点を当てた研究を行いました。これにより、ウェブ開発とブロックチェーン技術の交差点に対するユニークな視点を獲得し、関わる全てのプロジェクトでこの専門知識を活かせることにワクワクしています。
+            優れたコーディングスキルに加えて、 私は{' '}
+            <CodeTag>コンピュータサイエンスの修士号</CodeTag> を取得しています。
+            その研究では、<CodeTag>Hyperledger Fabric</CodeTag> を使用して
+            最先端の <CodeTag>ブロックチェーン</CodeTag>{' '}
+            ネットワークを構築することに 重点を置きました。
+            この経験により、ウェブ開発とブロックチェーン技術の交差点における
+            独自の視点を得ることができました。 どのプロジェクトにおいても、
+            自分の専門知識を活かせることに <CodeTag>ワクワク</CodeTag>{' '}
+            しています。
         </>,
     ],
 }
