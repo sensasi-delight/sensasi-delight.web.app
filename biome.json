@@ -27,9 +27,6 @@
         "enabled": true,
         "rules": {
             "recommended": true,
-            "suspicious": {
-                "noArrayIndexKey": "warn"
-            },
             "style": {
                 "noRestrictedImports": {
                     "level": "error",

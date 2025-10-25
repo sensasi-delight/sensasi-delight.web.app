@@ -23,8 +23,8 @@ export default function Sidebar({ locale }: { locale: Locale }) {
                     position: 'sticky',
                     top: 0,
                 }}>
-                {MENUS.map((menu, i) => (
-                    <ListItem key={i} disablePadding sx={{ my: 2.75 }}>
+                {MENUS.map(menu => (
+                    <ListItem key={menu.href} disablePadding sx={{ my: 2.75 }}>
                         <Tooltip
                             title={menu.text[locale]}
                             placement="right"

@@ -37,8 +37,12 @@ export default function ProjectsSection({ locale }: { locale: Locale }) {
                 )
             }>
             <ScrollableXBox>
-                {projects.map((project, i) => (
-                    <ProjectItemCard key={i} data={project} locale={locale} />
+                {projects.map(project => (
+                    <ProjectItemCard
+                        key={project.name}
+                        data={project}
+                        locale={locale}
+                    />
                 ))}
             </ScrollableXBox>
         </Section>
