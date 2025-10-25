@@ -18,7 +18,7 @@ export default async function generateMetadata({
     const { lang = ['en'] } = await params
     const locale = lang[0]
 
-    const PAGE_TITLE = 'Adam "Zain" Akbar — ' + DICTIONARIES.roleTitle2[locale]
+    const PAGE_TITLE = `Adam "Zain" Akbar — ${DICTIONARIES.roleTitle2[locale]}`
 
     return {
         title: PAGE_TITLE,
