@@ -1,3 +1,5 @@
+'use client'
+
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app'
 import { getAnalytics } from 'firebase/analytics'
@@ -20,4 +22,8 @@ if (typeof window !== 'undefined' && process.env.NODE_ENV === 'production') {
     // Initialize Firebase
     const app = initializeApp(firebaseConfig)
     getAnalytics(app)
+}
+
+export default function InitFirebase() {
+    return null
 }

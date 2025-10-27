@@ -5,10 +5,9 @@ import { Roboto } from 'next/font/google'
 // sub
 import type Params from './@types/params'
 import ThemeProvider from './@layout/theme-provider'
-import PageLayout from '@/app/[[...lang]]/@layout/page-layout'
+import PageLayout from './@layout/page-layout'
+import InitFirebase from './init-firebase'
 // utils
-import '@/app/[[...lang]]/@layout/utils/init-firebase'
-
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 config.autoAddCss = false
@@ -60,6 +59,7 @@ export default async function RootLayout({
                 <link rel="canonical" href="https://sensasi-delight.web.app" />
             </head>
             <body className={roboto.variable}>
+                <InitFirebase />
                 <AppRouterCacheProvider>
                     <ThemeProvider>
                         <PageLayout locale={lang[0]}>{children}</PageLayout>
