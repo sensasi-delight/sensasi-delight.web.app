@@ -122,7 +122,7 @@ const projects: Project[] = [
             {
                 text: SOURCE_CODE_BUTTON_TEXT,
                 Icon: GitHubIcon,
-                url: 'https://github.com/sensasi-delight/sensasi-pos',
+                url: 'https://github.com/sensasi-apps/sensasi-pos',
             },
         ],
     },
