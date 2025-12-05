@@ -176,6 +176,27 @@ const projects: Project[] = [
             },
         ],
     },
+    {
+        name: 'Vertical Tabs',
+        year: 2025,
+        description: {
+            en: 'A chrome extension that provides vertical tabs for easier tab management and keep full navigation access even in fullscreen mode.',
+            ja: 'タブ管理を容易にし、全画面モードでも完全なナビゲーションアクセスを維持するための垂直タブを提供するChrome拡張機能。',
+        },
+        stacks: ['typescript', 'react'],
+        buttons: [
+            {
+                text: VISIT_BUTTON_TEXT,
+                Icon: WebIcon,
+                url: 'https://chromewebstore.google.com/detail/vertical-tabs-by-sensasi/cgocnaphmglbfjcdhkmpakgildijpgkf',
+            },
+            {
+                text: SOURCE_CODE_BUTTON_TEXT,
+                Icon: GitHubIcon,
+                url: 'https://github.com/sensasi-delight/vertical-tabs-crx',
+            },
+        ],
+    },
 ]
 
 export default projects.sort((a, b) => b.year - (a.year + 1))
