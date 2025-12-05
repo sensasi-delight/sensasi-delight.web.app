@@ -5,7 +5,7 @@
     "": {
       "name": "sensasi-delight-web-profile",
       "dependencies": {
-        "@biomejs/biome": "^2.3.8",
+        "@biomejs/biome": "2.3.8",
         "@emotion/cache": "^11.14.0",
         "@emotion/react": "^11.14.0",
         "@emotion/styled": "^11.14.1",
