@@ -1,6 +1,6 @@
 {
     "name": "sensasi-delight-web-profile",
-    "version": "2.2.2",
+    "version": "2.2.3",
     "private": true,
     "scripts": {
         "dev": "next dev",
@@ -11,7 +11,7 @@
         "preview": "firebase emulators:start"
     },
     "dependencies": {
-        "@biomejs/biome": "^2.3.0",
+        "@biomejs/biome": "^2.3.8",
         "@emotion/cache": "^11.14.0",
         "@emotion/react": "^11.14.0",
         "@emotion/styled": "^11.14.1",
@@ -22,18 +22,18 @@
         "@mui/icons-material": "7.3.4",
         "@mui/material": "7.3.4",
         "@mui/material-nextjs": "7.3.3",
-        "dayjs": "^1.11.18",
-        "firebase": "^12.4.0",
-        "next": "^16.0.0",
-        "react": "^19.2.0",
-        "react-dom": "^19.2.0",
+        "dayjs": "^1.11.19",
+        "firebase": "^12.6.0",
+        "next": "^16.0.7",
+        "react": "^19.2.1",
+        "react-dom": "^19.2.1",
         "react-flagkit": "^2.0.4",
         "use-debounce": "^10.0.6"
     },
     "devDependencies": {
         "@types/number-to-words": "^1.2.3",
-        "@types/react": "^19.2.2",
-        "@types/react-dom": "^19.2.2",
+        "@types/react": "^19.2.7",
+        "@types/react-dom": "^19.2.3",
         "typescript": "^5.9.3"
     }
 }
