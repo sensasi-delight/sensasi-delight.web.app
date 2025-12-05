@@ -63,6 +63,7 @@ export default function SearchBar({
                                         onClick={() => {
                                             setIsOpen(false)
                                             setSearchText('')
+                                            debounced('')
                                         }}>
                                         <CloseIcon fontSize="small" />
                                     </IconButton>

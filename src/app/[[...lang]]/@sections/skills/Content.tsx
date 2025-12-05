@@ -69,31 +69,6 @@ export default function SkillsSectionContent({
         isShowBeginnerSkills,
     ])
 
-    useEffect(() => {
-        if (!window.TagCanvas.started) {
-            window.TagCanvas.Start('skills-tagcanvas', 'taglist', {
-                activeAudio: false,
-                minSpeed: 0.01,
-                freezeActive: true,
-                shuffleTags: true,
-                shape: 'sphere',
-                weight: true,
-                textColour: null,
-                weightFrom: 'data-weight',
-                weightSize: 10,
-                imageMode: 'both',
-                imagePadding: 10,
-                pinchZoom: true,
-                wheelZoom: false,
-                clickToFront: 600,
-                fadeIn: 1000,
-                initial: [0.3, -0.1],
-            })
-        } else {
-            window.TagCanvas.Reload('skills-tagcanvas')
-        }
-    }, [])
-
     return (
         <Box
             sx={{
@@ -102,24 +77,7 @@ export default function SkillsSectionContent({
                 alignItems: 'center',
             }}>
             <Box>
-                <canvas
-                    id="skills-tagcanvas"
-                    width={400}
-                    height={400}
-                    style={{
-                        maxWidth: '100%',
-                        zIndex: '99',
-                        position: 'relative',
-                        margin: '0 auto',
-                    }}
-                    className="to-fade-in fast-anim"></canvas>
-                <div id="taglist" style={{ display: 'none' }}>
-                    <ul>
-                        {skillsToShow.map(skill => (
-                            <SkillLi key={skill.title} data={skill} />
-                        ))}
-                    </ul>
-                </div>
+                <SkillCanvas skills={skillsToShow} />
             </Box>
 
             <Box display="flex" gap={1} mt={6} mb={1}>
@@ -161,6 +119,57 @@ export default function SkillsSectionContent({
                 click to apply filter(s)
             </Typography>
         </Box>
+    )
+}
+
+const SkillCanvas = ({ skills }: { skills: Skill[] }) => {
+    useEffect(() => {
+        if (!window.TagCanvas.started) {
+            console.log('starting TagCanvas')
+            window.TagCanvas.Start('skills-tagcanvas', 'taglist', {
+                activeAudio: false,
+                minSpeed: 0.01,
+                freezeActive: true,
+                shuffleTags: true,
+                shape: 'sphere',
+                weight: true,
+                textColour: null,
+                weightFrom: 'data-weight',
+                weightSize: 10,
+                imageMode: 'both',
+                imagePadding: 10,
+                pinchZoom: true,
+                wheelZoom: false,
+                clickToFront: 600,
+                fadeIn: 1000,
+                initial: [0.3, -0.1],
+            })
+        } else {
+            window.TagCanvas.Reload('skills-tagcanvas')
+        }
+    })
+
+    return (
+        <>
+            <canvas
+                id="skills-tagcanvas"
+                width={400}
+                height={400}
+                style={{
+                    maxWidth: '100%',
+                    zIndex: '99',
+                    position: 'relative',
+                    margin: '0 auto',
+                }}
+                className="to-fade-in fast-anim"></canvas>
+            <div id="taglist" style={{ display: 'none' }}>
+                <ul>
+                    {skills.map(skill => (
+                        <SkillLi key={skill.title} data={skill} />
+                    ))}
+                </ul>
+            </div>
+        </>
     )
 }
 
