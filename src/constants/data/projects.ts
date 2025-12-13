@@ -153,10 +153,15 @@ const projects: Project[] = [
         },
         stacks: ['remix', 'material-ui'],
         buttons: [
+            // {
+            //     text: VISIT_BUTTON_TEXT,
+            //     Icon: WebIcon,
+            //     url: 'https://reformat-delight.vercel.app',
+            // },
             {
-                text: VISIT_BUTTON_TEXT,
-                Icon: WebIcon,
-                url: 'https://reformat-delight.vercel.app',
+                text: SOURCE_CODE_BUTTON_TEXT,
+                Icon: GitHubIcon,
+                url: 'https://github.com/sensasi-delight/reformat-delight',
             },
         ],
     },
