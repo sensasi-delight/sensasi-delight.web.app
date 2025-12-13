@@ -1,6 +1,6 @@
 {
     "name": "sensasi-delight-web-profile",
-    "version": "2.2.3",
+    "version": "2.2.4",
     "private": true,
     "scripts": {
         "dev": "next dev",
@@ -18,15 +18,13 @@
         "@fortawesome/fontawesome-svg-core": "7.1.0",
         "@fortawesome/free-brands-svg-icons": "7.1.0",
         "@fortawesome/free-solid-svg-icons": "7.1.0",
-        "@fortawesome/react-fontawesome": "3.1.0",
-        "@mui/icons-material": "7.3.4",
-        "@mui/material": "7.3.4",
-        "@mui/material-nextjs": "7.3.3",
+        "@fortawesome/react-fontawesome": "3.1.1",
+        "@mui/icons-material": "7.3.6",
+        "@mui/material": "7.3.6",
+        "@mui/material-nextjs": "7.3.6",
         "dayjs": "^1.11.19",
         "firebase": "^12.6.0",
-        "next": "^16.0.7",
-        "react": "^19.2.1",
-        "react-dom": "^19.2.1",
+        "next": "^16.0.10",
         "react-flagkit": "^2.0.4",
         "use-debounce": "^10.0.6"
     },
