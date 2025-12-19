@@ -1,6 +1,7 @@
 'use client'
 
 import type { ReactNode } from 'react'
+import { ReactLenis, useLenis } from 'lenis/react'
 // materials
 import CssBaseline from '@mui/material/CssBaseline'
 import GlobalStyles from '@mui/material/GlobalStyles'
@@ -11,6 +12,8 @@ import getTheme from './utils/get-theme'
 const theme = getTheme()
 
 export default function ThemeProvider({ children }: { children: ReactNode }) {
+    useLenis()
+
     return (
         <MuiThemeProvider theme={theme}>
             <GlobalStyles
@@ -40,6 +43,12 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
             />
             <CssBaseline />
 
+            <ReactLenis
+                root
+                options={{
+                    anchors: true,
+                }}
+            />
             {children}
         </MuiThemeProvider>
     )
