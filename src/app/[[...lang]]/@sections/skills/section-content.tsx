@@ -125,7 +125,6 @@ export default function SkillsSectionContent({
 const SkillCanvas = ({ skills }: { skills: Skill[] }) => {
     useEffect(() => {
         if (!window.TagCanvas.started) {
-            console.log('starting TagCanvas')
             window.TagCanvas.Start('skills-tagcanvas', 'taglist', {
                 activeAudio: false,
                 minSpeed: 0.01,
