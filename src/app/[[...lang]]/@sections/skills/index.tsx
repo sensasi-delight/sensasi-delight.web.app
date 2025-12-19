@@ -5,7 +5,7 @@ import { useState } from 'react'
 // components
 import SearchBar from '@/components/search-bar'
 // locals
-import SkillsSectionContent from './Content'
+import SkillsSectionContent from './section-content'
 import Section from '../_components/layout'
 import type { Locale } from '../../@types/locale'
 
